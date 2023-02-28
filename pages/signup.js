@@ -3,7 +3,7 @@ import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
 import Navbar from "@/components/Navbar";
 
-const Login = () => {
+const Signup = () => {
   // Handle State of input fields.
   const [cred, setCred] = useState({
     phnumber: "",
@@ -28,18 +28,34 @@ const Login = () => {
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-md-9 col-lg-6 col-xl-5">
               <img
-                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+                src="https://bootstrapious.com/i/snippets/sn-registeration/illustration.svg"
                 className="img-fluid"
                 alt="Sample image"
               />
             </div>
             <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+
               <h2 className="mb-4">
-                <u> Login </u>
+                <u> SignUp </u>
               </h2>
 
               {/* Form */}
               <form onSubmit={handleSubmit}>
+
+                {/* Full Name input */}
+                <div className="form-outline mb-4">
+                  <input
+                    type="text"
+                    id="name"
+                    autoComplete="off"
+                    value={cred.name}
+                    name="name"
+                    onChange={inpChange}
+                    className="form-control form-control-lg"
+                    placeholder="Enter your name"
+                  />
+                </div>
+
                 {/* Phone Number input */}
                 <div className="form-outline mb-4">
                   <input
@@ -67,6 +83,19 @@ const Login = () => {
                   />
                 </div>
 
+                {/* Confirm Password input */}
+                <div className="form-outline mb-3">
+                  <input
+                    type="password"
+                    id="conpassword"
+                    value={cred.conpassword}
+                    name="conpassword"
+                    onChange={inpChange}
+                    className="form-control form-control-lg"
+                    placeholder="Confrim password"
+                  />
+                </div>
+
                 <div className="d-flex justify-content-between align-items-center">
                   {/* Checkbox */}
                   <div className="form-check mb-0">
@@ -80,9 +109,6 @@ const Login = () => {
                       Remember me
                     </label>
                   </div>
-                  <Link href="#!" className="text-body">
-                    Forgot password?
-                  </Link>
                 </div>
 
                 <div className="text-center text-lg-start mt-4 pt-2">
@@ -91,12 +117,12 @@ const Login = () => {
                     className="btn btn-primary btn-lg"
                     style={{ paddingLeft: "2.5rem", paddingRight: "2.5rem" }}
                   >
-                    Login
+                    SignUp
                   </button>
                   <p className="small mt-2 pt-1 mb-0">
-                    Don't have an account?{" "}
-                    <Link href="/signup" className="link-danger">
-                      SignUp
+                    Already have an account?{" "}
+                    <Link href="/login" className="link-danger">
+                      Login
                     </Link>
                   </p>
                 </div>
@@ -131,4 +157,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;

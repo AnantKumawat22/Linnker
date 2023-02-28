@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Script from "next/script";
 import { Inter } from "@next/font/google";
-import Login from "./Login";
+import Login from "./login";
 
 export default function Home() {
   return (
