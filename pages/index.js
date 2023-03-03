@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Script from "next/script";
-import { Inter } from "@next/font/google";
-import Login from "./login";
+import HomePage from "./homePage";
 
 export default function Home() {
   return (
@@ -14,7 +13,8 @@ export default function Home() {
 
         <Script src="https://kit.fontawesome.com/4c63e30e23.js" crossorigin="anonymous"></Script>
       </Head>
-      <Login />
+
+      <HomePage/>
     </>
   );
 }

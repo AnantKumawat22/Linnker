@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
-import Navbar from "@/components/Navbar";
+import Button from "@/components/atoms/button.atom";
 
 const Signup = () => {
   // Handle State of input fields.
@@ -22,7 +22,6 @@ const Signup = () => {
 
   return (
     <>
-      <Navbar />
       <section className="vh-100">
         <div className="container-fluid h-custom">
           <div className="row d-flex justify-content-center align-items-center h-100">
@@ -112,13 +111,12 @@ const Signup = () => {
                 </div>
 
                 <div className="text-center text-lg-start mt-4 pt-2">
-                  <button
+                  <Button
                     type="submit"
+                    value="Signup"
                     className="btn btn-primary btn-lg"
                     style={{ paddingLeft: "2.5rem", paddingRight: "2.5rem" }}
-                  >
-                    SignUp
-                  </button>
+                  ></Button>
                   <p className="small mt-2 pt-1 mb-0">
                     Already have an account?{" "}
                     <Link href="/login" className="link-danger">
