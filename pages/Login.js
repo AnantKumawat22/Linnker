@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
-import Navbar from "@/components/Navbar";
+import Button from "@/components/atoms/button.atom";
+import Input from "@/components/atoms/input.atom";
 
 const Login = () => {
   // Handle State of input fields.
@@ -22,7 +23,6 @@ const Login = () => {
 
   return (
     <>
-      <Navbar />
       <section className="vh-100">
         <div className="container-fluid h-custom">
           <div className="row d-flex justify-content-center align-items-center h-100">
@@ -41,31 +41,25 @@ const Login = () => {
               {/* Form */}
               <form onSubmit={handleSubmit}>
                 {/* Phone Number input */}
-                <div className="form-outline mb-4">
-                  <input
+                
+                  <Input
                     type="tel"
                     id="phnumber"
-                    autoComplete="off"
                     value={cred.phnumber}
                     name="phnumber"
                     onChange={inpChange}
-                    className="form-control form-control-lg"
                     placeholder="Enter your whatsapp number"
                   />
-                </div>
 
                 {/* Password input */}
-                <div className="form-outline mb-3">
-                  <input
+                  <Input
                     type="password"
                     id="password"
                     value={cred.password}
                     name="password"
                     onChange={inpChange}
-                    className="form-control form-control-lg"
                     placeholder="Enter password"
                   />
-                </div>
 
                 <div className="d-flex justify-content-between align-items-center">
                   {/* Checkbox */}
@@ -86,13 +80,12 @@ const Login = () => {
                 </div>
 
                 <div className="text-center text-lg-start mt-4 pt-2">
-                  <button
+                  <Button
                     type="submit"
+                    value="Login"
                     className="btn btn-primary btn-lg"
                     style={{ paddingLeft: "2.5rem", paddingRight: "2.5rem" }}
-                  >
-                    Login
-                  </button>
+                  ></Button>
                   <p className="small mt-2 pt-1 mb-0">
                     Don't have an account?{" "}
                     <Link href="/signup" className="link-danger">
