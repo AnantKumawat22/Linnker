@@ -33,3 +33,13 @@
     width: 45%;
     /* border: 1px solid red; */
 }
+
+.tag{
+    display: flex;
+    align-items: center;
+}
+
+.tag div{
+    margin-left: 1rem;
+    font-size: 20px;
+}
