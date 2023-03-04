@@ -11,8 +11,9 @@ const MyGroups = () => {
     link: '',
     description: '',
     tags: [],
-    tag: '',
   });
+  const [tag, setTag] = useState('');
+
   console.log(input, 'input');
   useEffect(() => {
     const profileSection = document.getElementById('profilesec');
@@ -23,8 +24,8 @@ const MyGroups = () => {
   }, []);
 
   const handleAddTag = () => {
-    setInput((prev) => ({ ...prev, tags: [...prev.tags, prev.tag] }));
-    setInput((prev) => ({ ...prev, tag: '' }));
+    setInput((prev) => ({ ...prev, tags: [...prev.tags, tag] }));
+    setTag('');
   };
 
   const handleDeleteTag = (deleteTag) => {
@@ -39,6 +40,9 @@ const MyGroups = () => {
     setInput((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleSubmit = () => {
+    console.log(input);
+  };
   return (
     <>
       <DashboardNav />
@@ -105,7 +109,15 @@ const MyGroups = () => {
           <Button
             className='btn btn-primary btn-lg mt-5'
             value='Add Group'
-          ></Button>
+            disabled={
+              !Object.keys(input).every((key) => {
+                if (key === 'tags') {
+                  return input[key].length > 0;
+                } else return input[key];
+              })
+            }
+            onClick={handleSubmit}
+          />
         </div>
         <div></div>
       </div>
