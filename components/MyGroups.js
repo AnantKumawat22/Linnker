@@ -37,7 +37,8 @@ const MyGroups = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setInput((prev) => ({ ...prev, [name]: value }));
+    if (name === 'tag') setTag(value);
+    else setInput((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = () => {
