@@ -1,23 +1,25 @@
 import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import Input from "@/components/atoms/input.atom";
-import styles from "../styles/dashboardnav.module.css";
+import styles from "../styles/mygroups.module.css";
 import Button from "@/components/atoms/button.atom";
 import DashboardNav from "./DashboardNav";
+import COLORS from "@/theme/colors";
+import MyGroupCards from "./MyGroupCards";
 
 const MyGroups = () => {
-
   useEffect(() => {
-    const profileSection = document.getElementById('profilesec');
-    const myGroupSection = document.getElementById('mygroupsec');
+    const profileSection = document.getElementById("profilesec");
+    const myGroupSection = document.getElementById("mygroupsec");
 
-    myGroupSection.style.borderBottom = "4px solid #ffd300";
+    myGroupSection.style.borderBottom = `4px solid ${COLORS.primary.main}`;
     profileSection.style.borderBottom = "none";
   }, []);
 
   return (
     <>
       <DashboardNav />
+
       <div className={`${styles.mygroup} mt-5 container`}>
         <h1>Add a WhatsApp Group Link</h1>
         <div className={styles.mygroupOne}>
@@ -33,7 +35,7 @@ const MyGroups = () => {
           </div>
 
           <div className={styles.mygroupOneInp1}>
-            <div>
+            <div className="mb-4">
               <label htmlFor="">Group Description</label>
               <textarea className="form-control form-control-lg"></textarea>
             </div>
@@ -48,7 +50,17 @@ const MyGroups = () => {
             value="Add Group"
           ></Button>
         </div>
-        <div></div>
+
+        <div className="container mt-5 mb-5">
+          <h3>Your WhatsApp Groups</h3>
+          <div className={`${styles.allgroupcard} mt-5`}>
+            <MyGroupCards />
+            <MyGroupCards />
+            <MyGroupCards />
+            <MyGroupCards />
+            <MyGroupCards />
+          </div>
+        </div>
       </div>
     </>
   );
