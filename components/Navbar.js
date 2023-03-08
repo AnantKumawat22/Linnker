@@ -4,7 +4,7 @@ import Link from "next/link";
 const Navbar = () => {
   return (
     <>
-      <header className="header">
+      <header className="header shadow-sm mb-3 bg-white rounded">
         <Link className="logo" href="/">
           Linnker
         </Link>

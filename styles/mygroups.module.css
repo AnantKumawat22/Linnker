@@ -1,0 +1,76 @@
+.mygroup h1 {
+    font-size: 20px;
+}
+
+.mygroupOne {
+    width: 100%;
+    display: flex;
+    padding: 20px 20px;
+    flex-direction: column;
+    border-radius: 8px;
+    border: 1px solid rgb(209, 209, 209);
+}
+
+.mygroupOneInp1 {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.addGroupInpDiv {
+    width: 45%;
+}
+
+.allgroupcard {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.maintag {
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.tag {
+    padding: 2px;
+    display: flex;
+    height: 30px;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(223, 223, 223);
+    margin-bottom: 10px;
+    border: 1px solid #e7e7e7;
+    margin-right: 5px;
+    min-width: fit-content;
+    padding: 10px;
+}
+
+.tag h6 {
+    display: inline;
+    margin-bottom: 0px !important;
+    margin-right: 5px;
+
+}
+
+@media (max-width: 800px) {
+    .mygroupOneInp1 {
+        flex-direction: column;
+    }
+
+    .addGroupInpDiv{
+        width: 100%;
+    }
+
+    .tag {
+        min-width: fit-content;
+    }
+    .allgroupcard{
+        justify-content: center;
+    }
+}
