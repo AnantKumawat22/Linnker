@@ -1,33 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
-import Input from '@/components/atoms/input.atom';
-import styles from '../styles/dashboardnav.module.css';
-import Button from '@/components/atoms/button.atom';
-import DashboardNav from './DashboardNav';
-import MyGroupCards from './MyGroupCards';
-import COLORS from '@/theme/colors';
+import React, { useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.css";
+import Input from "@/components/atoms/input.atom";
+import styles from "../styles/mygroups.module.css";
+import Button from "@/components/atoms/button.atom";
+import DashboardNav from "./DashboardNav";
+import MyGroupCards from "./MyGroupCards";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClose } from "@fortawesome/free-solid-svg-icons";
 
 const MyGroups = () => {
   const [input, setInput] = useState({
-    name: '',
-    link: '',
-    description: '',
+    name: "",
+    link: "",
+    description: "",
     tags: [],
   });
-  const [tag, setTag] = useState('');
-
-  console.log(input, 'input');
-  useEffect(() => {
-    const profileSection = document.getElementById("profilesec");
-    const myGroupSection = document.getElementById("mygroupsec");
-
-    myGroupSection.style.borderBottom = `4px solid ${COLORS.primary.main}`;
-    profileSection.style.borderBottom = "none";
-  }, []);
+  const [tag, setTag] = useState("");
 
   const handleAddTag = () => {
+    if(tag == "") return;
     setInput((prev) => ({ ...prev, tags: [...prev.tags, tag] }));
-    setTag('');
+    setTag("");
   };
 
   const handleDeleteTag = (deleteTag) => {
@@ -39,83 +32,89 @@ const MyGroups = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (name === 'tag') setTag(value);
+    if (name === "tag") setTag(value);
     else setInput((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = () => {
-    console.log(input);
+    // Add WhatsApp Group Form Submit.
   };
   return (
     <>
       <DashboardNav />
-
       <div className={`${styles.mygroup} mt-5 container`}>
         <h1>Add a WhatsApp Group Link</h1>
-        <h1>{JSON.stringify(input)}</h1>
         <div className={styles.mygroupOne}>
           <div className={styles.mygroupOneInp1}>
-            <div>
-              <label htmlFor=''>Group Name</label>
+            <div className={styles.addGroupInpDiv}>
+              <label htmlFor="">Group Name</label>
               <Input
-                type='text'
+                type="text"
                 onChange={handleChange}
-                name='name'
+                name="name"
                 value={input.name}
               />
             </div>
-            <div>
-              <label htmlFor=''>Group Link</label>
+            <div className={styles.addGroupInpDiv}>
+              <label htmlFor="">Group Link</label>
               <Input
-                type='text'
+                type="text"
                 onChange={handleChange}
-                name='link'
+                name="link"
                 value={input.link}
               />
             </div>
           </div>
 
           <div className={styles.mygroupOneInp1}>
-            <div>
-              <label htmlFor=''>Group Description</label>
+          
+            <div className={`${styles.addGroupInpDiv}`}>
+              <label htmlFor="">Group Description</label>
               <textarea
-                className='form-control form-control-lg'
-                name='description'
+                className="form-control form-control-lg mb-4"
+                name="description"
+                rows={5}
                 onChange={handleChange}
                 value={input.description}
               />
             </div>
-            <div>
-              <label htmlFor=''>Add tags</label>
+            <div className={styles.addGroupInpDiv}>
+              <label htmlFor="">Add Tags</label>
               <Input
-                width='50%'
-                type='text'
+                width="50%"
+                type="text"
                 onChange={handleChange}
-                name='tag'
-                value={input.tag}
+                name="tag"
+                value={tag}
               />
-              <div>
+              <div className={styles.maintag}>
                 {input.tags.map((tag, index) => (
-                  <div className={styles.tag}>
-                    <h4>{tag}</h4>
-                    <div onClick={() => handleDeleteTag(tag)}>x</div>
+                  <div className={styles.tag} key={index}>
+                    <h6>{tag}</h6>
+                    <FontAwesomeIcon
+                      onClick={() => handleDeleteTag(tag)}
+                      icon={faClose}
+                      style={{cursor: "pointer"}}
+                      className="fas fa-close"
+                    ></FontAwesomeIcon>
                   </div>
                 ))}
               </div>
               <Button
-                className='btn btn-primary btn-lg mt-5'
-                value='Add Group'
+                className="btn btn-success"
+                value="Add Tag"
+                disabled={!(input.tags.length <= 4)}
                 onClick={handleAddTag}
               />
             </div>
           </div>
 
           <Button
-            className='btn btn-primary btn-lg mt-5'
-            value='Add Group'
+            className="btn btn-primary btn-lg mt-5"
+            value="Add Group"
             disabled={
               !Object.keys(input).every((key) => {
-                if (key === 'tags') {
+                if (key === "tags") {
                   return input[key].length > 0;
                 } else return input[key];
               })
@@ -123,16 +122,25 @@ const MyGroups = () => {
             onClick={handleSubmit}
           />
         </div>
+      </div>
 
-        <div className="container mt-5 mb-5">
-          <h3>Your WhatsApp Groups</h3>
-          <div className={`${styles.allgroupcard} mt-5`}>
-            <MyGroupCards />
-            <MyGroupCards />
-            <MyGroupCards />
-            <MyGroupCards />
-            <MyGroupCards />
-          </div>
+      <div className="container mt-5 mb-5">
+        <h3>Your WhatsApp Groups</h3>
+        <div className={`${styles.allgroupcard} mt-4`}>
+          <MyGroupCards />
+          <MyGroupCards />
+          <MyGroupCards />
+          <MyGroupCards />
+          <MyGroupCards />
+          <MyGroupCards />
+          <MyGroupCards />
+          <MyGroupCards />
+          <MyGroupCards />
+          <MyGroupCards />
+          <MyGroupCards />
+          <MyGroupCards />
+          <MyGroupCards />
+          <MyGroupCards />
         </div>
       </div>
     </>
