@@ -6,6 +6,8 @@
 .contact {
     padding: 50px 0;
     overflow: hidden;
+    min-height: 100vh;
+    margin-top: 80px;
 }
 
 .contact .infoBox {

@@ -22,7 +22,7 @@ const DashboardNav = () => {
 
   return (
     <>
-      <div style={{ height: "70px" }} className="d-flex flex-row">
+      <div style={{ height: "70px", marginTop: "100px" }} className="d-flex flex-row m-100">
         <div className="d-flex w-50 justify-content-center align-items-center">
           <Link
             href="/dashboard/profile"
