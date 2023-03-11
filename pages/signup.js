@@ -3,16 +3,37 @@ import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
 import Button from "@/components/atoms/button.atom";
 
-const Signup = () => {
+const Signup = async (props) => {
   // Handle State of input fields.
   const [cred, setCred] = useState({
-    phnumber: "",
+    name: "",
+    email: "",
     password: "",
+    conpassword: "",
   });
 
-  // On From Submit
+  // On From Submit - SignUp
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const { name, email, password, conpassword } = cred;
+
+    // Check password and confirm password are same or not.
+    if(password !== conpassword){
+      props.showAlert("Password and Confirm Password didn't matched.", "danger");
+    }
+
+    // API CALL
+    const response = await fetch('/api/signup',{
+      method: "POST",
+      headers: {
+        "Context-Type": "application/json"
+      },
+      body: JSON.stringify({ name, email, password })
+    });
+
+    const data = await response.json();
+    
   };
 
   // On change in input field.
@@ -58,14 +79,14 @@ const Signup = () => {
                 {/* Phone Number input */}
                 <div className="form-outline mb-4">
                   <input
-                    type="tel"
-                    id="phnumber"
+                    type="email"
+                    id="email"
                     autoComplete="off"
-                    value={cred.phnumber}
-                    name="phnumber"
+                    value={cred.email}
+                    name="email"
                     onChange={inpChange}
                     className="form-control form-control-lg"
-                    placeholder="Enter your whatsapp number"
+                    placeholder="Enter your email"
                   />
                 </div>
 

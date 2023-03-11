@@ -1,0 +1,79 @@
+.mainGroupPageDiv{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchAndDropDownDiv{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    padding: 10px 20px;
+    margin: 50px 0px;
+    justify-content: center;
+}
+
+.searchBarDiv{
+    width: 80%;
+    border: 1px solid rgb(195, 195, 195);
+    border-radius: 50px;
+    padding: 10px;
+    display: flex;
+    margin-right: 20px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchBarDiv::before{
+    border: 2px solid rgb(110, 110, 230);
+}
+
+.searchInp{
+    width: 90%;
+    outline: none;
+    padding: 0px 20px;
+    font-size: 18px;
+    border: none;
+}
+
+.dropDownDiv select{
+    width: 170px;
+    height: 50px;
+    color: rgb(91, 91, 91);
+    font-size: 18px;
+    padding: 5px;
+    outline: none;
+    border-radius: 4px;
+    border: 1px solid rgb(195, 195, 195);
+}
+
+.selectOptions{
+    height: 50px;
+    border-radius: 0px;
+    padding: 5px;
+}
+
+.allgroupcard {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+@media(max-width: 800px){
+    .allgroupcard{
+        justify-content: center;
+    }
+    .searchAndDropDownDiv{
+        margin-bottom: 20px;
+        flex-direction: column;
+    }
+    .searchBarDiv{
+        width: 100%;
+        margin: 0px 0px 20px 0px;
+    }
+}
