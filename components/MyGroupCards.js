@@ -6,7 +6,7 @@ import Button from "@/components/atoms/button.atom";
 const MyGroupCards = () => {
   return (
     <>
-      <div className={styles.groupcard}>
+      <div className={`${styles.groupcard} shadow-sm bg-white`}>
         <h5>MERN Stack</h5>
         <p>
           MERN stands for MongoDB, Express, React, Node, after the four key

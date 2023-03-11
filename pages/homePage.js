@@ -19,7 +19,7 @@ const homePage = () => {
               <div data-aos="fade-up" data-aos-delay="600">
                 <div class="text-center text-lg-start">
                   <a
-                    href="#about"
+                    href="/groups"
                     class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center"
                   >
                     <span>Get Started</span>
