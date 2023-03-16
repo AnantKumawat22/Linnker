@@ -1,15 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
-import 'bootstrap/dist/css/bootstrap.css';
-import { useRouter } from 'next/router';
-import styles from '../styles/navbar.module.css';
+import React, { useContext, useEffect, useState } from "react";
+import Link from "next/link";
+import "bootstrap/dist/css/bootstrap.css";
+import { useRouter } from "next/router";
+import styles from "../styles/navbar.module.css";
+import authContext from "@/context/auth/authContext";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [scrolled, setScrolled] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(true);
-  const { pathname, asPath, basePath } = useRouter();
+  const { asPath } = useRouter();
+  
+  // Context
+  const context = useContext(authContext);
+  console.log(context)
+  const { checktoken, setCheckToken } = context;
 
-  console.log(pathname, asPath, asPath, basePath);
   useEffect(() => {
     window.onscroll = function () {
       if (window.scrollY > 50) {
@@ -20,6 +25,17 @@ const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+  }, [checktoken])
+  
+  // Handling LogOut
+  const handleLogout = () => {
+    // Remove token from localstorage.
+    localStorage.removeItem("token");
+    props.showAlert("Log Out Successfully.", "success");
+    setCheckToken(false);
+  };
+
   const handleMenu = () => {
     setDrawerOpen(!drawerOpen);
   };
@@ -28,79 +44,125 @@ const Navbar = () => {
       {/* <!-- ======= Header ======= --> */}
       <header
         onResize={(e) => {
-          console.log(e, 'e');
+          console.log(e, "e");
         }}
         style={
           scrolled
-            ? { backgroundColor: 'white', boxShadow: '0 0 2px 0px lightgray' }
+            ? { backgroundColor: "white", boxShadow: "0 0 2px 0px lightgray" }
             : {}
         }
-        id='header'
+        id="header"
         className={`${styles.header}`}
       >
-        <div class='container-fluid container-xl d-flex align-items-center justify-content-between'>
-          <Link href='/' className={`${styles.logo} d-flex align-items-center`}>
-            <img src='assets/img/logo.png' alt='' />
+        <div className="container-fluid container-xl d-flex align-items-center justify-content-between">
+          <Link href="/" className={`${styles.logo} d-flex align-items-center`}>
+            <img src="assets/img/logo.png" alt="" />
             <span>Linnker</span>
           </Link>
 
-          <nav id='navbar' className={`${styles['navbar']}`}>
-            <ul
-            style={drawerOpen ? {} : { transform: 'translateX(-120%)' }}
-            >
+          <nav id="navbar" className={`${styles["navbar"]}`}>
+            <ul style={drawerOpen ? {} : { transform: "translateX(-120%)" }}>
               <li>
                 <Link
                   className={`nav-link scrollto ${
-                    asPath === '/' ? 'active' : ''
+                    asPath === "/" ? "active" : ""
                   }`}
-                  href='/'
+                  href="/"
                 >
                   Home
                 </Link>
               </li>
+
+
+
+
+
+
+              { checktoken ? (
+                <>
+                  <li>
+                    <Link
+                      href="/dashboard/profile"
+                      className={`nav-link scrollto ${
+                        asPath === "/dashboard/profile" ? "active" : ""
+                      }`}
+                    >
+                      Dashboard
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <></>
+              )}
+
+
+
+
+
+
+
+
+
               <li>
                 <Link
-                  href='/dashboard/profile'
+                  href="/aboutus"
                   className={`nav-link scrollto ${
-                    asPath === '/dashboard/profile' ? 'active' : ''
-                  }`}
-                >
-                  Dashboard
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href='/aboutus'
-                  className={`nav-link scrollto ${
-                    asPath === '/aboutus' ? 'active' : ''
+                    asPath === "/aboutus" ? "active" : ""
                   }`}
                 >
                   About
                 </Link>
               </li>
-              {/* <li>
-                <a class='nav-link scrollto' href='#services'>
-                  Services
-                </a>
-              </li> */}
               <li>
                 <Link
                   className={`nav-link scrollto ${
-                    asPath === '/contactus' ? 'active' : ''
+                    asPath === "/contactus" ? "active" : ""
                   }`}
-                  href='/contactus'
+                  href="/contactus"
                 >
                   Contact
                 </Link>
               </li>
-              <li>
-                <a className={`${styles.getstarted} scrollto`} href='#about'>
-                  Join Groups
-                </a>
-              </li>
+
+              { !checktoken ? (
+                <>
+                  <li>
+                    <Link
+                      className={`nav-link scrollto ${
+                        asPath === "/login" ? "active" : ""
+                      }`}
+                      href="/login"
+                    >
+                      Login
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className={`nav-link scrollto ${
+                        asPath === "/signup" ? "active" : ""
+                      }`}
+                      href="/signup"
+                    >
+                      Signup
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <Link
+                      className={`nav-link scrollto}`}
+                      href="#"
+                      onClick={handleLogout}
+                    >
+                      Logout
+                    </Link>
+                  </li>
+                </>
+              )}
             </ul>
             <i
-              className={`bi bi-list ${styles['mobile-nav-toggle']}`}
+              className={`bi bi-list ${styles["mobile-nav-toggle"]}`}
               onClick={handleMenu}
             ></i>
           </nav>

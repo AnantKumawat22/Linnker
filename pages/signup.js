@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import "bootstrap/dist/css/bootstrap.css";
 import Button from "@/components/atoms/button.atom";
 
-const Signup = async (props) => {
+const Signup = (props) => {
+  // Router
+  const router = useRouter();
+
   // Handle State of input fields.
   const [cred, setCred] = useState({
     name: "",
@@ -16,24 +20,52 @@ const Signup = async (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Start the loader
+    props.setLoaderProgress(true);
+    props.topLoaderBar.current.continuousStart();
+
     const { name, email, password, conpassword } = cred;
 
     // Check password and confirm password are same or not.
-    if(password !== conpassword){
-      props.showAlert("Password and Confirm Password didn't matched.", "danger");
+    if (password !== conpassword) {
+      props.showAlert(
+        "Password and Confirm Password didn't matched.",
+        "error"
+      );
+      return;
     }
 
     // API CALL
-    const response = await fetch('/api/signup',{
+    const response = await fetch("/api/auth/signup", {
       method: "POST",
       headers: {
-        "Context-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, email, password })
+      body: JSON.stringify({ name, email, password }),
     });
 
     const data = await response.json();
+    console.log(data);
     
+    // Check if everything Okay.
+    if (data.success) {
+      // Alert
+      props.showAlert(data.msg, "success");
+
+      // Stop the loader
+      props.setLoaderProgress(false);
+      props.topLoaderBar.current.complete();
+
+      // Redirect at Login Page
+      router.push("/login");
+    } else {
+      // Stop the loader
+      props.setLoaderProgress(false);
+      props.topLoaderBar.current.complete();
+
+      // Alert
+      props.showAlert(data.msg, "error");
+    }
   };
 
   // On change in input field.
@@ -43,8 +75,8 @@ const Signup = async (props) => {
 
   return (
     <>
-      <section className="vh-100">
-        <div className="container-fluid h-custom">
+      <section style={{ paddingTop: "30px" }}>
+        <div className="container-fluid h-custom pb-5">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-md-9 col-lg-6 col-xl-5">
               <img
@@ -53,15 +85,13 @@ const Signup = async (props) => {
                 alt="Sample image"
               />
             </div>
-            <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-
-              <h2 className="mb-4">
+            <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1 pt-5">
+              <h2 className="mb-4 text-center">
                 <u> SignUp </u>
               </h2>
 
               {/* Form */}
               <form onSubmit={handleSubmit}>
-
                 {/* Full Name input */}
                 <div className="form-outline mb-4">
                   <input
@@ -149,14 +179,14 @@ const Signup = async (props) => {
             </div>
           </div>
         </div>
-        <div className="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+        <div className="d-flex flex-column flex-md-row justify-content-center py-4 px-4 px-xl-5 bg-primary">
           {/* Copyright */}
-          <div className="text-white mb-3 mb-md-0">
+          <div className="text-white mb-md-0 text-center">
             Copyright © 2023 by Linnker. All rights reserved.
           </div>
 
           {/* Right */}
-          <div>
+          {/* <div>
             <Link href="#!" className="text-white me-4">
               <i className="fab fa-facebook-f"></i>
             </Link>
@@ -169,7 +199,7 @@ const Signup = async (props) => {
             <Link href="#!" className="text-white">
               <i className="fab fa-linkedin-in"></i>
             </Link>
-          </div>
+          </div> */}
         </div>
       </section>
     </>

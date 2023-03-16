@@ -14,17 +14,17 @@ const contactus = () => {
   return (
     <>
       {/* <!-- ======= Contact Section ======= --> */}
-      <section id="contact" class={styles.contact}>
-        <div class="container" data-aos="fade-up">
-          <header class="section-header">
+      <section id="contact" className={styles.contact}>
+        <div className="container" data-aos="fade-up">
+          <header className="section-header">
             <p>Contact Us</p>
           </header>
 
-          <div class="row gy-4">
-            <div class="col-lg-6">
-              <div class="row gy-4">
-                <div class="col-md-6">
-                  <div class={styles.infoBox}>
+          <div className={`row gy-4 ${styles.contactusdiv}`}>
+            <div className="col-lg-6">
+              <div className="row gy-4">
+                <div className="col-md-6">
+                  <div className={styles.infoBox}>
                     <FontAwesomeIcon
                       className={styles.contactusicon}
                       icon={faLocationDot}
@@ -37,8 +37,8 @@ const contactus = () => {
                     </p>
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class={styles.infoBox}>
+                <div className="col-md-6">
+                  <div className={styles.infoBox}>
                     <FontAwesomeIcon
                       className={styles.contactusicon}
                       icon={faPhone}
@@ -51,8 +51,8 @@ const contactus = () => {
                     </p>
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class={styles.infoBox}>
+                <div className="col-md-6">
+                  <div className={styles.infoBox}>
                     <FontAwesomeIcon
                       className={styles.contactusicon}
                       icon={faEnvelope}
@@ -65,8 +65,8 @@ const contactus = () => {
                     </p>
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class={styles.infoBox}>
+                <div className="col-md-6">
+                  <div className={styles.infoBox}>
                     <FontAwesomeIcon
                       className={styles.contactusicon}
                       icon={faClock}
@@ -82,46 +82,46 @@ const contactus = () => {
               </div>
             </div>
 
-            <div class="col-lg-6">
+            <div className="col-lg-6">
               <form
                 action="forms/contact.php"
                 method="post"
-                class={styles.EmailForm}
+                className={styles.EmailForm}
               >
-                <div class="row gy-4">
-                  <div class="col-md-6">
+                <div className="row gy-4">
+                  <div className="col-md-6">
                     <input
                       type="text"
                       name="name"
-                      class="form-control"
+                      className="form-control"
                       placeholder="Your Name"
                       required
                     />
                   </div>
 
-                  <div class="col-md-6 ">
+                  <div className="col-md-6 ">
                     <input
                       type="email"
-                      class="form-control"
+                      className="form-control"
                       name="email"
                       placeholder="Your Email"
                       required
                     />
                   </div>
 
-                  <div class="col-md-12">
+                  <div className="col-md-12">
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       name="subject"
                       placeholder="Subject"
                       required
                     />
                   </div>
 
-                  <div class="col-md-12">
+                  <div className="col-md-12">
                     <textarea
-                      class="form-control"
+                      className="form-control"
                       name="message"
                       rows="6"
                       placeholder="Message"
@@ -129,8 +129,8 @@ const contactus = () => {
                     ></textarea>
                   </div>
 
-                  <div class="col-md-12 text-center">
-                    <div class={styles.loading}>Loading</div>
+                  <div className="col-md-12 text-center">
+                    <div className={styles.loading}>Loading</div>
 
                     {/* Alert Msg:- Your message has been sent. Thank you! */}
 

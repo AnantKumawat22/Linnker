@@ -6,32 +6,32 @@ const homePage = () => {
   return (
     <>
       {/* <!-- ======= Hero Section ======= --> */}
-      <section id='hero' class='hero d-flex align-items-center'>
-        <div class='container'>
-          <div class='row'>
-            <div class='col-lg-6 d-flex flex-column justify-content-center'>
+      <section id='hero' className='hero d-flex align-items-center'>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-lg-6 d-flex flex-column justify-content-center'>
               <h1 data-aos='fade-up'>WhatsApp Group link to join</h1>
               <h2 data-aos='fade-up' data-aos-delay='400'>
                 We make easy to find best group to join
               </h2>
               <div data-aos='fade-up' data-aos-delay='600'>
-                <div class='text-center text-lg-start'>
+                <div className='text-center text-lg-start'>
                   <a
                     href="/groups"
-                    class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center"
+                    className="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center"
                   >
                     <span>Join Groups</span>
-                    <i class='bi bi-arrow-right'></i>
+                    <i className='bi bi-arrow-right'></i>
                   </a>
                 </div>
               </div>
             </div>
             <div
-              class='col-lg-6 hero-img'
+              className='col-lg-6 hero-img'
               data-aos='zoom-out'
               data-aos-delay='200'
             >
-              <img src='/img/hero-img.png' class='img-fluid' alt='' priority />
+              <img src='/img/hero-img.png' className='img-fluid' alt='' priority />
             </div>
           </div>
         </div>
@@ -40,17 +40,17 @@ const homePage = () => {
 
       <main id='main'>
         {/* <!-- ======= Values Section ======= --> */}
-        <section id='values' class='values'>
-          <div class='container' data-aos='fade-up'>
-            <header class='section-header'>
+        <section id='values' className='values'>
+          <div className='container' data-aos='fade-up'>
+            <header className='section-header'>
               <h2>Our Values</h2>
               <p>Odit est perspiciatis laborum et dicta</p>
             </header>
 
-            <div class='row'>
-              <div class='col-lg-4' data-aos='fade-up' data-aos-delay='200'>
-                <div class='box'>
-                  <img src='/img/values-1.png' class='img-fluid' alt='' />
+            <div className='row'>
+              <div className='col-lg-4' data-aos='fade-up' data-aos-delay='200'>
+                <div className='box'>
+                  <img src='/img/values-1.png' className='img-fluid' alt='' />
                   <h3>Ad cupiditate sed est odio</h3>
                   <p>
                     Eum ad dolor et. Autem aut fugiat debitis voluptatem
@@ -60,12 +60,12 @@ const homePage = () => {
               </div>
 
               <div
-                class='col-lg-4 mt-4 mt-lg-0'
+                className='col-lg-4 mt-4 mt-lg-0'
                 data-aos='fade-up'
                 data-aos-delay='400'
               >
-                <div class='box'>
-                  <img src='/img/values-2.png' class='img-fluid' alt='' />
+                <div className='box'>
+                  <img src='/img/values-2.png' className='img-fluid' alt='' />
                   <h3>Voluptatem voluptatum alias</h3>
                   <p>
                     Repudiandae amet nihil natus in distinctio suscipit id.
@@ -75,12 +75,12 @@ const homePage = () => {
               </div>
 
               <div
-                class='col-lg-4 mt-4 mt-lg-0'
+                className='col-lg-4 mt-4 mt-lg-0'
                 data-aos='fade-up'
                 data-aos-delay='600'
               >
-                <div class='box'>
-                  <img src='/img/values-3.png' class='img-fluid' alt='' />
+                <div className='box'>
+                  <img src='/img/values-3.png' className='img-fluid' alt='' />
                   <h3>Fugit cupiditate alias nobis.</h3>
                   <p>
                     Quam rem vitae est autem molestias explicabo debitis sint.
@@ -94,28 +94,28 @@ const homePage = () => {
         {/* <!-- End Values Section --> */}
 
         {/* <!-- ======= Counts Section ======= --> */}
-        <section id='counts' class='counts'>
-          <div class='container' data-aos='fade-up'>
-            <div class='row gy-4'>
-              <div class='col-lg-3 col-md-6'>
-                <div class='count-box'>
-                  <i class='bi bi-emoji-smile'></i>
+        <section id='counts' className='counts'>
+          <div className='container' data-aos='fade-up'>
+            <div className='row gy-4'>
+              <div className='col-lg-3 col-md-6'>
+                <div className='count-box'>
+                  <i className='bi bi-emoji-smile'></i>
                   <div>
                     <span
                       data-purecounter-start='0'
                       data-purecounter-end='232'
                       data-purecounter-duration='1'
-                      class='purecounter'
+                      className='purecounter'
                     ></span>
                     <p>Happy Clients</p>
                   </div>
                 </div>
               </div>
 
-              <div class='col-lg-3 col-md-6'>
-                <div class='count-box'>
+              <div className='col-lg-3 col-md-6'>
+                <div className='count-box'>
                   <i
-                    class='bi bi-journal-richtext'
+                    className='bi bi-journal-richtext'
                     style={{ color: '#ee6c20' }}
                   ></i>
                   <div>
@@ -123,37 +123,37 @@ const homePage = () => {
                       data-purecounter-start='0'
                       data-purecounter-end='521'
                       data-purecounter-duration='1'
-                      class='purecounter'
+                      className='purecounter'
                     ></span>
                     <p>Projects</p>
                   </div>
                 </div>
               </div>
 
-              <div class='col-lg-3 col-md-6'>
-                <div class='count-box'>
-                  <i class='bi bi-headset' style={{ color: '#15be56' }}></i>
+              <div className='col-lg-3 col-md-6'>
+                <div className='count-box'>
+                  <i className='bi bi-headset' style={{ color: '#15be56' }}></i>
                   <div>
                     <span
                       data-purecounter-start='0'
                       data-purecounter-end='1463'
                       data-purecounter-duration='1'
-                      class='purecounter'
+                      className='purecounter'
                     ></span>
                     <p>Hours Of Support</p>
                   </div>
                 </div>
               </div>
 
-              <div class='col-lg-3 col-md-6'>
-                <div class='count-box'>
-                  <i class='bi bi-people' style={{ color: '#bb0852' }}></i>
+              <div className='col-lg-3 col-md-6'>
+                <div className='count-box'>
+                  <i className='bi bi-people' style={{ color: '#bb0852' }}></i>
                   <div>
                     <span
                       data-purecounter-start='0'
                       data-purecounter-end='15'
                       data-purecounter-duration='1'
-                      class='purecounter'
+                      className='purecounter'
                     ></span>
                     <p>Hard Workers</p>
                   </div>
@@ -165,82 +165,82 @@ const homePage = () => {
         {/* <!-- End Counts Section --> */}
 
         {/* <!-- ======= Features Section ======= --> */}
-        <section id='features' class='features'>
-          <div class='container' data-aos='fade-up'>
-            <header class='section-header'>
+        <section id='features' className='features'>
+          <div className='container' data-aos='fade-up'>
+            <header className='section-header'>
               <h2>Features</h2>
               <p>Laboriosam et omnis fuga quis dolor direda fara</p>
             </header>
 
-            <div class='row'>
-              <div class='col-lg-6'>
-                <img src='/img/features.png' class='img-fluid' alt='' />
+            <div className='row'>
+              <div className='col-lg-6'>
+                <img src='/img/features.png' className='img-fluid' alt='' />
               </div>
 
-              <div class='col-lg-6 mt-5 mt-lg-0 d-flex'>
-                <div class='row align-self-center gy-4'>
+              <div className='col-lg-6 mt-5 mt-lg-0 d-flex'>
+                <div className='row align-self-center gy-4'>
                   <div
-                    class='col-md-6'
+                    className='col-md-6'
                     data-aos='zoom-out'
                     data-aos-delay='200'
                   >
-                    <div class='feature-box d-flex align-items-center'>
-                      <i class='bi bi-check'></i>
+                    <div className='feature-box d-flex align-items-center'>
+                      <i className='bi bi-check'></i>
                       <h3>Eos aspernatur rem</h3>
                     </div>
                   </div>
 
                   <div
-                    class='col-md-6'
+                    className='col-md-6'
                     data-aos='zoom-out'
                     data-aos-delay='300'
                   >
-                    <div class='feature-box d-flex align-items-center'>
-                      <i class='bi bi-check'></i>
+                    <div className='feature-box d-flex align-items-center'>
+                      <i className='bi bi-check'></i>
                       <h3>Facilis neque ipsa</h3>
                     </div>
                   </div>
 
                   <div
-                    class='col-md-6'
+                    className='col-md-6'
                     data-aos='zoom-out'
                     data-aos-delay='400'
                   >
-                    <div class='feature-box d-flex align-items-center'>
-                      <i class='bi bi-check'></i>
+                    <div className='feature-box d-flex align-items-center'>
+                      <i className='bi bi-check'></i>
                       <h3>Volup amet voluptas</h3>
                     </div>
                   </div>
 
                   <div
-                    class='col-md-6'
+                    className='col-md-6'
                     data-aos='zoom-out'
                     data-aos-delay='500'
                   >
-                    <div class='feature-box d-flex align-items-center'>
-                      <i class='bi bi-check'></i>
+                    <div className='feature-box d-flex align-items-center'>
+                      <i className='bi bi-check'></i>
                       <h3>Rerum omnis sint</h3>
                     </div>
                   </div>
 
                   <div
-                    class='col-md-6'
+                    className='col-md-6'
                     data-aos='zoom-out'
                     data-aos-delay='600'
                   >
-                    <div class='feature-box d-flex align-items-center'>
-                      <i class='bi bi-check'></i>
+                    <div className='feature-box d-flex align-items-center'>
+                      <i className='bi bi-check'></i>
                       <h3>Alias possimus</h3>
                     </div>
                   </div>
 
                   <div
-                    class='col-md-6'
+                    className='col-md-6'
                     data-aos='zoom-out'
                     data-aos-delay='700'
                   >
-                    <div class='feature-box d-flex align-items-center'>
-                      <i class='bi bi-check'></i>
+                    <div className='feature-box d-flex align-items-center'>
+                      <i className='bi bi-check'></i>
                       <h3>Repellendus mollitia</h3>
                     </div>
                   </div>
@@ -250,18 +250,18 @@ const homePage = () => {
             {/* <!-- / row --> */}
 
             {/* <!-- Feature Tabs --> */}
-            <div class='row feture-tabs' data-aos='fade-up'>
-              <div class='col-lg-6'>
+            <div className='row feture-tabs' data-aos='fade-up'>
+              <div className='col-lg-6'>
                 <h3>
                   Neque officiis dolore maiores et exercitationem quae est seda
                   lidera pat claero
                 </h3>
 
                 {/* <!-- Tabs --> */}
-                <ul class='nav nav-pills mb-3'>
+                <ul className='nav nav-pills mb-3'>
                   <li>
                     <a
-                      class='nav-link active'
+                      className='nav-link active'
                       data-bs-toggle='pill'
                       href='#tab1'
                     >
@@ -269,12 +269,12 @@ const homePage = () => {
                     </a>
                   </li>
                   <li>
-                    <a class='nav-link' data-bs-toggle='pill' href='#tab2'>
+                    <a className='nav-link' data-bs-toggle='pill' href='#tab2'>
                       Voluptates
                     </a>
                   </li>
                   <li>
-                    <a class='nav-link' data-bs-toggle='pill' href='#tab3'>
+                    <a className='nav-link' data-bs-toggle='pill' href='#tab3'>
                       Corrupti
                     </a>
                   </li>
@@ -282,15 +282,15 @@ const homePage = () => {
                 {/* <!-- End Tabs --> */}
 
                 {/* <!-- Tab Content --> */}
-                <div class='tab-content'>
-                  <div class='tab-pane fade show active' id='tab1'>
+                <div className='tab-content'>
+                  <div className='tab-pane fade show active' id='tab1'>
                     <p>
                       Consequuntur inventore voluptates consequatur aut vel et.
                       Eos doloribus expedita. Sapiente atque consequatur minima
                       nihil quae aspernatur quo suscipit voluptatem.
                     </p>
-                    <div class='d-flex align-items-center mb-2'>
-                      <i class='bi bi-check2'></i>
+                    <div className='d-flex align-items-center mb-2'>
+                      <i className='bi bi-check2'></i>
                       <h4>
                         Repudiandae rerum velit modi et officia quasi facilis
                       </h4>
@@ -300,8 +300,8 @@ const homePage = () => {
                       blanditiis. Sapiente minima commodi dolorum non eveniet
                       magni quaerat nemo et.
                     </p>
-                    <div class='d-flex align-items-center mb-2'>
-                      <i class='bi bi-check2'></i>
+                    <div className='d-flex align-items-center mb-2'>
+                      <i className='bi bi-check2'></i>
                       <h4>Incidunt non veritatis illum ea ut nisi</h4>
                     </div>
                     <p>
@@ -313,14 +313,14 @@ const homePage = () => {
                   </div>
                   {/* <!-- End Tab 1 Content --> */}
 
-                  <div class='tab-pane fade show' id='tab2'>
+                  <div className='tab-pane fade show' id='tab2'>
                     <p>
                       Consequuntur inventore voluptates consequatur aut vel et.
                       Eos doloribus expedita. Sapiente atque consequatur minima
                       nihil quae aspernatur quo suscipit voluptatem.
                     </p>
-                    <div class='d-flex align-items-center mb-2'>
-                      <i class='bi bi-check2'></i>
+                    <div className='d-flex align-items-center mb-2'>
+                      <i className='bi bi-check2'></i>
                       <h4>
                         Repudiandae rerum velit modi et officia quasi facilis
                       </h4>
@@ -330,8 +330,8 @@ const homePage = () => {
                       blanditiis. Sapiente minima commodi dolorum non eveniet
                       magni quaerat nemo et.
                     </p>
-                    <div class='d-flex align-items-center mb-2'>
-                      <i class='bi bi-check2'></i>
+                    <div className='d-flex align-items-center mb-2'>
+                      <i className='bi bi-check2'></i>
                       <h4>Incidunt non veritatis illum ea ut nisi</h4>
                     </div>
                     <p>
@@ -343,14 +343,14 @@ const homePage = () => {
                   </div>
                   {/* <!-- End Tab 2 Content --> */}
 
-                  <div class='tab-pane fade show' id='tab3'>
+                  <div className='tab-pane fade show' id='tab3'>
                     <p>
                       Consequuntur inventore voluptates consequatur aut vel et.
                       Eos doloribus expedita. Sapiente atque consequatur minima
                       nihil quae aspernatur quo suscipit voluptatem.
                     </p>
-                    <div class='d-flex align-items-center mb-2'>
-                      <i class='bi bi-check2'></i>
+                    <div className='d-flex align-items-center mb-2'>
+                      <i className='bi bi-check2'></i>
                       <h4>
                         Repudiandae rerum velit modi et officia quasi facilis
                       </h4>
@@ -360,8 +360,8 @@ const homePage = () => {
                       blanditiis. Sapiente minima commodi dolorum non eveniet
                       magni quaerat nemo et.
                     </p>
-                    <div class='d-flex align-items-center mb-2'>
-                      <i class='bi bi-check2'></i>
+                    <div className='d-flex align-items-center mb-2'>
+                      <i className='bi bi-check2'></i>
                       <h4>Incidunt non veritatis illum ea ut nisi</h4>
                     </div>
                     <p>
@@ -375,19 +375,19 @@ const homePage = () => {
                 </div>
               </div>
 
-              <div class='col-lg-6'>
-                <img src='/img/features-2.png' class='img-fluid' alt='' />
+              <div className='col-lg-6'>
+                <img src='/img/features-2.png' className='img-fluid' alt='' />
               </div>
             </div>
             {/* <!-- End Feature Tabs --> */}
 
             {/* <!-- Feature Icons --> */}
-            <div class='row feature-icons' data-aos='fade-up'>
+            <div className='row feature-icons' data-aos='fade-up'>
               <h3>Ratione mollitia eos ab laudantium rerum beatae quo</h3>
 
-              <div class='row'>
+              <div className='row'>
                 <div
-                  class='col-xl-4 text-center'
+                  className='col-xl-4 text-center'
                   data-aos='fade-right'
                   data-aos-delay='100'
                 >
@@ -395,15 +395,15 @@ const homePage = () => {
                     width={200}
                     height={200}
                     src='/img/features-3.png'
-                    class='img-fluid p-4'
+                    className='img-fluid p-4'
                     alt=''
                   />
                 </div>
 
-                <div class='col-xl-8 d-flex content'>
-                  <div class='row align-self-center gy-4'>
-                    <div class='col-md-6 icon-box' data-aos='fade-up'>
-                      <i class='ri-line-chart-line'></i>
+                <div className='col-xl-8 d-flex content'>
+                  <div className='row align-self-center gy-4'>
+                    <div className='col-md-6 icon-box' data-aos='fade-up'>
+                      <i className='ri-line-chart-line'></i>
                       <div>
                         <h4>Corporis voluptates sit</h4>
                         <p>
@@ -414,11 +414,11 @@ const homePage = () => {
                     </div>
 
                     <div
-                      class='col-md-6 icon-box'
+                      className='col-md-6 icon-box'
                       data-aos='fade-up'
                       data-aos-delay='100'
                     >
-                      <i class='ri-stack-line'></i>
+                      <i className='ri-stack-line'></i>
                       <div>
                         <h4>Ullamco laboris nisi</h4>
                         <p>
@@ -429,11 +429,11 @@ const homePage = () => {
                     </div>
 
                     <div
-                      class='col-md-6 icon-box'
+                      className='col-md-6 icon-box'
                       data-aos='fade-up'
                       data-aos-delay='200'
                     >
-                      <i class='ri-brush-4-line'></i>
+                      <i className='ri-brush-4-line'></i>
                       <div>
                         <h4>Labore consequatur</h4>
                         <p>
@@ -444,11 +444,11 @@ const homePage = () => {
                     </div>
 
                     <div
-                      class='col-md-6 icon-box'
+                      className='col-md-6 icon-box'
                       data-aos='fade-up'
                       data-aos-delay='300'
                     >
-                      <i class='ri-magic-line'></i>
+                      <i className='ri-magic-line'></i>
                       <div>
                         <h4>Beatae veritatis</h4>
                         <p>
@@ -459,11 +459,11 @@ const homePage = () => {
                     </div>
 
                     <div
-                      class='col-md-6 icon-box'
+                      className='col-md-6 icon-box'
                       data-aos='fade-up'
                       data-aos-delay='400'
                     >
-                      <i class='ri-command-line'></i>
+                      <i className='ri-command-line'></i>
                       <div>
                         <h4>Molestiae dolor</h4>
                         <p>
@@ -474,11 +474,11 @@ const homePage = () => {
                     </div>
 
                     <div
-                      class='col-md-6 icon-box'
+                      className='col-md-6 icon-box'
                       data-aos='fade-up'
                       data-aos-delay='500'
                     >
-                      <i class='ri-radar-line'></i>
+                      <i className='ri-radar-line'></i>
                       <div>
                         <h4>Explicabo consectetur</h4>
                         <p>
@@ -497,121 +497,121 @@ const homePage = () => {
         {/* <!-- End Features Section --> */}
 
         {/* <!-- ======= Services Section ======= --> */}
-        <section id='services' class='services'>
-          <div class='container' data-aos='fade-up'>
-            <header class='section-header'>
+        <section id='services' className='services'>
+          <div className='container' data-aos='fade-up'>
+            <header className='section-header'>
               <h2>Services</h2>
               <p>Veritatis et dolores facere numquam et praesentium</p>
             </header>
 
-            <div class='row gy-4'>
+            <div className='row gy-4'>
               <div
-                class='col-lg-4 col-md-6'
+                className='col-lg-4 col-md-6'
                 data-aos='fade-up'
                 data-aos-delay='200'
               >
-                <div class='service-box blue'>
-                  <i class='ri-discuss-line icon'></i>
+                <div className='service-box blue'>
+                  <i className='ri-discuss-line icon'></i>
                   <h3>Nesciunt Mete</h3>
                   <p>
                     Provident nihil minus qui consequatur non omnis maiores. Eos
                     accusantium minus dolores iure perferendis tempore et
                     consequatur.
                   </p>
-                  <a href='#' class='read-more'>
-                    <span>Read More</span> <i class='bi bi-arrow-right'></i>
+                  <a href='#' className='read-more'>
+                    <span>Read More</span> <i className='bi bi-arrow-right'></i>
                   </a>
                 </div>
               </div>
 
               <div
-                class='col-lg-4 col-md-6'
+                className='col-lg-4 col-md-6'
                 data-aos='fade-up'
                 data-aos-delay='300'
               >
-                <div class='service-box orange'>
-                  <i class='ri-discuss-line icon'></i>
+                <div className='service-box orange'>
+                  <i className='ri-discuss-line icon'></i>
                   <h3>Eosle Commodi</h3>
                   <p>
                     Ut autem aut autem non a. Sint sint sit facilis nam iusto
                     sint. Libero corrupti neque eum hic non ut nesciunt dolorem.
                   </p>
-                  <a href='#' class='read-more'>
-                    <span>Read More</span> <i class='bi bi-arrow-right'></i>
+                  <a href='#' className='read-more'>
+                    <span>Read More</span> <i className='bi bi-arrow-right'></i>
                   </a>
                 </div>
               </div>
 
               <div
-                class='col-lg-4 col-md-6'
+                className='col-lg-4 col-md-6'
                 data-aos='fade-up'
                 data-aos-delay='400'
               >
-                <div class='service-box green'>
-                  <i class='ri-discuss-line icon'></i>
+                <div className='service-box green'>
+                  <i className='ri-discuss-line icon'></i>
                   <h3>Ledo Markt</h3>
                   <p>
                     Ut excepturi voluptatem nisi sed. Quidem fuga consequatur.
                     Minus ea aut. Vel qui id voluptas adipisci eos earum
                     corrupti.
                   </p>
-                  <a href='#' class='read-more'>
-                    <span>Read More</span> <i class='bi bi-arrow-right'></i>
+                  <a href='#' className='read-more'>
+                    <span>Read More</span> <i className='bi bi-arrow-right'></i>
                   </a>
                 </div>
               </div>
 
               <div
-                class='col-lg-4 col-md-6'
+                className='col-lg-4 col-md-6'
                 data-aos='fade-up'
                 data-aos-delay='500'
               >
-                <div class='service-box red'>
-                  <i class='ri-discuss-line icon'></i>
+                <div className='service-box red'>
+                  <i className='ri-discuss-line icon'></i>
                   <h3>Asperiores Commodi</h3>
                   <p>
                     Non et temporibus minus omnis sed dolor esse consequatur.
                     Cupiditate sed error ea fuga sit provident adipisci neque.
                   </p>
-                  <a href='#' class='read-more'>
-                    <span>Read More</span> <i class='bi bi-arrow-right'></i>
+                  <a href='#' className='read-more'>
+                    <span>Read More</span> <i className='bi bi-arrow-right'></i>
                   </a>
                 </div>
               </div>
 
               <div
-                class='col-lg-4 col-md-6'
+                className='col-lg-4 col-md-6'
                 data-aos='fade-up'
                 data-aos-delay='600'
               >
-                <div class='service-box purple'>
-                  <i class='ri-discuss-line icon'></i>
+                <div className='service-box purple'>
+                  <i className='ri-discuss-line icon'></i>
                   <h3>Velit Doloremque.</h3>
                   <p>
                     Cumque et suscipit saepe. Est maiores autem enim facilis ut
                     aut ipsam corporis aut. Sed animi at autem alias eius
                     labore.
                   </p>
-                  <a href='#' class='read-more'>
-                    <span>Read More</span> <i class='bi bi-arrow-right'></i>
+                  <a href='#' className='read-more'>
+                    <span>Read More</span> <i className='bi bi-arrow-right'></i>
                   </a>
                 </div>
               </div>
 
               <div
-                class='col-lg-4 col-md-6'
+                className='col-lg-4 col-md-6'
                 data-aos='fade-up'
                 data-aos-delay='700'
               >
-                <div class='service-box pink'>
-                  <i class='ri-discuss-line icon'></i>
+                <div className='service-box pink'>
+                  <i className='ri-discuss-line icon'></i>
                   <h3>Dolori Architecto</h3>
                   <p>
                     Hic molestias ea quibusdam eos. Fugiat enim doloremque aut
                     neque non et debitis iure. Corrupti recusandae ducimus enim.
                   </p>
-                  <a href='#' class='read-more'>
-                    <span>Read More</span> <i class='bi bi-arrow-right'></i>
+                  <a href='#' className='read-more'>
+                    <span>Read More</span> <i className='bi bi-arrow-right'></i>
                   </a>
                 </div>
               </div>
@@ -621,21 +621,21 @@ const homePage = () => {
         {/* <!-- End Services Section --> */}
 
         {/* <!-- ======= F.A.Q Section ======= --> */}
-        <section id='faq' class='faq'>
-          <div class='container' data-aos='fade-up'>
-            <header class='section-header'>
+        <section id='faq' className='faq'>
+          <div className='container' data-aos='fade-up'>
+            <header className='section-header'>
               <h2>F.A.Q</h2>
               <p>Frequently Asked Questions</p>
             </header>
 
-            <div class='row'>
-              <div class='col-lg-6'>
+            <div className='row'>
+              <div className='col-lg-6'>
                 {/* <!-- F.A.Q List 1--> */}
-                <div class='accordion accordion-flush' id='faqlist1'>
-                  <div class='accordion-item'>
-                    <h2 class='accordion-header'>
+                <div className='accordion accordion-flush' id='faqlist1'>
+                  <div className='accordion-item'>
+                    <h2 className='accordion-header'>
                       <button
-                        class='accordion-button collapsed'
+                        className='accordion-button collapsed'
                         type='button'
                         data-bs-toggle='collapse'
                         data-bs-target='#faq-content-1'
@@ -645,10 +645,10 @@ const homePage = () => {
                     </h2>
                     <div
                       id='faq-content-1'
-                      class='accordion-collapse collapse'
+                      className='accordion-collapse collapse'
                       data-bs-parent='#faqlist1'
                     >
-                      <div class='accordion-body'>
+                      <div className='accordion-body'>
                         Feugiat pretium nibh ipsum consequat. Tempus iaculis
                         urna id volutpat lacus laoreet non curabitur gravida.
                         Venenatis lectus magna fringilla urna porttitor rhoncus
@@ -657,10 +657,10 @@ const homePage = () => {
                     </div>
                   </div>
 
-                  <div class='accordion-item'>
-                    <h2 class='accordion-header'>
+                  <div className='accordion-item'>
+                    <h2 className='accordion-header'>
                       <button
-                        class='accordion-button collapsed'
+                        className='accordion-button collapsed'
                         type='button'
                         data-bs-toggle='collapse'
                         data-bs-target='#faq-content-2'
@@ -671,10 +671,10 @@ const homePage = () => {
                     </h2>
                     <div
                       id='faq-content-2'
-                      class='accordion-collapse collapse'
+                      className='accordion-collapse collapse'
                       data-bs-parent='#faqlist1'
                     >
-                      <div class='accordion-body'>
+                      <div className='accordion-body'>
                         Dolor sit amet consectetur adipiscing elit pellentesque
                         habitant morbi. Id interdum velit laoreet id donec
                         ultrices. Fringilla phasellus faucibus scelerisque
@@ -685,10 +685,10 @@ const homePage = () => {
                     </div>
                   </div>
 
-                  <div class='accordion-item'>
-                    <h2 class='accordion-header'>
+                  <div className='accordion-item'>
+                    <h2 className='accordion-header'>
                       <button
-                        class='accordion-button collapsed'
+                        className='accordion-button collapsed'
                         type='button'
                         data-bs-toggle='collapse'
                         data-bs-target='#faq-content-3'
@@ -699,10 +699,10 @@ const homePage = () => {
                     </h2>
                     <div
                       id='faq-content-3'
-                      class='accordion-collapse collapse'
+                      className='accordion-collapse collapse'
                       data-bs-parent='#faqlist1'
                     >
-                      <div class='accordion-body'>
+                      <div className='accordion-body'>
                         Eleifend mi in nulla posuere sollicitudin aliquam
                         ultrices sagittis orci. Faucibus pulvinar elementum
                         integer enim. Sem nulla pharetra diam sit amet nisl
@@ -715,13 +715,13 @@ const homePage = () => {
                 </div>
               </div>
 
-              <div class='col-lg-6'>
+              <div className='col-lg-6'>
                 {/* <!-- F.A.Q List 2--> */}
-                <div class='accordion accordion-flush' id='faqlist2'>
-                  <div class='accordion-item'>
-                    <h2 class='accordion-header'>
+                <div className='accordion accordion-flush' id='faqlist2'>
+                  <div className='accordion-item'>
+                    <h2 className='accordion-header'>
                       <button
-                        class='accordion-button collapsed'
+                        className='accordion-button collapsed'
                         type='button'
                         data-bs-toggle='collapse'
                         data-bs-target='#faq2-content-1'
@@ -732,10 +732,10 @@ const homePage = () => {
                     </h2>
                     <div
                       id='faq2-content-1'
-                      class='accordion-collapse collapse'
+                      className='accordion-collapse collapse'
                       data-bs-parent='#faqlist2'
                     >
-                      <div class='accordion-body'>
+                      <div className='accordion-body'>
                         Dolor sit amet consectetur adipiscing elit pellentesque
                         habitant morbi. Id interdum velit laoreet id donec
                         ultrices. Fringilla phasellus faucibus scelerisque
@@ -746,10 +746,10 @@ const homePage = () => {
                     </div>
                   </div>
 
-                  <div class='accordion-item'>
-                    <h2 class='accordion-header'>
+                  <div className='accordion-item'>
+                    <h2 className='accordion-header'>
                       <button
-                        class='accordion-button collapsed'
+                        className='accordion-button collapsed'
                         type='button'
                         data-bs-toggle='collapse'
                         data-bs-target='#faq2-content-2'
@@ -760,10 +760,10 @@ const homePage = () => {
                     </h2>
                     <div
                       id='faq2-content-2'
-                      class='accordion-collapse collapse'
+                      className='accordion-collapse collapse'
                       data-bs-parent='#faqlist2'
                     >
-                      <div class='accordion-body'>
+                      <div className='accordion-body'>
                         Molestie a iaculis at erat pellentesque adipiscing
                         commodo. Dignissim suspendisse in est ante in. Nunc vel
                         risus commodo viverra maecenas accumsan. Sit amet nisl
@@ -773,10 +773,10 @@ const homePage = () => {
                     </div>
                   </div>
 
-                  <div class='accordion-item'>
-                    <h2 class='accordion-header'>
+                  <div className='accordion-item'>
+                    <h2 className='accordion-header'>
                       <button
-                        class='accordion-button collapsed'
+                        className='accordion-button collapsed'
                         type='button'
                         data-bs-toggle='collapse'
                         data-bs-target='#faq2-content-3'
@@ -786,10 +786,10 @@ const homePage = () => {
                     </h2>
                     <div
                       id='faq2-content-3'
-                      class='accordion-collapse collapse'
+                      className='accordion-collapse collapse'
                       data-bs-parent='#faqlist2'
                     >
-                      <div class='accordion-body'>
+                      <div className='accordion-body'>
                         Laoreet sit amet cursus sit amet dictum sit amet justo.
                         Mauris vitae ultricies leo integer malesuada nunc vel.
                         Tincidunt eget nullam non nisi est sit amet. Turpis nunc
