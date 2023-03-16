@@ -48,6 +48,10 @@ const AppComponent = (props) => {
   };
 
   useEffect(() => {
+    // Start the loader
+    // setLoaderProgress(true);
+    // topLoaderBar.current.continuousStart();
+
     router.events.on("routeChangeComplete", () => {
       // Stop the loader
       setLoaderProgress(false);
