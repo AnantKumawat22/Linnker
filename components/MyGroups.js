@@ -132,15 +132,6 @@ const MyGroups = () => {
           <MyGroupCards />
           <MyGroupCards />
           <MyGroupCards />
-          <MyGroupCards />
-          <MyGroupCards />
-          <MyGroupCards />
-          <MyGroupCards />
-          <MyGroupCards />
-          <MyGroupCards />
-          <MyGroupCards />
-          <MyGroupCards />
-          <MyGroupCards />
         </div>
       </div>
     </>

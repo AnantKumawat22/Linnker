@@ -4,8 +4,8 @@
 }
 
 .contact {
-    padding: 50px 0;
     overflow: hidden;
+    margin-top: 80px;
 }
 
 .contact .infoBox {
@@ -93,4 +93,23 @@
 
 .contact .EmailForm button[type=submit]:hover {
     background: #5969f3;
+}
+
+@media(max-width: 1000px){
+    .contact{
+        margin-top: 30px;
+    }
+    .contactusdiv{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+    .infoBox{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .infoBox p, .infoBox h3{
+        text-align: center;
+    }
 }

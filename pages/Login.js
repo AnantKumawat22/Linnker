@@ -1,19 +1,74 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext, useLayoutEffect } from "react";
+import authContext from "@/context/auth/authContext";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
 import Button from "@/components/atoms/button.atom";
 import Input from "@/components/atoms/input.atom";
+import { useRouter } from "next/router";
 
-const Login = () => {
+const Login = (props) => {
+  // Context
+  const context = useContext(authContext);
+  const { checktoken, setCheckToken } = context;
+
+  // Router
+  const router = useRouter();
+
   // Handle State of input fields.
   const [cred, setCred] = useState({
-    phnumber: "",
+    email: "",
     password: "",
   });
 
+  useLayoutEffect(() => {
+    if (localStorage.getItem("token")) router.push("/");
+  }, []);
+
   // On From Submit
   const handleSubmit = async (e) => {
+    const { email, password } = cred;
+
     e.preventDefault();
+
+    // Start the loader
+    props.setLoaderProgress(true);
+    props.topLoaderBar.current.continuousStart();
+
+    // API CALL
+    const response = await fetch("/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
+    const data = await response.json();
+
+    // Check if Everthing is okay or not.
+    if (data.success) {
+      // Store Token in LocalStorage.
+      localStorage.setItem("token", data.authtoken);
+      setCheckToken(true);
+
+      // Alert
+      props.showAlert(data.msg, "success");
+
+      // Stop the loader
+      props.setLoaderProgress(false);
+      props.topLoaderBar.current.complete();
+
+      setTimeout(() => {
+        // Redirect at Home Page
+        router.push("/");
+      }, 100);
+    } else {
+      // Stop the loader
+      props.setLoaderProgress(false);
+      props.topLoaderBar.current.complete();
+
+      // Alert
+      props.showAlert(data.msg, "error");
+    }
   };
 
   // On change in input field.
@@ -23,8 +78,8 @@ const Login = () => {
 
   return (
     <>
-      <section className="vh-100">
-        <div className="container-fluid h-custom">
+      <section style={{ paddingTop: "30px" }}>
+        <div className="container-fluid pb-5" style={{ minHeight: "75vh" }}>
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-md-9 col-lg-6 col-xl-5">
               <img
@@ -33,33 +88,33 @@ const Login = () => {
                 alt="Sample image"
               />
             </div>
-            <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-              <h2 className="mb-4">
+            <div className="col-md-8 col-lg-6 mt-5 col-xl-4 offset-xl-1">
+              <h2 className="mb-4 text-center">
                 <u> Login </u>
               </h2>
 
               {/* Form */}
               <form onSubmit={handleSubmit}>
                 {/* Phone Number input */}
-                
-                  <Input
-                    type="tel"
-                    id="phnumber"
-                    value={cred.phnumber}
-                    name="phnumber"
-                    onChange={inpChange}
-                    placeholder="Enter your whatsapp number"
-                  />
+
+                <Input
+                  type="email"
+                  id="email"
+                  value={cred.email}
+                  name="email"
+                  onChange={inpChange}
+                  placeholder="Enter your Email"
+                />
 
                 {/* Password input */}
-                  <Input
-                    type="password"
-                    id="password"
-                    value={cred.password}
-                    name="password"
-                    onChange={inpChange}
-                    placeholder="Enter password"
-                  />
+                <Input
+                  type="password"
+                  id="password"
+                  value={cred.password}
+                  name="password"
+                  onChange={inpChange}
+                  placeholder="Enter password"
+                />
 
                 <div className="d-flex justify-content-between align-items-center">
                   {/* Checkbox */}
@@ -97,14 +152,14 @@ const Login = () => {
             </div>
           </div>
         </div>
-        <div className="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+        <div className="d-flex flex-column flex-md-row text-center text-md-start justify-content-center py-4 px-4 px-xl-5 bg-primary">
           {/* Copyright */}
-          <div className="text-white mb-3 mb-md-0">
+          <div className="text-white mb-3 mb-md-0 text-center">
             Copyright © 2023 by Linnker. All rights reserved.
           </div>
 
           {/* Right */}
-          <div>
+          {/* <div>
             <Link href="#!" className="text-white me-4">
               <i className="fab fa-facebook-f"></i>
             </Link>
@@ -117,7 +172,7 @@ const Login = () => {
             <Link href="#!" className="text-white">
               <i className="fab fa-linkedin-in"></i>
             </Link>
-          </div>
+          </div> */}
         </div>
       </section>
     </>
