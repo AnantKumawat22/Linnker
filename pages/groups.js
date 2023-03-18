@@ -55,12 +55,10 @@ const groups = ({ groups }) => {
                 key={group._id}
                 group={group}
                 renderAction={() => (
-                  <div>
-                    <Button
-                      className={`btn btn-primary btn-lg`}
-                      value='Join Group'
-                    ></Button>
-                  </div>
+                  <Button
+                    className={`btn btn-primary btn-lg`}
+                    value='Join Group'
+                  ></Button>
                 )}
               />
             ))}
