@@ -4,6 +4,23 @@ import { useRouter } from "next/router";
 import "bootstrap/dist/css/bootstrap.css";
 import Button from "@/components/atoms/button.atom";
 
+export async function getServerSideProps(context) {
+  const { token } = context.req.cookies;
+
+  // Redirect to login page if user is not authenticated
+  if (token) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+  return {
+    props: {},
+  }
+}
+
 const Signup = (props) => {
   // Router
   const router = useRouter();

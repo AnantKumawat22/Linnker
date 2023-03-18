@@ -4,17 +4,21 @@ import "bootstrap/dist/css/bootstrap.css";
 import { useRouter } from "next/router";
 import styles from "../styles/navbar.module.css";
 import authContext from "@/context/auth/authContext";
+import { destroyCookie } from "nookies";
+import { parseCookies } from 'nookies';
 
 const Navbar = (props) => {
+  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(true);
+  const [token, setToken] = useState(null);
   const { asPath } = useRouter();
-  
-  // Context
-  const context = useContext(authContext);
-  console.log(context)
-  const { checktoken, setCheckToken } = context;
 
+  // Context
+  // const context = useContext(authContext);
+  // const { checktoken, setCheckToken } = context;
+  
+  // const cookies = parseCookies();
   useEffect(() => {
     window.onscroll = function () {
       if (window.scrollY > 50) {
@@ -25,15 +29,32 @@ const Navbar = (props) => {
     };
   }, []);
 
+  // useEffect(() => {
+    
+  // }, [])
   useEffect(() => {
-  }, [checktoken])
+    const cookies = parseCookies();
+    const token = cookies.token;
+    setToken(token);
+  }, [parseCookies().token]);
   
+
   // Handling LogOut
   const handleLogout = () => {
     // Remove token from localstorage.
-    localStorage.removeItem("token");
+    // localStorage.removeItem("token");
+    destroyCookie(null, 'token');
+
+    setToken(null);
+  // Then, remove the cookie on the client-side
+  // document.cookie = `null`;
     props.showAlert("Log Out Successfully.", "success");
-    setCheckToken(false);
+
+    setTimeout(() => {
+      // Redirect at Home Page
+      router.push("/");
+    }, 100);
+    // setCheckToken(false);
   };
 
   const handleMenu = () => {
@@ -43,9 +64,7 @@ const Navbar = (props) => {
     <>
       {/* <!-- ======= Header ======= --> */}
       <header
-        onResize={(e) => {
-          console.log(e, "e");
-        }}
+        onResize={(e) => {}}
         style={
           scrolled
             ? { backgroundColor: "white", boxShadow: "0 0 2px 0px lightgray" }
@@ -73,12 +92,7 @@ const Navbar = (props) => {
                 </Link>
               </li>
 
-
-
-
-
-
-              { checktoken ? (
+              {token ? (
                 <>
                   <li>
                     <Link
@@ -94,14 +108,6 @@ const Navbar = (props) => {
               ) : (
                 <></>
               )}
-
-
-
-
-
-
-
-
 
               <li>
                 <Link
@@ -124,7 +130,7 @@ const Navbar = (props) => {
                 </Link>
               </li>
 
-              { !checktoken ? (
+              {!token ? (
                 <>
                   <li>
                     <Link

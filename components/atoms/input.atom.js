@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Input = ({ type, id, value, name, onChange, placeholder, ...rest }) => {
+const InputTag = ({ type, id, value, name, onChange, placeholder, ...rest }) => {
   return (
     <>
       <div className='form-outline w-100 mb-4'>
@@ -20,4 +20,4 @@ const Input = ({ type, id, value, name, onChange, placeholder, ...rest }) => {
   );
 };
 
-export default Input;
+export default InputTag;
