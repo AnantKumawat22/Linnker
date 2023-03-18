@@ -5,6 +5,24 @@ import "bootstrap/dist/css/bootstrap.css";
 import Button from "@/components/atoms/button.atom";
 import Input from "@/components/atoms/input.atom";
 import { useRouter } from "next/router";
+import { setCookie } from 'nookies'
+
+export async function getServerSideProps(context) {
+  const { token } = context.req.cookies;
+
+  // Redirect to login page if user is not authenticated
+  if (token) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+  return {
+    props: {},
+  }
+}
 
 const Login = (props) => {
   // Context
@@ -19,10 +37,6 @@ const Login = (props) => {
     email: "",
     password: "",
   });
-
-  useLayoutEffect(() => {
-    if (localStorage.getItem("token")) router.push("/");
-  }, []);
 
   // On From Submit
   const handleSubmit = async (e) => {
@@ -47,7 +61,9 @@ const Login = (props) => {
     // Check if Everthing is okay or not.
     if (data.success) {
       // Store Token in LocalStorage.
-      localStorage.setItem("token", data.authtoken);
+      // localStorage.setItem("token", data.authtoken);
+      // document.cookie = `token=${data.authtoken}`;
+      setCookie(null, 'token', data.authtoken);
       setCheckToken(true);
 
       // Alert

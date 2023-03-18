@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import Input from "@/components/atoms/input.atom";
 import styles from "../styles/mygroups.module.css";
 import Button from "@/components/atoms/button.atom";
 import DashboardNav from "./DashboardNav";
 import MyGroupCards from "./MyGroupCards";
+import { parseCookies } from "nookies";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 
-const MyGroups = () => {
+const MyGroups = (props) => {
   const [input, setInput] = useState({
     name: "",
     link: "",
@@ -18,7 +19,7 @@ const MyGroups = () => {
   const [tag, setTag] = useState("");
 
   const handleAddTag = () => {
-    if(tag == "") return;
+    if (tag == "") return;
     setInput((prev) => ({ ...prev, tags: [...prev.tags, tag] }));
     setTag("");
   };
@@ -36,8 +37,39 @@ const MyGroups = () => {
     else setInput((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     // Add WhatsApp Group Form Submit.
+    const { name, description, tags, link } = input;
+
+    // Get Token from nookies.
+    const cookies = parseCookies();
+
+    // Start the loader
+    // props.setLoaderProgress(true);
+    // props.topLoaderBar.current.continuousStart();
+
+    // API CALL
+    const response = await fetch("/api/groups/creategroup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": cookies
+      },
+      body: JSON.stringify({ name, description, tags, link }),
+    });
+    const data = await response.json();
+
+    // Check if Everthing is okay or not.
+    if (data.success) {
+      // Alert
+      // props.showAlert(data.msg, "success");
+    } else {
+      // Alert
+      // props.showAlert(data.msg, "error");
+    }
+    // Stop the loader
+    // props.setLoaderProgress(false);
+    // props.topLoaderBar.current.complete();
   };
   return (
     <>
@@ -67,7 +99,6 @@ const MyGroups = () => {
           </div>
 
           <div className={styles.mygroupOneInp1}>
-          
             <div className={`${styles.addGroupInpDiv}`}>
               <label htmlFor="">Group Description</label>
               <textarea
@@ -94,7 +125,7 @@ const MyGroups = () => {
                     <FontAwesomeIcon
                       onClick={() => handleDeleteTag(tag)}
                       icon={faClose}
-                      style={{cursor: "pointer"}}
+                      style={{ cursor: "pointer" }}
                       className="fas fa-close"
                     ></FontAwesomeIcon>
                   </div>
