@@ -63,6 +63,15 @@ const MyGroups = (props) => {
 
     // Check if Everthing is okay or not.
     if (data.success) {
+
+      // Clear Create Group Fields.
+      setInput({
+        name: "",
+        link: "",
+        description: "",
+        tags: [],
+      });
+
       // Alert
       arg.showAlert(data.msg, "success");
     } else {
@@ -160,11 +169,11 @@ const MyGroups = (props) => {
       <div className="container mt-5 mb-5">
         <h3>Your WhatsApp Groups</h3>
         <div className={`${styles.allgroupcard} mt-4`}>
-          <MyGroupCards btnvalue="Delete" btncolor="danger"/>
-          <MyGroupCards btnvalue="Delete" btncolor="danger"/>
-          <MyGroupCards btnvalue="Delete" btncolor="danger"/>
-          <MyGroupCards btnvalue="Delete" btncolor="danger"/>
-          <MyGroupCards btnvalue="Delete" btncolor="danger"/>
+          <MyGroupCards btnvalue="Delete" btncolor="danger" props={arg}/>
+          <MyGroupCards btnvalue="Delete" btncolor="danger" props={arg}/>
+          <MyGroupCards btnvalue="Delete" btncolor="danger" props={arg}/>
+          <MyGroupCards btnvalue="Delete" btncolor="danger" props={arg}/>
+          <MyGroupCards btnvalue="Delete" btncolor="danger" props={arg}/>
         </div>
       </div>
     </>

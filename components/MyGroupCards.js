@@ -1,15 +1,40 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "../styles/MyGroupCards.module.css";
 import "bootstrap/dist/css/bootstrap.css";
 import Button from "@/components/atoms/button.atom";
 import { useRouter } from "next/router";
+import { parseCookies } from 'nookies';
+import groupContext from "@/context/groups/groupContext";
 
 const MyGroupCards = (props) => {
-  const router = useRouter();
 
-  const handleBtn = () => {
+  // Groups Context.
+  const context = useContext(groupContext);
+  const { mygroups, setMyGroups } = context;
+
+  const router = useRouter();
+  const arg = props.props;
+
+  const handleBtn = async (id) => {
+    const cookies = parseCookies();
     if (router.asPath === "/dashboard/mygroups") {
-      console.log("my groups...");
+      // API CALL
+      const response = await fetch(`/api/groups/deletemygroup/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "Authentication": cookies.token
+        }
+      });
+      const data = await response.json();
+      if(data.success){
+        // DELETE NOTE
+        
+        // Alert
+      } else{
+        // Alert
+      }
+
     } else if (router.asPath === "/groups") {
       console.log("groupssss");
     }
