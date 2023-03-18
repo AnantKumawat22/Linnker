@@ -10,6 +10,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 
 const MyGroups = (props) => {
+  const arg = props.props;
+  
   const [input, setInput] = useState({
     name: "",
     link: "",
@@ -45,15 +47,15 @@ const MyGroups = (props) => {
     const cookies = parseCookies();
 
     // Start the loader
-    // props.setLoaderProgress(true);
-    // props.topLoaderBar.current.continuousStart();
+    arg.setLoaderProgress(true);
+    arg.topLoaderBar.current.continuousStart();
 
     // API CALL
     const response = await fetch("/api/groups/creategroup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": cookies
+        "Authentication": cookies.token,
       },
       body: JSON.stringify({ name, description, tags, link }),
     });
@@ -62,14 +64,14 @@ const MyGroups = (props) => {
     // Check if Everthing is okay or not.
     if (data.success) {
       // Alert
-      // props.showAlert(data.msg, "success");
+      arg.showAlert(data.msg, "success");
     } else {
       // Alert
-      // props.showAlert(data.msg, "error");
+      arg.showAlert(data.msg, "error");
     }
     // Stop the loader
-    // props.setLoaderProgress(false);
-    // props.topLoaderBar.current.complete();
+    arg.setLoaderProgress(false);
+    arg.topLoaderBar.current.complete();
   };
   return (
     <>
@@ -158,11 +160,11 @@ const MyGroups = (props) => {
       <div className="container mt-5 mb-5">
         <h3>Your WhatsApp Groups</h3>
         <div className={`${styles.allgroupcard} mt-4`}>
-          <MyGroupCards />
-          <MyGroupCards />
-          <MyGroupCards />
-          <MyGroupCards />
-          <MyGroupCards />
+          <MyGroupCards btnvalue="Delete" btncolor="danger"/>
+          <MyGroupCards btnvalue="Delete" btncolor="danger"/>
+          <MyGroupCards btnvalue="Delete" btncolor="danger"/>
+          <MyGroupCards btnvalue="Delete" btncolor="danger"/>
+          <MyGroupCards btnvalue="Delete" btncolor="danger"/>
         </div>
       </div>
     </>

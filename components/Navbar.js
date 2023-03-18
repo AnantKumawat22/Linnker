@@ -3,7 +3,6 @@ import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.css";
 import { useRouter } from "next/router";
 import styles from "../styles/navbar.module.css";
-import authContext from "@/context/auth/authContext";
 import { destroyCookie } from "nookies";
 import { parseCookies } from 'nookies';
 
@@ -53,7 +52,7 @@ const Navbar = (props) => {
     setTimeout(() => {
       // Redirect at Home Page
       router.push("/");
-    }, 100);
+    }, 1000);
     // setCheckToken(false);
   };
 
