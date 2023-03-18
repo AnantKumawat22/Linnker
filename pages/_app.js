@@ -1,5 +1,4 @@
 import Navbar from "@/components/Navbar";
-import "@/styles/globals.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "remixicon/fonts/remixicon.css";
 import { useState, useEffect, useRef } from "react";
@@ -16,6 +15,8 @@ import "react-toastify/dist/ReactToastify.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import UserState from "@/context/auth/UserState";
+import "@/scss/custom.scss"
+import "@/styles/globals.css";
 config.autoAddCss = false;
 
 export default function App({ Component, pageProps }) {
