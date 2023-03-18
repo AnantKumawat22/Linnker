@@ -30,8 +30,5 @@
     "react-top-loading-bar": "^2.3.1",
     "remixicon": "^2.5.0",
     "sass": "^1.59.3"
-  },
-  "devDependencies": {
-    "postcss": "^8.4.21"
   }
 }
