@@ -3,6 +3,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import styles from "../styles/groups.module.css";
 import MyGroupCards from "@/components/MyGroupCards";
 
+
+
 const groups = () => {
   return (
     <>
@@ -30,20 +32,10 @@ const groups = () => {
         <div className="container mt-5 mb-5">
         <h2>All WhatsApp Groups</h2>
         <div className={`${styles.allgroupcard} mt-4`}>
-          <MyGroupCards />
-          <MyGroupCards />
-          <MyGroupCards />
-          <MyGroupCards />
-          <MyGroupCards />
-          <MyGroupCards />
-          <MyGroupCards />
-          <MyGroupCards />
-          <MyGroupCards />
-          <MyGroupCards />
-          <MyGroupCards />
-          <MyGroupCards />
-          <MyGroupCards />
-          <MyGroupCards />
+          <MyGroupCards btnvalue="Join Group" btncolor="primary"/>
+          <MyGroupCards btnvalue="Join Group" btncolor="primary"/>
+          <MyGroupCards btnvalue="Join Group" btncolor="primary"/>
+          <MyGroupCards btnvalue="Join Group" btncolor="primary"/>
         </div>
       </div>
       </div>

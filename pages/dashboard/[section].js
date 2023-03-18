@@ -35,7 +35,7 @@ const section = (props) => {
   }
 
   return typeof sectionstate !== 'undefined' ? (
-    sectionstate == 'profile' ? <Profile/> : sectionstate == 'mygroups' ? <MyGroups/> : navigateprofile()
+    sectionstate == 'profile' ? <Profile props={props} /> : sectionstate == 'mygroups' ? <MyGroups props={props} /> : navigateprofile()
   ) : null;
 };
 
