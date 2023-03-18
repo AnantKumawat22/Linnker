@@ -9,26 +9,7 @@ import { parseCookies } from 'nookies';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
 
-export async function getServerSideProps() {
-  try {
-    const jsonResponse = await fetch(
-      'http://localhost:3000/api/groups/fetchMyGroups'
-    );
-    const { groups } = await jsonResponse.json();
-    console.log(groups);
-    return {
-      props: { groups },
-    };
-  } catch (error) {
-    console.log(error, 'error');
-    return {
-      props: { groups: [] },
-    };
-  }
-}
-
 const MyGroups = (props) => {
-  const groups = props.groups;
   const arg = props.props;
 
   const [input, setInput] = useState({
@@ -50,6 +31,24 @@ const MyGroups = (props) => {
       ...prev,
       tags: prev.tags.filter((tag) => tag !== deleteTag),
     }));
+  };
+
+  const handleDelete = async (id) => {
+    const cookies = parseCookies();
+    const response = await fetch(`/api/groups/deletemygroup/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authentication: cookies.token,
+      },
+    });
+    const data = await response.json();
+    if (data.success) {
+      // DELETE NOTE
+      // Alert
+    } else {
+      // Alert
+    }
   };
 
   const handleChange = (e) => {
@@ -82,6 +81,14 @@ const MyGroups = (props) => {
 
     // Check if Everthing is okay or not.
     if (data.success) {
+      // Clear Create Group Fields.
+      setInput({
+        name: '',
+        link: '',
+        description: '',
+        tags: [],
+      });
+
       // Alert
       arg.showAlert(data.msg, 'success');
     } else {
@@ -179,12 +186,17 @@ const MyGroups = (props) => {
       <div className='container mt-5 mb-5'>
         <h3>Your WhatsApp Groups</h3>
         <div className={`${styles.allgroupcard} mt-4`}>
-          {groups?.map((group) => (
+          {arg?.groups?.map((group) => (
             <MyGroupCards
               key={group._id}
               group={group}
-              btnvalue='Delete'
-              btncolor='danger'
+              renderAction={() => (
+                <Button
+                  onClick={() => handleDelete(group._id)}
+                  className={`btn btn-danger btn-lg`}
+                  value='Delete'
+                />
+              )}
             />
           ))}
         </div>

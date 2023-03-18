@@ -3,14 +3,14 @@ import { useState } from "react";
 
 const GroupState = (props) => {
 
-    // Create a Group.
-    const creategroup = async (data) => {
-        const { name, description, link, tags } = data;
-        console.log(name, description, tags, link);
-    }
+    // My Groups State.
+    const [mygroups, setMyGroups] = useState(null);
+
+    // All Groups State.
+    const [allgroups, setAllGroups] = useState(null);
     
     return (
-        <authContext.Provider value={{creategroup}}>
+        <authContext.Provider value={{mygroups, setMyGroups, allgroups, setAllGroups}}>
             {props.children}
         </authContext.Provider>
     );

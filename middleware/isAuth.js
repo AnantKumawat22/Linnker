@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 require('dotenv').config();
 
-const isAuth = async (req, res, next) => {
+const isAuth = async (req, res) => {
 
     // Get the user from the jwt token and add id to req object.
     const auth = req.headers;

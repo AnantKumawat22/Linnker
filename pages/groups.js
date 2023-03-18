@@ -2,6 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import styles from '../styles/groups.module.css';
 import MyGroupCards from '@/components/MyGroupCards';
+import Button from '@/components/atoms/button.atom';
 
 export async function getServerSideProps() {
   try {
@@ -50,7 +51,18 @@ const groups = ({ groups }) => {
           <h2>All WhatsApp Groups</h2>
           <div className={`${styles.allgroupcard} mt-4`}>
             {groups?.map((group, idx) => (
-              <MyGroupCards key={group._id} group={group} />
+              <MyGroupCards
+                key={group._id}
+                group={group}
+                renderAction={() => (
+                  <div>
+                    <Button
+                      className={`btn btn-primary btn-lg`}
+                      value='Join Group'
+                    ></Button>
+                  </div>
+                )}
+              />
             ))}
           </div>
         </div>

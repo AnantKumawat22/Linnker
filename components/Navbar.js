@@ -12,10 +12,6 @@ const Navbar = (props) => {
   const [drawerOpen, setDrawerOpen] = useState(true);
   const [token, setToken] = useState(null);
   const { asPath } = useRouter();
-
-  // Context
-  // const context = useContext(authContext);
-  // const { checktoken, setCheckToken } = context;
   
   // const cookies = parseCookies();
   useEffect(() => {
@@ -28,9 +24,6 @@ const Navbar = (props) => {
     };
   }, []);
 
-  // useEffect(() => {
-    
-  // }, [])
   useEffect(() => {
     const cookies = parseCookies();
     const token = cookies.token;
@@ -40,20 +33,17 @@ const Navbar = (props) => {
 
   // Handling LogOut
   const handleLogout = () => {
-    // Remove token from localstorage.
-    // localStorage.removeItem("token");
+    // Remove token from localstorage - Nookies.
     destroyCookie(null, 'token');
-
     setToken(null);
-  // Then, remove the cookie on the client-side
-  // document.cookie = `null`;
+
+    // Alert
     props.showAlert("Log Out Successfully.", "success");
 
     setTimeout(() => {
       // Redirect at Home Page
       router.push("/");
     }, 1000);
-    // setCheckToken(false);
   };
 
   const handleMenu = () => {

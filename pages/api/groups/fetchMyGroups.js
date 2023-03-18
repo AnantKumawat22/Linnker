@@ -7,9 +7,8 @@ export default async function handler(req, res) {
   isAuth(req, res);
   connect();
   const user = req.user;
-  console.log(user, 'user ------------------ ');
   try {
-    const groups = await Group.find({ userId: user.id });
+    const groups = await Group.find({ user: user.id });
     res.status(200).json({ groups, message: 'Fetch Successfully.' });
   } catch (err) {
     console.log(err, 'handler error');
