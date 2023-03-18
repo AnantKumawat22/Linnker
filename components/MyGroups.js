@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Input from '@/components/atoms/input.atom';
 import styles from '../styles/mygroups.module.css';
@@ -11,7 +11,6 @@ import { faClose } from '@fortawesome/free-solid-svg-icons';
 
 const MyGroups = (props) => {
   const arg = props.props;
-
   const [input, setInput] = useState({
     name: '',
     link: '',
