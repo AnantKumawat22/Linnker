@@ -3,26 +3,22 @@ import 'bootstrap/dist/css/bootstrap.css';
 import styles from '../styles/groups.module.css';
 import MyGroupCards from '@/components/MyGroupCards';
 
-<<<<<<< Updated upstream
-
-
-const groups = () => {
-=======
-export async function getServerSideProps(context) {
-  const jsonResponse = await fetch(
-    'http://localhost:3000/api/groups/fetchAllGroups'
-  );
-  const { groups } = await jsonResponse.json();
-
-  console.log(groups, 'res');
-  return {
-    props: { groups },
-  };
+export async function getServerSideProps() {
+  try {
+    const jsonResponse = await fetch(
+      'http://localhost:3000/api/groups/fetchAllGroups'
+    );
+    const response = await jsonResponse.json();
+    return {
+      props: { groups: response?.groups || [] },
+    };
+  } catch (err) {
+    console.log(err, 'err');
+    return { props: { groups: [] } };
+  }
 }
 
 const groups = ({ groups }) => {
-  console.log(groups, 'groups');
->>>>>>> Stashed changes
   return (
     <>
       <div className={styles.mainGroupPageDiv}>
@@ -50,23 +46,13 @@ const groups = ({ groups }) => {
           </div>
         </div>
 
-<<<<<<< Updated upstream
-        <div className="container mt-5 mb-5">
-        <h2>All WhatsApp Groups</h2>
-        <div className={`${styles.allgroupcard} mt-4`}>
-          <MyGroupCards btnvalue="Join Group" btncolor="primary"/>
-          <MyGroupCards btnvalue="Join Group" btncolor="primary"/>
-          <MyGroupCards btnvalue="Join Group" btncolor="primary"/>
-          <MyGroupCards btnvalue="Join Group" btncolor="primary"/>
-=======
         <div className='container mt-5 mb-5'>
           <h2>All WhatsApp Groups</h2>
           <div className={`${styles.allgroupcard} mt-4`}>
-            {groups.map((group, idx) => (
+            {groups?.map((group, idx) => (
               <MyGroupCards key={group._id} group={group} />
             ))}
           </div>
->>>>>>> Stashed changes
         </div>
       </div>
     </>
