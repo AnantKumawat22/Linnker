@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Input from '@/components/atoms/input.atom';
 import styles from '../styles/mygroups.module.css';
@@ -8,9 +8,15 @@ import MyGroupCards from './MyGroupCards';
 import { parseCookies } from 'nookies';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
+import { generalContext } from '@/context/general.context';
+import { groupContext } from '@/context/group.context';
 
-const MyGroups = (props) => {
-  const arg = props.props;
+const MyGroups = ({ groups }) => {
+  const { showAlert, setLoaderProgress, topLoaderBar } =
+    useContext(generalContext);
+
+  const { myGroups, setMyGroups } = useContext(groupContext);
+
   const [input, setInput] = useState({
     name: '',
     link: '',
@@ -18,6 +24,10 @@ const MyGroups = (props) => {
     tags: [],
   });
   const [tag, setTag] = useState('');
+
+  useEffect(() => {
+    setMyGroups(groups);
+  }, []);
 
   const handleAddTag = () => {
     if (tag == '') return;
@@ -34,19 +44,19 @@ const MyGroups = (props) => {
 
   const handleDelete = async (id) => {
     const cookies = parseCookies();
-    const response = await fetch(`/api/groups/deletemygroup/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-        Authentication: cookies.token,
-      },
-    });
-    const data = await response.json();
-    if (data.success) {
-      // DELETE NOTE
-      // Alert
-    } else {
-      // Alert
+    try {
+      const response = await fetch(`/api/groups/deletemygroup/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          Authentication: cookies.token,
+        },
+      });
+      const data = await response.json();
+      showAlert(data.msg, 'success');
+      setMyGroups((prev) => prev.filter((item) => item._id !== id));
+    } catch (error) {
+      showAlert(error?.response?.data?.msg || 'Something went wrong', 'error');
     }
   };
 
@@ -64,8 +74,8 @@ const MyGroups = (props) => {
     const cookies = parseCookies();
 
     // Start the loader
-    arg.setLoaderProgress(true);
-    arg.topLoaderBar.current.continuousStart();
+    setLoaderProgress(true);
+    topLoaderBar.current.continuousStart();
 
     // API CALL
     const response = await fetch('/api/groups/creategroup', {
@@ -81,22 +91,22 @@ const MyGroups = (props) => {
     // Check if Everthing is okay or not.
     if (data.success) {
       // Clear Create Group Fields.
+      setMyGroups((prev) => [data.group, ...prev]);
       setInput({
         name: '',
         link: '',
         description: '',
         tags: [],
       });
-
       // Alert
-      arg.showAlert(data.msg, 'success');
+      showAlert(data.msg, 'success');
     } else {
       // Alert
-      arg.showAlert(data.msg, 'error');
+      showAlert(data.msg, 'error');
     }
     // Stop the loader
-    arg.setLoaderProgress(false);
-    arg.topLoaderBar.current.complete();
+    setLoaderProgress(false);
+    topLoaderBar.current.complete();
   };
   return (
     <>
@@ -185,7 +195,7 @@ const MyGroups = (props) => {
       <div className='container mt-5 mb-5'>
         <h3>Your WhatsApp Groups</h3>
         <div className={`${styles.allgroupcard} mt-4`}>
-          {arg?.groups?.map((group) => (
+          {myGroups?.map((group) => (
             <MyGroupCards
               key={group._id}
               group={group}

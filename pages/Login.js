@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useContext, useLayoutEffect } from "react";
-import authContext from "@/context/auth/authContext";
-import Link from "next/link";
-import "bootstrap/dist/css/bootstrap.css";
-import Button from "@/components/atoms/button.atom";
-import Input from "@/components/atoms/input.atom";
-import { useRouter } from "next/router";
-import { setCookie } from 'nookies'
+import React, { useState, useEffect, useContext, useLayoutEffect } from 'react';
+import authContext from '@/context/auth/authContext';
+import Link from 'next/link';
+import 'bootstrap/dist/css/bootstrap.css';
+import Button from '@/components/atoms/button.atom';
+import Input from '@/components/atoms/input.atom';
+import { useRouter } from 'next/router';
+import { setCookie } from 'nookies';
+import { generalContext } from '@/context/general';
 
 export async function getServerSideProps(context) {
   const { token } = context.req.cookies;
@@ -21,21 +22,22 @@ export async function getServerSideProps(context) {
   }
   return {
     props: {},
-  }
+  };
 }
 
 const Login = (props) => {
   // Context
-  const context = useContext(authContext);
-  const { checktoken, setCheckToken } = context;
+  const { setCheckToken } = useContext(authContext);
+  const { showAlert, topLoaderBar, setLoaderProgress } =
+    useContext(generalContext);
 
   // Router
   const router = useRouter();
 
   // Handle State of input fields.
   const [cred, setCred] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
 
   // On From Submit
@@ -45,14 +47,14 @@ const Login = (props) => {
     e.preventDefault();
 
     // Start the loader
-    props.setLoaderProgress(true);
-    props.topLoaderBar.current.continuousStart();
+    setLoaderProgress(true);
+    topLoaderBar.current.continuousStart();
 
     // API CALL
-    const response = await fetch("/api/auth/login", {
-      method: "POST",
+    const response = await fetch('/api/auth/login', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ email, password }),
     });
@@ -67,23 +69,23 @@ const Login = (props) => {
       setCheckToken(true);
 
       // Alert
-      props.showAlert(data.msg, "success");
+      showAlert(data.msg, 'success');
 
       // Stop the loader
-      props.setLoaderProgress(false);
-      props.topLoaderBar.current.complete();
+      setLoaderProgress(false);
+      topLoaderBar.current.complete();
 
       setTimeout(() => {
         // Redirect at Home Page
-        router.push("/");
+        router.push('/');
       }, 100);
     } else {
       // Stop the loader
-      props.setLoaderProgress(false);
-      props.topLoaderBar.current.complete();
+      setLoaderProgress(false);
+      topLoaderBar.current.complete();
 
       // Alert
-      props.showAlert(data.msg, "error");
+      showAlert(data.msg, 'error');
     }
   };
 
@@ -94,18 +96,18 @@ const Login = (props) => {
 
   return (
     <>
-      <section style={{ paddingTop: "30px" }}>
-        <div className="container-fluid pb-5" style={{ minHeight: "75vh" }}>
-          <div className="row d-flex justify-content-center align-items-center h-100">
-            <div className="col-md-9 col-lg-6 col-xl-5">
+      <section style={{ paddingTop: '30px' }}>
+        <div className='container-fluid pb-5' style={{ minHeight: '75vh' }}>
+          <div className='row d-flex justify-content-center align-items-center h-100'>
+            <div className='col-md-9 col-lg-6 col-xl-5'>
               <img
-                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
-                className="img-fluid"
-                alt="Sample image"
+                src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg'
+                className='img-fluid'
+                alt='Sample image'
               />
             </div>
-            <div className="col-md-8 col-lg-6 mt-5 col-xl-4 offset-xl-1">
-              <h2 className="mb-4 text-center">
+            <div className='col-md-8 col-lg-6 mt-5 col-xl-4 offset-xl-1'>
+              <h2 className='mb-4 text-center'>
                 <u> Login </u>
               </h2>
 
@@ -114,52 +116,52 @@ const Login = (props) => {
                 {/* Phone Number input */}
 
                 <Input
-                  type="email"
-                  id="email"
+                  type='email'
+                  id='email'
                   value={cred.email}
-                  name="email"
+                  name='email'
                   onChange={inpChange}
-                  placeholder="Enter your Email"
+                  placeholder='Enter your Email'
                 />
 
                 {/* Password input */}
                 <Input
-                  type="password"
-                  id="password"
+                  type='password'
+                  id='password'
                   value={cred.password}
-                  name="password"
+                  name='password'
                   onChange={inpChange}
-                  placeholder="Enter password"
+                  placeholder='Enter password'
                 />
 
-                <div className="d-flex justify-content-between align-items-center">
+                <div className='d-flex justify-content-between align-items-center'>
                   {/* Checkbox */}
-                  <div className="form-check mb-0">
+                  <div className='form-check mb-0'>
                     <input
-                      className="form-check-input me-2"
-                      type="checkbox"
-                      value=""
-                      id="form2Example3"
+                      className='form-check-input me-2'
+                      type='checkbox'
+                      value=''
+                      id='form2Example3'
                     />
-                    <label className="form-check-label" htmlFor="form2Example3">
+                    <label className='form-check-label' htmlFor='form2Example3'>
                       Remember me
                     </label>
                   </div>
-                  <Link href="#!" className="text-body">
+                  <Link href='#!' className='text-body'>
                     Forgot password?
                   </Link>
                 </div>
 
-                <div className="text-center text-lg-start mt-4 pt-2">
+                <div className='text-center text-lg-start mt-4 pt-2'>
                   <Button
-                    type="submit"
-                    value="Login"
-                    className="btn btn-primary btn-lg"
-                    style={{ paddingLeft: "2.5rem", paddingRight: "2.5rem" }}
+                    type='submit'
+                    value='Login'
+                    className='btn btn-primary btn-lg'
+                    style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem' }}
                   ></Button>
-                  <p className="small mt-2 pt-1 mb-0">
-                    Don't have an account?{" "}
-                    <Link href="/signup" className="link-danger">
+                  <p className='small mt-2 pt-1 mb-0'>
+                    Don't have an account?{' '}
+                    <Link href='/signup' className='link-danger'>
                       SignUp
                     </Link>
                   </p>
@@ -168,9 +170,9 @@ const Login = (props) => {
             </div>
           </div>
         </div>
-        <div className="d-flex flex-column flex-md-row text-center text-md-start justify-content-center py-4 px-4 px-xl-5 bg-primary">
+        <div className='d-flex flex-column flex-md-row text-center text-md-start justify-content-center py-4 px-4 px-xl-5 bg-primary'>
           {/* Copyright */}
-          <div className="text-white mb-3 mb-md-0 text-center">
+          <div className='text-white mb-3 mb-md-0 text-center'>
             Copyright © 2023 by Linnker. All rights reserved.
           </div>
 

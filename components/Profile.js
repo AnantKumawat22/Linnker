@@ -10,7 +10,6 @@ const Profile = () => {
   useEffect(() => {
     const fetchUser = async () => {
       const cookies = parseCookies();
-      console.log(cookies, 'cokse');
       try {
         const jsonResponse = await fetch('http://localhost:3000/api/user', {
           headers: {
@@ -25,6 +24,7 @@ const Profile = () => {
     };
     fetchUser();
   }, []);
+
   return (
     <>
       <DashboardNav />

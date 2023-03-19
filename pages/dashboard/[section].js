@@ -36,7 +36,7 @@ export async function getServerSideProps(context) {
     };
   }
 }
-const section = (props) => {
+const section = ({ groups }) => {
   const router = useRouter();
   const { section } = router.query;
   const [sectionstate, setSectionState] = useState(undefined);
@@ -51,9 +51,9 @@ const section = (props) => {
 
   return typeof sectionstate !== 'undefined' ? (
     sectionstate == 'profile' ? (
-      <Profile props={props} />
+      <Profile />
     ) : sectionstate == 'mygroups' ? (
-      <MyGroups props={props} />
+      <MyGroups groups={groups} />
     ) : (
       navigateprofile()
     )
