@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useContext, useLayoutEffect } from 'react';
-import authContext from '@/context/auth/authContext';
+import authContext from '@/context/auth.context';
 import Link from 'next/link';
 import 'bootstrap/dist/css/bootstrap.css';
 import Button from '@/components/atoms/button.atom';
 import Input from '@/components/atoms/input.atom';
 import { useRouter } from 'next/router';
 import { setCookie } from 'nookies';
-import { generalContext } from '@/context/general';
+import { generalContext } from '@/context/general.context';
 
 export async function getServerSideProps(context) {
   const { token } = context.req.cookies;
@@ -27,7 +27,7 @@ export async function getServerSideProps(context) {
 
 const Login = (props) => {
   // Context
-  const { setCheckToken } = useContext(authContext);
+  // const { setCheckToken } = useContext(authContext);
   const { showAlert, topLoaderBar, setLoaderProgress } =
     useContext(generalContext);
 
@@ -66,7 +66,7 @@ const Login = (props) => {
       // localStorage.setItem("token", data.authtoken);
       // document.cookie = `token=${data.authtoken}`;
       setCookie(null, 'token', data.authtoken);
-      setCheckToken(true);
+      // setCheckToken(true);
 
       // Alert
       showAlert(data.msg, 'success');
