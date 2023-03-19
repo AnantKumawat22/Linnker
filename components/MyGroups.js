@@ -1,29 +1,38 @@
-import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.css";
-import Input from "@/components/atoms/input.atom";
-import styles from "../styles/mygroups.module.css";
-import Button from "@/components/atoms/button.atom";
-import DashboardNav from "./DashboardNav";
-import MyGroupCards from "./MyGroupCards";
-import { parseCookies } from "nookies";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClose } from "@fortawesome/free-solid-svg-icons";
+import React, { useContext, useEffect, useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
+import Input from '@/components/atoms/input.atom';
+import styles from '../styles/mygroups.module.css';
+import Button from '@/components/atoms/button.atom';
+import DashboardNav from './DashboardNav';
+import MyGroupCards from './MyGroupCards';
+import { parseCookies } from 'nookies';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClose } from '@fortawesome/free-solid-svg-icons';
+import { generalContext } from '@/context/general.context';
+import { groupContext } from '@/context/group.context';
 
-const MyGroups = (props) => {
-  const arg = props.props;
-  
+const MyGroups = ({ groups }) => {
+  const { showAlert, setLoaderProgress, topLoaderBar } =
+    useContext(generalContext);
+
+  const { myGroups, setMyGroups } = useContext(groupContext);
+
   const [input, setInput] = useState({
-    name: "",
-    link: "",
-    description: "",
+    name: '',
+    link: '',
+    description: '',
     tags: [],
   });
-  const [tag, setTag] = useState("");
+  const [tag, setTag] = useState('');
+
+  useEffect(() => {
+    setMyGroups(groups);
+  }, []);
 
   const handleAddTag = () => {
-    if (tag == "") return;
+    if (tag == '') return;
     setInput((prev) => ({ ...prev, tags: [...prev.tags, tag] }));
-    setTag("");
+    setTag('');
   };
 
   const handleDeleteTag = (deleteTag) => {
@@ -33,9 +42,27 @@ const MyGroups = (props) => {
     }));
   };
 
+  const handleDelete = async (id) => {
+    const cookies = parseCookies();
+    try {
+      const response = await fetch(`/api/groups/deletemygroup/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          Authentication: cookies.token,
+        },
+      });
+      const data = await response.json();
+      showAlert(data.msg, 'success');
+      setMyGroups((prev) => prev.filter((item) => item._id !== id));
+    } catch (error) {
+      showAlert(error?.response?.data?.msg || 'Something went wrong', 'error');
+    }
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (name === "tag") setTag(value);
+    if (name === 'tag') setTag(value);
     else setInput((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -47,15 +74,15 @@ const MyGroups = (props) => {
     const cookies = parseCookies();
 
     // Start the loader
-    arg.setLoaderProgress(true);
-    arg.topLoaderBar.current.continuousStart();
+    setLoaderProgress(true);
+    topLoaderBar.current.continuousStart();
 
     // API CALL
-    const response = await fetch("/api/groups/creategroup", {
-      method: "POST",
+    const response = await fetch('/api/groups/creategroup', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
-        "Authentication": cookies.token,
+        'Content-Type': 'application/json',
+        Authentication: cookies.token,
       },
       body: JSON.stringify({ name, description, tags, link }),
     });
@@ -63,24 +90,23 @@ const MyGroups = (props) => {
 
     // Check if Everthing is okay or not.
     if (data.success) {
-
       // Clear Create Group Fields.
+      setMyGroups((prev) => [data.group, ...prev]);
       setInput({
-        name: "",
-        link: "",
-        description: "",
+        name: '',
+        link: '',
+        description: '',
         tags: [],
       });
-
       // Alert
-      arg.showAlert(data.msg, "success");
+      showAlert(data.msg, 'success');
     } else {
       // Alert
-      arg.showAlert(data.msg, "error");
+      showAlert(data.msg, 'error');
     }
     // Stop the loader
-    arg.setLoaderProgress(false);
-    arg.topLoaderBar.current.complete();
+    setLoaderProgress(false);
+    topLoaderBar.current.complete();
   };
   return (
     <>
@@ -90,20 +116,20 @@ const MyGroups = (props) => {
         <div className={styles.mygroupOne}>
           <div className={styles.mygroupOneInp1}>
             <div className={styles.addGroupInpDiv}>
-              <label htmlFor="">Group Name</label>
+              <label htmlFor=''>Group Name</label>
               <Input
-                type="text"
+                type='text'
                 onChange={handleChange}
-                name="name"
+                name='name'
                 value={input.name}
               />
             </div>
             <div className={styles.addGroupInpDiv}>
-              <label htmlFor="">Group Link</label>
+              <label htmlFor=''>Group Link</label>
               <Input
-                type="text"
+                type='text'
                 onChange={handleChange}
-                name="link"
+                name='link'
                 value={input.link}
               />
             </div>
@@ -111,22 +137,22 @@ const MyGroups = (props) => {
 
           <div className={styles.mygroupOneInp1}>
             <div className={`${styles.addGroupInpDiv}`}>
-              <label htmlFor="">Group Description</label>
+              <label htmlFor=''>Group Description</label>
               <textarea
-                className="form-control form-control-lg mb-4"
-                name="description"
+                className='form-control form-control-lg mb-4'
+                name='description'
                 rows={5}
                 onChange={handleChange}
                 value={input.description}
               />
             </div>
             <div className={styles.addGroupInpDiv}>
-              <label htmlFor="">Add Tags</label>
+              <label htmlFor=''>Add Tags</label>
               <Input
-                width="50%"
-                type="text"
+                width='50%'
+                type='text'
                 onChange={handleChange}
-                name="tag"
+                name='tag'
                 value={tag}
               />
               <div className={styles.maintag}>
@@ -136,15 +162,15 @@ const MyGroups = (props) => {
                     <FontAwesomeIcon
                       onClick={() => handleDeleteTag(tag)}
                       icon={faClose}
-                      style={{ cursor: "pointer" }}
-                      className="fas fa-close"
+                      style={{ cursor: 'pointer' }}
+                      className='fas fa-close'
                     ></FontAwesomeIcon>
                   </div>
                 ))}
               </div>
               <Button
-                className="btn btn-success"
-                value="Add Tag"
+                className='btn btn-success'
+                value='Add Tag'
                 disabled={!(input.tags.length <= 4)}
                 onClick={handleAddTag}
               />
@@ -152,11 +178,11 @@ const MyGroups = (props) => {
           </div>
 
           <Button
-            className="btn btn-primary btn-lg mt-5"
-            value="Add Group"
+            className='btn btn-primary btn-lg mt-5'
+            value='Add Group'
             disabled={
               !Object.keys(input).every((key) => {
-                if (key === "tags") {
+                if (key === 'tags') {
                   return input[key].length > 0;
                 } else return input[key];
               })
@@ -166,14 +192,22 @@ const MyGroups = (props) => {
         </div>
       </div>
 
-      <div className="container mt-5 mb-5">
+      <div className='container mt-5 mb-5'>
         <h3>Your WhatsApp Groups</h3>
         <div className={`${styles.allgroupcard} mt-4`}>
-          <MyGroupCards btnvalue="Delete" btncolor="danger" props={arg}/>
-          <MyGroupCards btnvalue="Delete" btncolor="danger" props={arg}/>
-          <MyGroupCards btnvalue="Delete" btncolor="danger" props={arg}/>
-          <MyGroupCards btnvalue="Delete" btncolor="danger" props={arg}/>
-          <MyGroupCards btnvalue="Delete" btncolor="danger" props={arg}/>
+          {myGroups?.map((group) => (
+            <MyGroupCards
+              key={group._id}
+              group={group}
+              renderAction={() => (
+                <Button
+                  onClick={() => handleDelete(group._id)}
+                  className={`btn btn-danger btn-lg`}
+                  value='Delete'
+                />
+              )}
+            />
+          ))}
         </div>
       </div>
     </>

@@ -38,8 +38,8 @@ const Signup = (props) => {
     e.preventDefault();
 
     // Start the loader
-    props.setLoaderProgress(true);
-    props.topLoaderBar.current.continuousStart();
+    // props.setLoaderProgress(true);
+    // props.topLoaderBar.current.continuousStart();
 
     const { name, email, password, conpassword } = cred;
 
@@ -70,15 +70,15 @@ const Signup = (props) => {
       props.showAlert(data.msg, "success");
 
       // Stop the loader
-      props.setLoaderProgress(false);
-      props.topLoaderBar.current.complete();
+      // props.setLoaderProgress(false);
+      // props.topLoaderBar.current.complete();
 
       // Redirect at Login Page
       router.push("/login");
     } else {
       // Stop the loader
-      props.setLoaderProgress(false);
-      props.topLoaderBar.current.complete();
+      // props.setLoaderProgress(false);
+      // props.topLoaderBar.current.complete();
 
       // Alert
       props.showAlert(data.msg, "error");

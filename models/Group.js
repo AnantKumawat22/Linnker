@@ -1,10 +1,11 @@
-import mongoose from "mongoose";
-import { Schema } from "mongoose";
+import mongoose from 'mongoose';
+import { Schema } from 'mongoose';
 
 const GroupSchema = new Schema({
   user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "users"
+    type: Schema.Types.ObjectId,
+    ref: 'users',
+    required: true,
   },
   name: {
     type: String,
@@ -26,6 +27,6 @@ const GroupSchema = new Schema({
   ],
 });
 
-const Group = mongoose.models.groups || mongoose.model("groups", GroupSchema);
+const Group = mongoose.models.groups || mongoose.model('groups', GroupSchema);
 
 export default Group;

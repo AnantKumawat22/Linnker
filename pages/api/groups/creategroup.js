@@ -1,22 +1,22 @@
-import isAuth from "@/middleware/isAuth";
-import Group from "@/models/Group";
-import connect from "../../../lib/mongodb";
-import initMiddleware from "../../../lib/init-middleware";
-import validateMiddleware from "../../../lib/validate-middleware";
-import { check } from "express-validator";
+import isAuth from '@/middleware/isAuth';
+import Group from '@/models/Group';
+import connect from '../../../lib/mongodb';
+import initMiddleware from '../../../lib/init-middleware';
+import validateMiddleware from '../../../lib/validate-middleware';
+import { check } from 'express-validator';
 
 // Validate input fields.
 const validateBody = initMiddleware(
   validateMiddleware([
     check(
-      "name",
-      "Group Name must have atleast 3 characters and atmost 20 characters."
+      'name',
+      'Group Name must have atleast 3 characters and atmost 20 characters.'
     ).isLength({ min: 3, max: 20 }),
     check(
-      "description",
-      "Group Description must have atleast 3 characters and atmost 200 characters."
+      'description',
+      'Group Description must have atleast 3 characters and atmost 200 characters.'
     ).isLength({ min: 3, max: 200 }),
-    check("link", "Enter a Valid Group Link").isURL(),
+    check('link', 'Enter a Valid Group Link').isURL(),
   ])
 );
 
@@ -24,7 +24,7 @@ const validateBody = initMiddleware(
 export default async function handler(req, res) {
   const { name, description, link, tags } = req.body;
 
-  if (req.method == "POST") {
+  if (req.method == 'POST') {
     try {
       // Connect to Database.
       connect();
@@ -33,7 +33,7 @@ export default async function handler(req, res) {
       await validateBody(req, res);
 
       isAuth(req, res);
-
+      console.log(req.user, 'user');
       // Create and Save New Note
       const creategroup = await Group.create({
         name,
@@ -45,9 +45,13 @@ export default async function handler(req, res) {
 
       res
         .status(200)
-        .json({ success: true, msg: "New Group Created Successfully." });
+        .json({
+          success: true,
+          msg: 'New Group Created Successfully.',
+          group: creategroup,
+        });
     } catch (error) {
-      res.status(500).json({ msg: "Internal sever Error.", success: false });
+      res.status(500).json({ msg: 'Internal sever Error.', success: false });
     }
   }
 }
