@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     let user = await User.findOne({ _id: id });
     if (!user) return res.send("Invalid link");
 
-    let tokencheck = await Token.findOne({ userId: user._id, token });
+    let tokencheck = await Token.findOne({ user: user._id, token });
     if (!tokencheck) return res.send("Invalid link");
 
     await User.updateOne({ _id: user._id, $set: {verified: true} });

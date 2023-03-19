@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { Schema } from 'mongoose';
 
 const tokenSchema = new Schema({
-    userId: {
+    user: {
         type: Schema.Types.ObjectId,
         ref: 'users',
         required: true
