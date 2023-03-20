@@ -23,7 +23,7 @@ const groups = ({ groups }) => {
   return (
     <>
       <div className={styles.mainGroupPageDiv}>
-        <div className={styles.searchAndDropDownDiv}>
+        <div className='container my-4 d-flex align-items-center justify-content-between'>
           <form
             action=''
             className={`${styles.searchBarDiv} shadow-sm bg-white`}
@@ -47,20 +47,22 @@ const groups = ({ groups }) => {
           </div>
         </div>
 
-        <div className='container mt-5 mb-5'>
-          <h2>All WhatsApp Groups</h2>
-          <div className={`${styles.allgroupcard} mt-4`}>
+        <div className='container mt-2 mb-5'>
+          <h2 className='fs-2 mb-4'>All WhatsApp Groups</h2>
+          <div className='row gy-4'>
             {groups?.map((group, idx) => (
-              <MyGroupCards
-                key={group._id}
-                group={group}
-                renderAction={() => (
-                  <Button
-                    className={`btn btn-primary btn-lg`}
-                    value='Join Group'
-                  ></Button>
-                )}
-              />
+              <div className='col-4'>
+                <MyGroupCards
+                  key={group._id}
+                  group={group}
+                  renderAction={() => (
+                    <Button
+                      className={`btn btn-primary btn-lg mt-2`}
+                      value='Join Group'
+                    ></Button>
+                  )}
+                />
+              </div>
             ))}
           </div>
         </div>

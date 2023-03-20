@@ -5,18 +5,24 @@ import styles from '../styles/MyGroupCards.module.css';
 const MyGroupCards = ({ group, renderAction }) => {
   return (
     <>
-      <div className={`${styles.groupcard} shadow-sm bg-white`}>
-        <h5>{group.name}</h5>
-        <p>{group.description}</p>
-        <div className={styles.maintag}>
-          {group.tags.map((tag) => (
-            <div className={styles.tag}>
-              <h6>{tag}</h6>
-            </div>
-          ))}
+      <div
+        class={`card shadow-sm bg-white rounded-4 border border-1 border-primary h-100`}
+      >
+        <div className='card-body d-flex flex-column'>
+          <h5 className='card-title'>{group.name}</h5>
+          <p className='card-text fw-light text-wrap flex-grow-1'>
+            {group.description}
+          </p>
+          <div className='d-flex align-items-center mb-2 flex-wrap'>
+            {group.tags.map((tag, idx) => (
+              <div className={`me-1 mb-1 px-3 rounded-1 border`}>
+                <span className='fw-lighter'>{tag}</span>
+              </div>
+            ))}
+          </div>
+          {/* action button */}
+          {renderAction()}
         </div>
-        {/* action button */}
-        {renderAction()}
       </div>
     </>
   );
