@@ -14,7 +14,6 @@ export async function getServerSideProps(context) {
       },
     };
   }
-  console.log(token, 'tokne');
   try {
     const jsonResponse = await fetch(
       'http://localhost:3000/api/groups/fetchMyGroups',

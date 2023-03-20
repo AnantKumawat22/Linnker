@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import styles from '../styles/groups.module.css';
 import MyGroupCards from '@/components/MyGroupCards';
 import Button from '@/components/atoms/button.atom';
+import Image from 'next/image';
 
 export async function getServerSideProps() {
   try {
@@ -20,27 +21,82 @@ export async function getServerSideProps() {
 }
 
 const groups = ({ groups }) => {
+  const [searchgroup, setSearchGroup] = useState(groups);
+  const [searchinput, setSearchInput] = useState('');
+  const [selectedValue, setSelectedValue] = useState('tags');
+
+  const handleSearchInput = (event) => {
+    console.log(searchinput, 'search');
+    setSearchInput(event.target.value);
+  };
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    console.log('searhc', searchinput, selectedValue)
+
+    let filterData = '';
+
+    if (selectedValue === 'tags') {
+      let checktag;
+      let mapData = groups.map((group) => {
+        checktag = group.tags.filter((eachtag) =>
+          eachtag.toLowerCase().includes(searchinput?.toLowerCase())
+        );
+
+        return checktag.length > 0 ? group : false;
+      });
+      filterData = mapData.filter((data) => data);
+    } else if (selectedValue === 'groupname') {
+      filterData = groups.filter(
+        (group) =>
+          group.name.toLowerCase().includes(searchinput?.toLowerCase()) && group
+      );
+    }
+    console.log(filterData,'data')
+    setSearchGroup(filterData);
+  };
+
+  const handleSelectChange = (event) => {
+    setSelectedValue(event.target.value);
+  };
+
+  const handleJoinGroupBtn = (link) => {
+    alert(link, 'links');
+    window.open(link, '_blank');
+  };
+
   return (
     <>
       <div className={styles.mainGroupPageDiv}>
         <div className='container my-4 d-flex align-items-center justify-content-between'>
           <form
+            onSubmit={handleSearchSubmit}
             action=''
             className={`${styles.searchBarDiv} shadow-sm bg-white`}
           >
             <input
+              autoComplete='off'
               placeholder='Search for group or tags'
               type='text'
+              onChange={handleSearchInput}
+              value={searchinput}
+              name='searchinput'
               className={`${styles.searchInp}`}
             />
-            <button className='btn btn-primary rounded-pill'>Search</button>
+            <button type='submit' className='btn btn-primary rounded-pill'>
+              Search
+            </button>
           </form>
           <div className={styles.dropDownDiv}>
-            <select name='' id=''>
-              <option className={styles.selectOptions} value='Tags'>
+            <select value={selectedValue} onChange={handleSelectChange}>
+              <option className={styles.selectOptions} value='tags' name='tags'>
                 Tags
               </option>
-              <option className={styles.selectOptions} value='Group Name'>
+              <option
+                className={styles.selectOptions}
+                value='groupname'
+                name='groupname'
+              >
                 Group Name
               </option>
             </select>
@@ -50,20 +106,36 @@ const groups = ({ groups }) => {
         <div className='container mt-2 mb-5'>
           <h2 className='fs-2 mb-4'>All WhatsApp Groups</h2>
           <div className='row gy-4'>
-            {groups?.map((group, idx) => (
+            {searchgroup?.map((group, idx) => (
               <div className='col-4'>
                 <MyGroupCards
                   key={group._id}
                   group={group}
                   renderAction={() => (
                     <Button
-                      className={`btn btn-primary btn-lg mt-2`}
+                      onClick={() => handleJoinGroupBtn(group.link)}
+                      className={`btn btn-primary btn-lg`}
                       value='Join Group'
                     ></Button>
                   )}
                 />
               </div>
             ))}
+            {searchgroup?.length === 0 && (
+              <div
+                className='container d-flex justify-content-center align-items-center flex-column'
+                style={{ minHeight: '300px' }}
+              >
+                <Image
+                  src='/img/No_Group_Found.gif'
+                  width={300}
+                  height={300}
+                ></Image>
+                <p style={{ fontSize: '25px', color: 'grey' }}>
+                  No Group Found
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>

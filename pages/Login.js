@@ -96,7 +96,7 @@ const Login = (props) => {
 
   return (
     <>
-      <section style={{ paddingTop: '30px' }}>
+      <section style={{ paddingTop: '40px' }}>
         <div className='container-fluid pb-5' style={{ minHeight: '75vh' }}>
           <div className='row d-flex justify-content-center align-items-center h-100'>
             <div className='col-md-9 col-lg-6 col-xl-5'>
@@ -113,7 +113,7 @@ const Login = (props) => {
 
               {/* Form */}
               <form onSubmit={handleSubmit}>
-                {/* Phone Number input */}
+                {/* Email input */}
 
                 <Input
                   type='email'
@@ -134,9 +134,9 @@ const Login = (props) => {
                   placeholder='Enter password'
                 />
 
-                <div className='d-flex justify-content-between align-items-center'>
+                <div className='d-flex flex-row-reverse justify-content-between align-items-center'>
                   {/* Checkbox */}
-                  <div className='form-check mb-0'>
+                  {/* <div className='form-check mb-0'>
                     <input
                       className='form-check-input me-2'
                       type='checkbox'
@@ -146,8 +146,8 @@ const Login = (props) => {
                     <label className='form-check-label' htmlFor='form2Example3'>
                       Remember me
                     </label>
-                  </div>
-                  <Link href='#!' className='text-body'>
+                  </div> */}
+                  <Link href='/forgotpassword' className='text-body'>
                     Forgot password?
                   </Link>
                 </div>
@@ -169,28 +169,6 @@ const Login = (props) => {
               </form>
             </div>
           </div>
-        </div>
-        <div className='d-flex flex-column flex-md-row text-center text-md-start justify-content-center py-4 px-4 px-xl-5 bg-primary'>
-          {/* Copyright */}
-          <div className='text-white mb-3 mb-md-0 text-center'>
-            Copyright © 2023 by Linnker. All rights reserved.
-          </div>
-
-          {/* Right */}
-          {/* <div>
-            <Link href="#!" className="text-white me-4">
-              <i className="fab fa-facebook-f"></i>
-            </Link>
-            <Link href="#!" className="text-white me-4">
-              <i className="fab fa-twitter"></i>
-            </Link>
-            <Link href="#!" className="text-white me-4">
-              <i className="fab fa-google"></i>
-            </Link>
-            <Link href="#!" className="text-white">
-              <i className="fab fa-linkedin-in"></i>
-            </Link>
-          </div> */}
         </div>
       </section>
     </>
