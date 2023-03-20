@@ -92,7 +92,7 @@ const Signup = (props) => {
 
   return (
     <>
-      <section style={{ paddingTop: '30px' }}>
+      <section style={{ paddingTop: '40px', marginBottom: '40px' }}>
         <div className='container-fluid h-custom pb-5'>
           <div className='row d-flex justify-content-center align-items-center h-100'>
             <div className='col-md-9 col-lg-6 col-xl-5'>
@@ -163,9 +163,9 @@ const Signup = (props) => {
                   />
                 </div>
 
-                <div className='d-flex justify-content-between align-items-center'>
+                {/* <div className='d-flex justify-content-between align-items-center'> */}
                   {/* Checkbox */}
-                  <div className='form-check mb-0'>
+                  {/* <div className='form-check mb-0'>
                     <input
                       className='form-check-input me-2'
                       type='checkbox'
@@ -176,7 +176,7 @@ const Signup = (props) => {
                       Remember me
                     </label>
                   </div>
-                </div>
+                </div> */}
 
                 <div className='text-center text-lg-start mt-4 pt-2'>
                   <Button
@@ -195,28 +195,6 @@ const Signup = (props) => {
               </form>
             </div>
           </div>
-        </div>
-        <div className='d-flex flex-column flex-md-row justify-content-center py-4 px-4 px-xl-5 bg-primary'>
-          {/* Copyright */}
-          <div className='text-white mb-md-0 text-center'>
-            Copyright © 2023 by Linnker. All rights reserved.
-          </div>
-
-          {/* Right */}
-          {/* <div>
-            <Link href="#!" className="text-white me-4">
-              <i className="fab fa-facebook-f"></i>
-            </Link>
-            <Link href="#!" className="text-white me-4">
-              <i className="fab fa-twitter"></i>
-            </Link>
-            <Link href="#!" className="text-white me-4">
-              <i className="fab fa-google"></i>
-            </Link>
-            <Link href="#!" className="text-white">
-              <i className="fab fa-linkedin-in"></i>
-            </Link>
-          </div> */}
         </div>
       </section>
     </>

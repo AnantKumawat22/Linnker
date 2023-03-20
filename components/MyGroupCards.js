@@ -3,6 +3,11 @@ import React from 'react';
 import styles from '../styles/MyGroupCards.module.css';
 
 const MyGroupCards = ({ group, renderAction }) => {
+
+  const handleJoinGroupBtn = () => {
+    window.open(group.link, '_blank');
+  }
+
   return (
     <>
       <div className={`${styles.groupcard} shadow-sm bg-white`}>
@@ -16,7 +21,7 @@ const MyGroupCards = ({ group, renderAction }) => {
           ))}
         </div>
         {/* action button */}
-        {renderAction()}
+        {renderAction(handleJoinGroupBtn)}
       </div>
     </>
   );
