@@ -12,6 +12,7 @@ import '@/scss/custom.scss';
 import '@/styles/globals.css';
 import AuthContextProvider from '@/context/auth.context';
 import GroupContextProvider from '@/context/group.context';
+import Footer from '@/components/Footer';
 config.autoAddCss = false;
 
 export default function App({ Component, pageProps }) {
@@ -24,6 +25,7 @@ export default function App({ Component, pageProps }) {
         <GroupContextProvider>
           <Navbar />
           <Component {...pageProps} />
+          <Footer/>
         </GroupContextProvider>
       </AuthContextProvider>
     </GeneralContextProvider>
