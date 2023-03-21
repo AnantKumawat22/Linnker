@@ -26,8 +26,11 @@ const groups = ({ groups }) => {
   const [selectedValue, setSelectedValue] = useState('tags');
 
   const handleSearchInput = (event) => {
-    console.log(searchinput, 'search');
-    setSearchInput(event.target.value);
+    let newsearchinput = event.target.value;
+    setSearchInput(newsearchinput);
+    if(newsearchinput == ""){
+      setSearchGroup(groups);
+    }
   };
 
   const handleSearchSubmit = (e) => {
@@ -103,9 +106,9 @@ const groups = ({ groups }) => {
           </div>
         </div>
 
-        <div className='container mt-2 mb-5'>
+        <div className='container mt-2 mb-5' style={{minHeight: '450px'}}>
           <h2 className='fs-2 mb-4'>All WhatsApp Groups</h2>
-          <div className='row gy-4'>
+          <div className='row gy-4' >
             {searchgroup?.map((group, idx) => (
               <div className='col-12 col-md-6 col-lg-4 col-xl-3'>
                 <MyGroupCards
@@ -124,7 +127,7 @@ const groups = ({ groups }) => {
             {searchgroup?.length === 0 && (
               <div
                 className='container d-flex justify-content-center align-items-center flex-column'
-                style={{ minHeight: '300px' }}
+                style={{ minHeight: '400px' }}
               >
                 <Image
                   src='/img/No_Group_Found.gif'

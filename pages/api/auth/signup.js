@@ -6,7 +6,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import User from '../../../models/User.js';
 import Token from '@/models/Token';
-import emailVerify from '../../../lib/emailverify';
+import emailSend from '../../../lib/emailsend';
 require('dotenv').config();
 
 // Validate input fields.
@@ -72,7 +72,7 @@ export default async function handler(req, res) {
       // Sending verification link to user's email.
       const message = `${process.env.BASE_URL}/verifyemail/verify/${user._id}/${authtoken}`;
 
-      await emailVerify(user.email, 'Linnker email Verification link', message);
+      await emailSend(user.email, 'Linnker email Verification link', message);
 
       res.status(200).json({
         msg: 'Email sent to your account. Please verify and Login.',
