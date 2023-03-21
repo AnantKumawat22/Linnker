@@ -155,6 +155,14 @@ const Navbar = (props) => {
                   </li>
                 </>
               )}
+              <li>
+                <Link className={`nav-link`} href='/groups'>
+                  <div className='btn-get-started nav-link scroll-to m-0'>
+                    <span>Join Groups</span>
+                    <i className='bi bi-arrow-right'></i>
+                  </div>
+                </Link>
+              </li>
             </ul>
             <i
               className={`bi bi-list ${styles['mobile-nav-toggle']}`}
