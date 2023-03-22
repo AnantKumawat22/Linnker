@@ -1,8 +1,27 @@
-import 'bootstrap/dist/css/bootstrap.css';
-import React from 'react';
-import styles from '../styles/MyGroupCards.module.css';
+import "bootstrap/dist/css/bootstrap.css";
+import React from "react";
+import { useRouter } from "next/router";
+
+// Unused
+import styles from "../styles/MyGroupCards.module.css";
 
 const MyGroupCards = ({ group, renderAction }) => {
+  // Router
+  const router = useRouter();
+
+  const handleCardClick = (group) => {
+    console.log(group);
+    router.push({
+      pathname: "/groupdetails",
+      query: {
+        groupId: group._id,
+        groupname: group.name,
+        groupdescription: group.description,
+        grouptags: group.tags,
+        grouplink: group.link,
+      },
+    });
+  };
   return (
     <>
       <div
@@ -13,10 +32,10 @@ const MyGroupCards = ({ group, renderAction }) => {
           <p className='card-text fw-light text-wrap flex-grow-1 no-of-line-3'>
             {group.description}
           </p>
-          <div className='d-flex align-items-center mb-2 flex-wrap'>
+          <div className="d-flex align-items-center mb-2 flex-wrap">
             {group.tags.map((tag, idx) => (
               <div className={`me-1 mb-1 px-3 rounded-1 border`}>
-                <span className='fw-lighter'>{tag}</span>
+                <span className="fw-lighter">{tag}</span>
               </div>
             ))}
           </div>

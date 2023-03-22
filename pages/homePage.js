@@ -11,14 +11,14 @@ const homePage = () => {
         <div className='container'>
           <div className='row'>
             <div className='col-lg-6 d-flex flex-column justify-content-center'>
-              <h1 data-aos='fade-up'>WhatsApp Group link to join</h1>
-              <h2 data-aos='fade-up' data-aos-delay='400'>
+              <h1 data-aos='fade-up' className='text-lg-start text-center'>WhatsApp Group link to join</h1>
+              <h2 data-aos='fade-up' data-aos-delay='400' className='text-lg-start text-center'>
                 We make easy to find best group to join
               </h2>
               <div data-aos='fade-up' data-aos-delay='600'>
                 <Link
                   href='/groups'
-                  className='mt-4 d-flex'
+                  className='m-lg-0 d-flex m-auto mt-lg-5 mt-5'
                   style={{ width: 'max-content' }}
                 >
                   <div className='btn-get-started scroll-to m-0'>
