@@ -31,9 +31,9 @@ const MyGroupCards = ({ group, renderAction }) => {
           handleCardClick(group);
         }}
       >
-        <div className="card-body d-flex flex-column">
-          <h5 className="card-title">{group.name}</h5>
-          <p className="card-text fw-light text-wrap flex-grow-1">
+        <div className='card-body d-flex flex-column'>
+          <h5 className='card-title no-of-line-1'>{group.name}</h5>
+          <p className='card-text fw-light text-wrap flex-grow-1 no-of-line-3'>
             {group.description}
           </p>
           <div className="d-flex align-items-center mb-2 flex-wrap">

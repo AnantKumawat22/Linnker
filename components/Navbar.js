@@ -158,9 +158,15 @@ const Navbar = (props) => {
               <li>
                 <button
                   onClick={()=> router.push('/groups')}
-                  className={`${styles.joinGroupBtn} btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center`}
+                  className={`${styles.joinGroupBtn}  scrollto d-inline-flex align-items-center justify-content-center align-self-center`}
                 >Join Groups
                 </button>
+                {/* <Link className={`nav-link`} href='/groups'>
+                  <div className='btn-get-started nav-link scroll-to m-0'>
+                    <span>Join Groups</span>
+                    <i className='bi bi-arrow-right'></i>
+                  </div>
+                </Link> */}
               </li>
             </ul>
             <i

@@ -5,26 +5,27 @@ import Link from 'next/link';
 
 const homePage = () => {
   return (
-    <>
+    <div className='home-page-root'>
       {/* <!-- ======= Hero Section ======= --> */}
       <section id='hero' className='hero d-flex align-items-center'>
         <div className='container'>
           <div className='row'>
             <div className='col-lg-6 d-flex flex-column justify-content-center'>
-              <h1 data-aos='fade-up'>WhatsApp Group link to join</h1>
-              <h2 data-aos='fade-up' data-aos-delay='400'>
+              <h1 data-aos='fade-up' className='text-lg-start text-center'>WhatsApp Group link to join</h1>
+              <h2 data-aos='fade-up' data-aos-delay='400' className='text-lg-start text-center'>
                 We make easy to find best group to join
               </h2>
               <div data-aos='fade-up' data-aos-delay='600'>
-                <div className='text-center text-lg-start'>
-                  <Link
-                    href="/groups"
-                    className="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center"
-                  >
+                <Link
+                  href='/groups'
+                  className='m-lg-0 d-flex m-auto mt-lg-5 mt-5'
+                  style={{ width: 'max-content' }}
+                >
+                  <div className='btn-get-started scroll-to m-0'>
                     <span>Join Groups</span>
                     <i className='bi bi-arrow-right'></i>
-                  </Link>
-                </div>
+                  </div>
+                </Link>
               </div>
             </div>
             <div
@@ -32,7 +33,12 @@ const homePage = () => {
               data-aos='zoom-out'
               data-aos-delay='200'
             >
-              <img src='/img/hero-img.png' className='img-fluid' alt='' priority />
+              <img
+                src='/img/hero-img.png'
+                className='img-fluid'
+                alt=''
+                priority
+              />
             </div>
           </div>
         </div>
@@ -809,7 +815,7 @@ const homePage = () => {
         </section>
       </main>
       {/* <!-- End #main --> */}
-    </>
+    </div>
   );
 };
 

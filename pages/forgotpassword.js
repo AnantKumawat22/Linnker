@@ -124,7 +124,7 @@ const forgotpassword = () => {
         style={{
           paddingBottom: "50px",
           minHeight: "85vh",
-          background: "url(/img/hero-bg.png) top center no-repeat",
+          background: "url(/img/hero-bg.svg) top center no-repeat",
         }}
       >
         {token ? (

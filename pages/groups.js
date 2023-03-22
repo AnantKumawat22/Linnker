@@ -71,7 +71,7 @@ const groups = ({ groups }) => {
   return (
     <>
       <div className={styles.mainGroupPageDiv}>
-        <div className='container my-4 d-flex align-items-center justify-content-between'>
+        <div className='container my-4 d-flex flex-wrap align-items-center justify-content-between'>
           <form
             onSubmit={handleSearchSubmit}
             action=''
@@ -110,7 +110,7 @@ const groups = ({ groups }) => {
           <h2 className='fs-2 mb-4'>All WhatsApp Groups</h2>
           <div className='row gy-4' >
             {searchgroup?.map((group, idx) => (
-              <div className='col-4'>
+              <div className='col-12 col-md-6 col-lg-4 col-xl-3'>
                 <MyGroupCards
                   key={group._id}
                   group={group}
