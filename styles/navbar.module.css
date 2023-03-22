@@ -44,6 +44,29 @@
     padding: 0;
 }
 
+.joinGroupBtn,
+.joinGroupBtn:focus {
+    outline: none;
+    border: none;
+    font-weight: 600;
+    background: #4154f1;
+    padding: 8px 20px;
+    margin-left: 30px;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.joinGroupBtn:hover,
+.joinGroupBtn:focus:hover {
+    color: #fff;
+    background: #5969f3;
+}
+
+/* .navbar-mobile .getstarted,
+.navbar-mobile .getstarted:focus {
+  margin: 15px;
+} */
+
 .navbar ul {
     margin: 0;
     padding: 0;

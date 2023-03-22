@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
-import Link from 'next/link';
-import 'bootstrap/dist/css/bootstrap.css';
-import { useRouter } from 'next/router';
-import styles from '../styles/navbar.module.css';
-import { destroyCookie } from 'nookies';
-import { parseCookies } from 'nookies';
-import { generalContext } from '@/context/general.context';
+import React, { useContext, useEffect, useState } from "react";
+import Link from "next/link";
+import "bootstrap/dist/css/bootstrap.css";
+import { useRouter } from "next/router";
+import styles from "../styles/navbar.module.css";
+import { destroyCookie } from "nookies";
+import { parseCookies } from "nookies";
+import { generalContext } from "@/context/general.context";
 
 const Navbar = (props) => {
   const router = useRouter();
@@ -34,15 +34,15 @@ const Navbar = (props) => {
   // Handling LogOut
   const handleLogout = () => {
     // Remove token from localstorage - Nookies.
-    destroyCookie(null, 'token');
+    destroyCookie(null, "token");
     setToken(null);
 
     // Alert
-    showAlert('Log Out Successfully.', 'success');
+    showAlert("Log Out Successfully.", "success");
 
     setTimeout(() => {
       // Redirect at Home Page
-      router.push('/');
+      router.push("/");
     }, 1000);
   };
 
@@ -56,26 +56,26 @@ const Navbar = (props) => {
         onResize={(e) => {}}
         style={
           scrolled
-            ? { backgroundColor: 'white', boxShadow: '0 0 2px 0px lightgray' }
+            ? { backgroundColor: "white", boxShadow: "0 0 2px 0px lightgray" }
             : {}
         }
-        id='header'
+        id="header"
         className={`${styles.header}`}
       >
-        <div className='container-fluid container-xl d-flex align-items-center justify-content-between'>
-          <Link href='/' className={`${styles.logo} d-flex align-items-center`}>
-            <img src='assets/img/logo.png' alt='' />
+        <div className="container-fluid container-xl d-flex align-items-center justify-content-between">
+          <Link href="/" className={`${styles.logo} d-flex align-items-center`}>
+            <img src="assets/img/logo.png" alt="" />
             <span>Linnker</span>
           </Link>
 
-          <nav id='navbar' className={`${styles['navbar']}`}>
-            <ul style={drawerOpen ? {} : { transform: 'translateX(-120%)' }}>
+          <nav id="navbar" className={`${styles["navbar"]}`}>
+            <ul style={drawerOpen ? {} : { transform: "translateX(-120%)" }}>
               <li>
                 <Link
                   className={`nav-link scrollto ${
-                    asPath === '/' ? 'active' : ''
+                    asPath === "/" ? "active" : ""
                   }`}
-                  href='/'
+                  href="/"
                 >
                   Home
                 </Link>
@@ -85,9 +85,9 @@ const Navbar = (props) => {
                 <>
                   <li>
                     <Link
-                      href='/dashboard/profile'
+                      href="/dashboard/profile"
                       className={`nav-link scrollto ${
-                        asPath === '/dashboard/profile' ? 'active' : ''
+                        asPath === "/dashboard/profile" ? "active" : ""
                       }`}
                     >
                       Dashboard
@@ -100,9 +100,9 @@ const Navbar = (props) => {
 
               <li>
                 <Link
-                  href='/aboutus'
+                  href="/aboutus"
                   className={`nav-link scrollto ${
-                    asPath === '/aboutus' ? 'active' : ''
+                    asPath === "/aboutus" ? "active" : ""
                   }`}
                 >
                   About
@@ -111,9 +111,9 @@ const Navbar = (props) => {
               <li>
                 <Link
                   className={`nav-link scrollto ${
-                    asPath === '/contactus' ? 'active' : ''
+                    asPath === "/contactus" ? "active" : ""
                   }`}
-                  href='/contactus'
+                  href="/contactus"
                 >
                   Contact
                 </Link>
@@ -124,9 +124,9 @@ const Navbar = (props) => {
                   <li>
                     <Link
                       className={`nav-link scrollto ${
-                        asPath === '/login' ? 'active' : ''
+                        asPath === "/login" ? "active" : ""
                       }`}
-                      href='/login'
+                      href="/login"
                     >
                       Login
                     </Link>
@@ -134,9 +134,9 @@ const Navbar = (props) => {
                   <li>
                     <Link
                       className={`nav-link scrollto ${
-                        asPath === '/signup' ? 'active' : ''
+                        asPath === "/signup" ? "active" : ""
                       }`}
-                      href='/signup'
+                      href="/signup"
                     >
                       Signup
                     </Link>
@@ -147,7 +147,7 @@ const Navbar = (props) => {
                   <li>
                     <Link
                       className={`nav-link scrollto}`}
-                      href='#'
+                      href="#"
                       onClick={handleLogout}
                     >
                       Logout
@@ -155,9 +155,16 @@ const Navbar = (props) => {
                   </li>
                 </>
               )}
+              <li>
+                <button
+                  onClick={()=> router.push('/groups')}
+                  className={`${styles.joinGroupBtn} btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center`}
+                >Join Groups
+                </button>
+              </li>
             </ul>
             <i
-              className={`bi bi-list ${styles['mobile-nav-toggle']}`}
+              className={`bi bi-list ${styles["mobile-nav-toggle"]}`}
               onClick={handleMenu}
             ></i>
           </nav>
