@@ -192,21 +192,23 @@ const MyGroups = ({ groups }) => {
         </div>
       </div>
 
-      <div className='container mt-5 mb-5'>
-        <h3>Your WhatsApp Groups</h3>
-        <div className={`${styles.allgroupcard} mt-4`}>
+      <div className='container mt-2 mb-5 mt-5' style={{ minHeight: '450px' }}>
+        <h2 className='fs-2 mb-4'>Your WhatsApp Groups</h2>
+        <div className='row gy-4'>
           {myGroups?.map((group) => (
-            <MyGroupCards
-              key={group._id}
-              group={group}
-              renderAction={() => (
-                <Button
-                  onClick={() => handleDelete(group._id)}
-                  className={`btn btn-danger btn-lg`}
-                  value='Delete'
-                />
-              )}
-            />
+            <div className='col-12 col-md-6 col-lg-3 col-xxl-3'>
+              <MyGroupCards
+                key={group._id}
+                group={group}
+                renderAction={() => (
+                  <Button
+                    onClick={() => handleDelete(group._id)}
+                    className={`btn btn-danger btn-lg`}
+                    value='Delete'
+                  />
+                )}
+              />
+            </div>
           ))}
         </div>
       </div>
