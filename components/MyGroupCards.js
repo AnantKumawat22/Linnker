@@ -25,7 +25,7 @@ const MyGroupCards = ({ group, renderAction }) => {
   return (
     <>
       <div
-        className={`card shadow-lg bg-white rounded-4 h-100 ${styles['group-card-root']}`}
+        className={`card shadow-lg bg-white rounded-4 h-100 ${styles['group-card-root']}`} onClick={()=>{ handleCardClick(group) }}
       >
         <div className='card-body d-flex flex-column'>
           <h5 className='card-title no-of-line-1'>{group.name}</h5>

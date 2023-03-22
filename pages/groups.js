@@ -64,7 +64,6 @@ const groups = ({ groups }) => {
   };
 
   const handleJoinGroupBtn = (link) => {
-    alert(link, 'links');
     window.open(link, '_blank');
   };
 
