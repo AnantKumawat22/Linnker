@@ -156,8 +156,8 @@ const Navbar = (props) => {
                 </>
               )}
               <li>
-                <Link className={`nav-link`} href='/groups'>
-                  <div className='btn-get-started nav-link scroll-to m-0'>
+                <Link className={``} href='/groups'>
+                  <div className='btn-get-started'>
                     <span>Join Groups</span>
                     <i className='bi bi-arrow-right'></i>
                   </div>

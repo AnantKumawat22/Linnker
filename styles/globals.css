@@ -106,7 +106,8 @@ body {
   font-family: "Open Sans", sans-serif;
   /* color: #444444;
   background-color: #f6f6f6; */
-   background-color: transparent !important;
+  background-color: white;
+   /* background-color: #f8f9fa !important; */
 }
 
 a {
@@ -236,7 +237,6 @@ h6 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
   line-height: 0;
   padding: 15px 40px;
   border-radius: 4px;

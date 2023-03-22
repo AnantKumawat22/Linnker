@@ -6,7 +6,7 @@ const MyGroupCards = ({ group, renderAction }) => {
   return (
     <>
       <div
-        class={`card shadow-sm bg-white rounded-4 border border-1 border-primary h-100`}
+        className={`card shadow-lg bg-white rounded-4 h-100 ${styles['group-card-root']}`}
       >
         <div className='card-body d-flex flex-column'>
           <h5 className='card-title no-of-line-1'>{group.name}</h5>

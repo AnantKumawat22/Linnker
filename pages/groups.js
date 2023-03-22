@@ -28,14 +28,14 @@ const groups = ({ groups }) => {
   const handleSearchInput = (event) => {
     let newsearchinput = event.target.value;
     setSearchInput(newsearchinput);
-    if(newsearchinput == ""){
+    if (newsearchinput == '') {
       setSearchGroup(groups);
     }
   };
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    console.log('searhc', searchinput, selectedValue)
+    console.log('searhc', searchinput, selectedValue);
 
     let filterData = '';
 
@@ -55,7 +55,7 @@ const groups = ({ groups }) => {
           group.name.toLowerCase().includes(searchinput?.toLowerCase()) && group
       );
     }
-    console.log(filterData,'data')
+    console.log(filterData, 'data');
     setSearchGroup(filterData);
   };
 
@@ -77,10 +77,11 @@ const groups = ({ groups }) => {
             action=''
             className={`${styles.searchBarDiv} shadow-sm bg-white`}
           >
+            <i className='bi bi-search'></i>
             <input
               autoComplete='off'
               placeholder='Search for group or tags'
-              type='text'
+              type='search'
               onChange={handleSearchInput}
               value={searchinput}
               name='searchinput'
@@ -92,7 +93,7 @@ const groups = ({ groups }) => {
           </form>
           <div className={styles.dropDownDiv}>
             <select value={selectedValue} onChange={handleSelectChange}>
-              <option className={styles.selectOptions} value='tags' name='tags'>
+              <option className='dropdown-item' value='tags' name='tags'>
                 Tags
               </option>
               <option
@@ -106,11 +107,11 @@ const groups = ({ groups }) => {
           </div>
         </div>
 
-        <div className='container mt-2 mb-5' style={{minHeight: '450px'}}>
+        <div className='container mt-2 mb-5' style={{ minHeight: '450px' }}>
           <h2 className='fs-2 mb-4'>All WhatsApp Groups</h2>
-          <div className='row gy-4' >
+          <div className='row gy-4'>
             {searchgroup?.map((group, idx) => (
-              <div className='col-12 col-md-6 col-lg-4 col-xl-3'>
+              <div className='col-12 col-md-6 col-lg-4 col-xxl-3'>
                 <MyGroupCards
                   key={group._id}
                   group={group}

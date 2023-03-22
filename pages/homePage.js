@@ -18,7 +18,7 @@ const homePage = () => {
               <div data-aos='fade-up' data-aos-delay='600'>
                 <Link
                   href='/groups'
-                  className='m-4 d-flex'
+                  className='mt-4 d-flex'
                   style={{ width: 'max-content' }}
                 >
                   <div className='btn-get-started scroll-to m-0'>
