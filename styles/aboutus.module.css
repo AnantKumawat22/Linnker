@@ -1,7 +1,7 @@
 .about {
-    padding: 50px 0;
+    padding: 10px 0;
     overflow: hidden;
-    min-height: 100vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
 }
@@ -19,7 +19,7 @@
 }
 
 .about h2 {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
     color: #012970;
 }

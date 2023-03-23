@@ -2,8 +2,6 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import Image from "next/image";
 import styles from '../styles/aboutus.module.css';
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const aboutus = () => {
   return (
@@ -29,15 +27,6 @@ const aboutus = () => {
                   et. Magnam nam ipsum tenetur suscipit voluptatum nam et est
                   corrupti.
                 </p>
-                <div className="text-center text-lg-start">
-                  <a
-                    href="#"
-                    className={`${styles.btnReadMore} d-inline-flex align-items-center justify-content-center align-self-center`}
-                  >
-                    <span>Read More</span>
-                    <FontAwesomeIcon icon={faArrowRight}/>
-                  </a>
-                </div>
               </div>
             </div>
 
@@ -47,9 +36,9 @@ const aboutus = () => {
               data-aos-delay="200"
             >
               <Image
-                width={800}
-                height={600}
-                src="/img/about.jpg"
+                width={820}
+                height={540}
+                src="/img/Logo/logo.png"
                 className="img-fluid"
                 alt=""
               />
@@ -123,7 +112,7 @@ const aboutus = () => {
                     className="img-fluid"
                     alt=""
                   />
-                  <div className="social">
+                  <div className={styles.social}>
                     <a href="">
                       <i className="bi bi-twitter"></i>
                     </a>

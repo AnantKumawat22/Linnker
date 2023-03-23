@@ -153,6 +153,7 @@ const MyGroups = ({ groups }) => {
                 type='text'
                 onChange={handleChange}
                 name='tag'
+                maxLength="25"
                 value={tag}
               />
               <div className={styles.maintag}>
@@ -194,16 +195,16 @@ const MyGroups = ({ groups }) => {
 
       <div className='container mt-2 mb-5 mt-5' style={{ minHeight: '450px' }}>
         <h2 className='fs-2 mb-4'>Your WhatsApp Groups</h2>
-        <div className='row gy-4'>
+        <div className='row gy-5'>
           {myGroups?.map((group) => (
-            <div className='col-12 col-md-6 col-lg-3 col-xxl-3'>
+            <div className='col-12 col-md-6 col-lg-4 col-xxl-3'>
               <MyGroupCards
                 key={group._id}
                 group={group}
                 renderAction={() => (
                   <Button
                     onClick={() => handleDelete(group._id)}
-                    className={`btn btn-danger btn-lg`}
+                    className={`btn btn-danger btn-lg text-white`}
                     value='Delete'
                   />
                 )}

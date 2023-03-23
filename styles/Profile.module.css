@@ -9,6 +9,7 @@
 
 .container {
     height: 70vh;
+    background: url(/img/hero-bg.svg) top center no-repeat;
 }
 
 .card {
@@ -64,8 +65,8 @@
 }
 
 .stats span {
-
-    font-size: 29px;
+    margin-left: 4px;
+    font-size: 14px;
 }
 
 @media(max-width: 450px){

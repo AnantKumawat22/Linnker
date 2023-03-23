@@ -4,7 +4,6 @@
 .header {
     transition: all 0.5s;
     z-index: 997;
-    /* padding: 20px 0; */
     padding: 10px 0;
     width: 100%;
     position: sticky;
@@ -129,6 +128,9 @@
 @media (max-width: 991px) {
     .mobile-nav-toggle {
         display: block;
+    }
+    .header{
+        padding: 20px 0px;
     }
 
     .navbar ul {
