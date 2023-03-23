@@ -33,10 +33,12 @@ const homePage = () => {
               data-aos='zoom-out'
               data-aos-delay='200'
             >
-              <img
-                src='/img/hero-img.png'
+              <Image
+                src='/img/homepage/hero-img.png'
                 className='img-fluid'
-                alt=''
+                alt='Homepage'
+                width={540}
+                height={440}
                 priority
               />
             </div>
@@ -47,7 +49,7 @@ const homePage = () => {
 
       <main id='main'>
         {/* <!-- ======= Values Section ======= --> */}
-        <section id='values' className='values'>
+        <section id='values' className='values mt-5'>
           <div className='container' data-aos='fade-up'>
             <header className='section-header'>
               <h2>Our Values</h2>
@@ -57,7 +59,7 @@ const homePage = () => {
             <div className='row'>
               <div className='col-lg-4' data-aos='fade-up' data-aos-delay='200'>
                 <div className='box'>
-                  <img src='/img/values-1.png' className='img-fluid' alt='' />
+                  <Image src='/img/homepage/values-1.png' className='img-fluid' alt='' width={440} height={360} />
                   <h3>Ad cupiditate sed est odio</h3>
                   <p>
                     Eum ad dolor et. Autem aut fugiat debitis voluptatem
@@ -72,7 +74,7 @@ const homePage = () => {
                 data-aos-delay='400'
               >
                 <div className='box'>
-                  <img src='/img/values-2.png' className='img-fluid' alt='' />
+                  <Image src='/img/homepage/values-2.png' width={440} height={360} className='img-fluid' alt='' />
                   <h3>Voluptatem voluptatum alias</h3>
                   <p>
                     Repudiandae amet nihil natus in distinctio suscipit id.
@@ -87,7 +89,7 @@ const homePage = () => {
                 data-aos-delay='600'
               >
                 <div className='box'>
-                  <img src='/img/values-3.png' className='img-fluid' alt='' />
+                  <Image src='/img/homepage/values-3.png' width={440} height={360} className='img-fluid' alt='' />
                   <h3>Fugit cupiditate alias nobis.</h3>
                   <p>
                     Quam rem vitae est autem molestias explicabo debitis sint.
@@ -181,7 +183,7 @@ const homePage = () => {
 
             <div className='row'>
               <div className='col-lg-6'>
-                <img src='/img/features.png' className='img-fluid' alt='' />
+                <Image src='/img/homepage/features.png' width={1040} height={660} className='img-fluid' alt='' />
               </div>
 
               <div className='col-lg-6 mt-5 mt-lg-0 d-flex'>
@@ -256,138 +258,6 @@ const homePage = () => {
             </div>
             {/* <!-- / row --> */}
 
-            {/* <!-- Feature Tabs --> */}
-            <div className='row feture-tabs' data-aos='fade-up'>
-              <div className='col-lg-6'>
-                <h3>
-                  Neque officiis dolore maiores et exercitationem quae est seda
-                  lidera pat claero
-                </h3>
-
-                {/* <!-- Tabs --> */}
-                <ul className='nav nav-pills mb-3'>
-                  <li>
-                    <a
-                      className='nav-link active'
-                      data-bs-toggle='pill'
-                      href='#tab1'
-                    >
-                      Saepe fuga
-                    </a>
-                  </li>
-                  <li>
-                    <a className='nav-link' data-bs-toggle='pill' href='#tab2'>
-                      Voluptates
-                    </a>
-                  </li>
-                  <li>
-                    <a className='nav-link' data-bs-toggle='pill' href='#tab3'>
-                      Corrupti
-                    </a>
-                  </li>
-                </ul>
-                {/* <!-- End Tabs --> */}
-
-                {/* <!-- Tab Content --> */}
-                <div className='tab-content'>
-                  <div className='tab-pane fade show active' id='tab1'>
-                    <p>
-                      Consequuntur inventore voluptates consequatur aut vel et.
-                      Eos doloribus expedita. Sapiente atque consequatur minima
-                      nihil quae aspernatur quo suscipit voluptatem.
-                    </p>
-                    <div className='d-flex align-items-center mb-2'>
-                      <i className='bi bi-check2'></i>
-                      <h4>
-                        Repudiandae rerum velit modi et officia quasi facilis
-                      </h4>
-                    </div>
-                    <p>
-                      Laborum omnis voluptates voluptas qui sit aliquam
-                      blanditiis. Sapiente minima commodi dolorum non eveniet
-                      magni quaerat nemo et.
-                    </p>
-                    <div className='d-flex align-items-center mb-2'>
-                      <i className='bi bi-check2'></i>
-                      <h4>Incidunt non veritatis illum ea ut nisi</h4>
-                    </div>
-                    <p>
-                      Non quod totam minus repellendus autem sint velit. Rerum
-                      debitis facere soluta tenetur. Iure molestiae assumenda
-                      sunt qui inventore eligendi voluptates nisi at. Dolorem
-                      quo tempora. Quia et perferendis.
-                    </p>
-                  </div>
-                  {/* <!-- End Tab 1 Content --> */}
-
-                  <div className='tab-pane fade show' id='tab2'>
-                    <p>
-                      Consequuntur inventore voluptates consequatur aut vel et.
-                      Eos doloribus expedita. Sapiente atque consequatur minima
-                      nihil quae aspernatur quo suscipit voluptatem.
-                    </p>
-                    <div className='d-flex align-items-center mb-2'>
-                      <i className='bi bi-check2'></i>
-                      <h4>
-                        Repudiandae rerum velit modi et officia quasi facilis
-                      </h4>
-                    </div>
-                    <p>
-                      Laborum omnis voluptates voluptas qui sit aliquam
-                      blanditiis. Sapiente minima commodi dolorum non eveniet
-                      magni quaerat nemo et.
-                    </p>
-                    <div className='d-flex align-items-center mb-2'>
-                      <i className='bi bi-check2'></i>
-                      <h4>Incidunt non veritatis illum ea ut nisi</h4>
-                    </div>
-                    <p>
-                      Non quod totam minus repellendus autem sint velit. Rerum
-                      debitis facere soluta tenetur. Iure molestiae assumenda
-                      sunt qui inventore eligendi voluptates nisi at. Dolorem
-                      quo tempora. Quia et perferendis.
-                    </p>
-                  </div>
-                  {/* <!-- End Tab 2 Content --> */}
-
-                  <div className='tab-pane fade show' id='tab3'>
-                    <p>
-                      Consequuntur inventore voluptates consequatur aut vel et.
-                      Eos doloribus expedita. Sapiente atque consequatur minima
-                      nihil quae aspernatur quo suscipit voluptatem.
-                    </p>
-                    <div className='d-flex align-items-center mb-2'>
-                      <i className='bi bi-check2'></i>
-                      <h4>
-                        Repudiandae rerum velit modi et officia quasi facilis
-                      </h4>
-                    </div>
-                    <p>
-                      Laborum omnis voluptates voluptas qui sit aliquam
-                      blanditiis. Sapiente minima commodi dolorum non eveniet
-                      magni quaerat nemo et.
-                    </p>
-                    <div className='d-flex align-items-center mb-2'>
-                      <i className='bi bi-check2'></i>
-                      <h4>Incidunt non veritatis illum ea ut nisi</h4>
-                    </div>
-                    <p>
-                      Non quod totam minus repellendus autem sint velit. Rerum
-                      debitis facere soluta tenetur. Iure molestiae assumenda
-                      sunt qui inventore eligendi voluptates nisi at. Dolorem
-                      quo tempora. Quia et perferendis.
-                    </p>
-                  </div>
-                  {/* <!-- End Tab 3 Content --> */}
-                </div>
-              </div>
-
-              <div className='col-lg-6'>
-                <img src='/img/features-2.png' className='img-fluid' alt='' />
-              </div>
-            </div>
-            {/* <!-- End Feature Tabs --> */}
-
             {/* <!-- Feature Icons --> */}
             <div className='row feature-icons' data-aos='fade-up'>
               <h3>Ratione mollitia eos ab laudantium rerum beatae quo</h3>
@@ -399,16 +269,16 @@ const homePage = () => {
                   data-aos-delay='100'
                 >
                   <Image
-                    width={200}
-                    height={200}
-                    src='/img/features-3.png'
+                    width={725}
+                    height={790}
+                    src='/img/homepage/features-3.png'
                     className='img-fluid p-4'
                     alt=''
                   />
                 </div>
 
                 <div className='col-xl-8 d-flex content'>
-                  <div className='row align-self-center gy-4'>
+                  <div className='row align-self-center mt-3 gy-4'>
                     <div className='col-md-6 icon-box' data-aos='fade-up'>
                       <i className='ri-line-chart-line'></i>
                       <div>
@@ -504,7 +374,7 @@ const homePage = () => {
         {/* <!-- End Features Section --> */}
 
         {/* <!-- ======= Services Section ======= --> */}
-        <section id='services' className='services'>
+        <section id='services' className='services my-5 py-5'>
           <div className='container' data-aos='fade-up'>
             <header className='section-header'>
               <h2>Services</h2>
@@ -626,193 +496,6 @@ const homePage = () => {
           </div>
         </section>
         {/* <!-- End Services Section --> */}
-
-        {/* <!-- ======= F.A.Q Section ======= --> */}
-        <section id='faq' className='faq'>
-          <div className='container' data-aos='fade-up'>
-            <header className='section-header'>
-              <h2>F.A.Q</h2>
-              <p>Frequently Asked Questions</p>
-            </header>
-
-            <div className='row'>
-              <div className='col-lg-6'>
-                {/* <!-- F.A.Q List 1--> */}
-                <div className='accordion accordion-flush' id='faqlist1'>
-                  <div className='accordion-item'>
-                    <h2 className='accordion-header'>
-                      <button
-                        className='accordion-button collapsed'
-                        type='button'
-                        data-bs-toggle='collapse'
-                        data-bs-target='#faq-content-1'
-                      >
-                        Non consectetur a erat nam at lectus urna duis?
-                      </button>
-                    </h2>
-                    <div
-                      id='faq-content-1'
-                      className='accordion-collapse collapse'
-                      data-bs-parent='#faqlist1'
-                    >
-                      <div className='accordion-body'>
-                        Feugiat pretium nibh ipsum consequat. Tempus iaculis
-                        urna id volutpat lacus laoreet non curabitur gravida.
-                        Venenatis lectus magna fringilla urna porttitor rhoncus
-                        dolor purus non.
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className='accordion-item'>
-                    <h2 className='accordion-header'>
-                      <button
-                        className='accordion-button collapsed'
-                        type='button'
-                        data-bs-toggle='collapse'
-                        data-bs-target='#faq-content-2'
-                      >
-                        Feugiat scelerisque varius morbi enim nunc faucibus a
-                        pellentesque?
-                      </button>
-                    </h2>
-                    <div
-                      id='faq-content-2'
-                      className='accordion-collapse collapse'
-                      data-bs-parent='#faqlist1'
-                    >
-                      <div className='accordion-body'>
-                        Dolor sit amet consectetur adipiscing elit pellentesque
-                        habitant morbi. Id interdum velit laoreet id donec
-                        ultrices. Fringilla phasellus faucibus scelerisque
-                        eleifend donec pretium. Est pellentesque elit
-                        ullamcorper dignissim. Mauris ultrices eros in cursus
-                        turpis massa tincidunt dui.
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className='accordion-item'>
-                    <h2 className='accordion-header'>
-                      <button
-                        className='accordion-button collapsed'
-                        type='button'
-                        data-bs-toggle='collapse'
-                        data-bs-target='#faq-content-3'
-                      >
-                        Dolor sit amet consectetur adipiscing elit pellentesque
-                        habitant morbi?
-                      </button>
-                    </h2>
-                    <div
-                      id='faq-content-3'
-                      className='accordion-collapse collapse'
-                      data-bs-parent='#faqlist1'
-                    >
-                      <div className='accordion-body'>
-                        Eleifend mi in nulla posuere sollicitudin aliquam
-                        ultrices sagittis orci. Faucibus pulvinar elementum
-                        integer enim. Sem nulla pharetra diam sit amet nisl
-                        suscipit. Rutrum tellus pellentesque eu tincidunt.
-                        Lectus urna duis convallis convallis tellus. Urna
-                        molestie at elementum eu facilisis sed odio morbi quis
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className='col-lg-6'>
-                {/* <!-- F.A.Q List 2--> */}
-                <div className='accordion accordion-flush' id='faqlist2'>
-                  <div className='accordion-item'>
-                    <h2 className='accordion-header'>
-                      <button
-                        className='accordion-button collapsed'
-                        type='button'
-                        data-bs-toggle='collapse'
-                        data-bs-target='#faq2-content-1'
-                      >
-                        Ac odio tempor orci dapibus. Aliquam eleifend mi in
-                        nulla?
-                      </button>
-                    </h2>
-                    <div
-                      id='faq2-content-1'
-                      className='accordion-collapse collapse'
-                      data-bs-parent='#faqlist2'
-                    >
-                      <div className='accordion-body'>
-                        Dolor sit amet consectetur adipiscing elit pellentesque
-                        habitant morbi. Id interdum velit laoreet id donec
-                        ultrices. Fringilla phasellus faucibus scelerisque
-                        eleifend donec pretium. Est pellentesque elit
-                        ullamcorper dignissim. Mauris ultrices eros in cursus
-                        turpis massa tincidunt dui.
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className='accordion-item'>
-                    <h2 className='accordion-header'>
-                      <button
-                        className='accordion-button collapsed'
-                        type='button'
-                        data-bs-toggle='collapse'
-                        data-bs-target='#faq2-content-2'
-                      >
-                        Tempus quam pellentesque nec nam aliquam sem et tortor
-                        consequat?
-                      </button>
-                    </h2>
-                    <div
-                      id='faq2-content-2'
-                      className='accordion-collapse collapse'
-                      data-bs-parent='#faqlist2'
-                    >
-                      <div className='accordion-body'>
-                        Molestie a iaculis at erat pellentesque adipiscing
-                        commodo. Dignissim suspendisse in est ante in. Nunc vel
-                        risus commodo viverra maecenas accumsan. Sit amet nisl
-                        suscipit adipiscing bibendum est. Purus gravida quis
-                        blandit turpis cursus in
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className='accordion-item'>
-                    <h2 className='accordion-header'>
-                      <button
-                        className='accordion-button collapsed'
-                        type='button'
-                        data-bs-toggle='collapse'
-                        data-bs-target='#faq2-content-3'
-                      >
-                        Varius vel pharetra vel turpis nunc eget lorem dolor?
-                      </button>
-                    </h2>
-                    <div
-                      id='faq2-content-3'
-                      className='accordion-collapse collapse'
-                      data-bs-parent='#faqlist2'
-                    >
-                      <div className='accordion-body'>
-                        Laoreet sit amet cursus sit amet dictum sit amet justo.
-                        Mauris vitae ultricies leo integer malesuada nunc vel.
-                        Tincidunt eget nullam non nisi est sit amet. Turpis nunc
-                        eget lorem dolor sed. Ut venenatis tellus in metus
-                        vulputate eu scelerisque. Pellentesque diam volutpat
-                        commodo sed egestas egestas fringilla phasellus
-                        faucibus. Nibh tellus molestie nunc non blandit massa
-                        enim nec.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
       {/* <!-- End #main --> */}
     </div>

@@ -6,54 +6,54 @@
     align-items: center;
 }
 
-.searchAndDropDownDiv{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    align-items: center;
-    padding: 10px 20px;
-    margin: 50px 0px;
-    justify-content: center;
-}
-
 .searchBarDiv{
-    /* width: 80%; */
-    flex: 1;
-    outline: 0.1px solid rgb(195, 195, 195);
-    border-radius: 20px;
-    padding: 8px 20px;
+    width: 80%;
+    border: 1px solid rgb(195, 195, 195);
+    border-radius: 10px;
+    padding: 10px;
     display: flex;
     margin-right: 20px;
     flex-direction: row;
+    padding-left: 25px;
     justify-content: space-between;
     align-items: center;
-    border: 3.8px solid rgba(110, 110, 230, 0);
-    height: 70px;
 }
+
 .searchBarDiv:focus-within, .dropDownDiv select:focus-within{
     border: 4px solid rgba(110, 110, 230, 0.334);
 }
-/* .searchBarDiv::before{
-    border: 2px solid rgb(110, 110, 230);
-} */
 
 .searchInp{
     width: 90%;
     outline: none;
     padding: 0px 20px;
-    font-size: 18px;
+    font-size: 16px;
     border: none;
 }
 
-.dropDownDiv select{
-    outline: 0.1px solid rgb(195, 195, 195);
-    /* width: 170px; */
-    color: rgb(91, 91, 91);
-    font-size: 18px;
-    padding: 8px 20px;
-    border-radius: 20px;
-    border: 3.8px solid rgba(110, 110, 230, 0);
-    height: 70px;
+.dropDownDiv{
+    width: 200px;
+    border-radius: 10px;
+    border: 1px solid rgb(195, 195, 195);
+}
+
+.dropDownOptions{
+    position: absolute;
+    width: 198px;
+    top: 212px;
+    z-index: 888;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: 1px solid rgb(195, 195, 195);
+}
+
+.dropDownOptions p:hover{
+    background-color: rgb(249, 249, 249);
+}
+
+.dropDownOptions :last-child:hover{
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 .allgroupcard {
@@ -74,5 +74,20 @@
     .searchBarDiv{
         width: 100%;
         margin: 0px 0px 20px 0px;
+    }
+}
+
+@media(max-width: 1199px){
+    .dropDownMain{
+        width: 80%;
+        border-radius: 10px;
+    }
+    
+    .searchBarDiv{
+        margin-right: 0px;
+    }
+
+    .dropDownOptions{
+        top: 263px;
     }
 }
