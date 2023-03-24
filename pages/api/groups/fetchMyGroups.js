@@ -1,10 +1,10 @@
 import isAuth from '@/middleware/isAuth';
 import Group from '@/models/Group';
 import connect from '@/lib/mongodb';
+import { roles } from '@/constant';
 
-export default async function handler(req, res) {
+async function handler(req, res) {
   console.log('handler start');
-  isAuth(req, res);
   connect();
   const user = req.user;
   try {
@@ -24,4 +24,5 @@ export const config = {
   },
 };
 
+export default isAuth([roles.USER], handler);
 // Apply the middleware to the API route

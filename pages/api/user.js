@@ -1,10 +1,10 @@
+import { roles } from '@/constant';
 import connect from '@/lib/mongodb';
 import isAuth from '@/middleware/isAuth';
 import User from '@/models/User';
 
-export default async function handler(req, res) {
+async function handler(req, res) {
   try {
-    isAuth(req, res);
     await connect();
     const id = req.user.id;
     const user = await User.findOne({ _id: id });
@@ -14,3 +14,5 @@ export default async function handler(req, res) {
     res.status(400).json({ message: 'Fetch Error.' });
   }
 }
+
+export default isAuth([roles.USER], handler);
