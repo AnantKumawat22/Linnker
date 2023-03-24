@@ -26,7 +26,7 @@ const DashboardNav = () => {
         <div className="d-flex w-50 justify-content-center align-items-center">
           <Link
             href="/dashboard/profile"
-            className={styles.sectionlink}
+            className={`${styles.sectionlink}`}
             ref={profilehighlight}
           >
             Profile
