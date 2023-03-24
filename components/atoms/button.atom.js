@@ -1,4 +1,5 @@
 import React from 'react';
+import "bootstrap/dist/css/bootstrap.css";
 
 const Button = ({ value, className, onClick, disabled, ...rest }) => {
   return (

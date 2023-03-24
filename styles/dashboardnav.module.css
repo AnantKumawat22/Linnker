@@ -8,38 +8,3 @@
     font-weight: 700;
     padding-bottom: 10px;
 }
-
-.mygroup h1{
-    font-size: 20px;
-}
-
-.mygroupOne{
-    width: 100%;
-    display: flex;
-    padding: 20px 20px;
-    flex-direction: column;
-    border-radius: 8px;
-    border: 1px solid rgb(209, 209, 209);
-}
-
-.mygroupOneInp1{
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.mygroupOneInp1 div{
-    width: 45%;
-    /* border: 1px solid red; */
-}
-
-.tag{
-    display: flex;
-    align-items: center;
-}
-
-.tag div{
-    margin-left: 1rem;
-    font-size: 20px;
-}
