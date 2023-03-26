@@ -141,7 +141,7 @@
     overflow-y: auto;
     transition: 0.3s;
     height: 100vh;
-    width: 60%;
+    width: 220px;
     padding-top: 70px;
     z-index: 100;
     border-right: 1px solid rgb(236, 236, 236);

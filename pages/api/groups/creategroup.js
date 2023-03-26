@@ -11,12 +11,12 @@ const validateBody = initMiddleware(
   validateMiddleware([
     check(
       'name',
-      'Group Name must have atleast 3 characters and atmost 20 characters.'
-    ).isLength({ min: 3, max: 20 }),
+      'Group Name must have atleast 3 characters and atmost 30 characters.'
+    ).isLength({ min: 3, max: 30 }),
     check(
       'description',
-      'Group Description must have atleast 3 characters and atmost 200 characters.'
-    ).isLength({ min: 3, max: 200 }),
+      'Group Description must have atleast 3 characters and atmost 300 characters.'
+    ).isLength({ min: 3, max: 300 }),
     check('link', 'Enter a Valid Group Link').isURL(),
   ])
 );

@@ -21,7 +21,7 @@ export default async function handler(req, res) {
     await Query.create(req.body);
     res
       .status(200)
-      .json({ message: 'Successfully added your query. Will reply soon' });
+      .json({ message: 'Successfully added your query. We Will reply soon' });
   } catch (err) {
     console.log(err, 'err');
     res.status(400).json({ message: 'Fetch Error.' });
