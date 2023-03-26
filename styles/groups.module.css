@@ -1,6 +1,8 @@
 .mainGroupPageDiv{
     width: 100%;
     display: flex;
+    /* background: url(/img/groupbg.gif) contain no-repeat;
+    background-size: contain; */
     flex-direction: column;
     justify-content: center;
     align-items: center;
