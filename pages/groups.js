@@ -221,7 +221,7 @@ const groups = ({ groups }) => {
                   style={{ width: "100%", height: "400px" }}
                 >
                   <HorizontalScroll className="py-3 px-2 d-flex">
-                    {recentgroups?.map((group, idx) => (
+                    {searchgroup?.map((group, idx) => (
                       <div
                         className=""
                         style={{
