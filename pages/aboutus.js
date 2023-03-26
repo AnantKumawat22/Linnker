@@ -1,7 +1,8 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import Image from "next/image";
-import styles from '../styles/aboutus.module.css';
+import styles from "../styles/aboutus.module.css";
+import Link from "next/link";
 
 const aboutus = () => {
   return (
@@ -18,14 +19,11 @@ const aboutus = () => {
               <div className={styles.content}>
                 <h3>Who We Are</h3>
                 <h2>
-                  Expedita voluptas omnis cupiditate totam eveniet nobis sint
-                  iste. Dolores est repellat corrupti reprehenderit.
+                  We are problem solvers. Who Loves to create something unique from our ideas.
                 </h2>
                 <p>
-                  Quisquam vel ut sint cum eos hic dolores aperiam. Sed deserunt
-                  et. Inventore et et dolor consequatur itaque ut voluptate sed
-                  et. Magnam nam ipsum tenetur suscipit voluptatum nam et est
-                  corrupti.
+                  Anant Kumawat and Abhishek Patel. We are from Computer Science, who believe and love to create problem solving ideas.
+                  Linnker is also a creative idea from our mind. We like to help people by our skills and knowledge :-)
                 </p>
               </div>
             </div>
@@ -72,27 +70,23 @@ const aboutus = () => {
                     alt=""
                   />
                   <div className={styles.social}>
-                    <a href="">
+                    <Link href="https://twitter.com/AnantKumawat02" target="_blank">
                       <i className="bi bi-twitter"></i>
-                    </a>
-                    <a href="">
-                      <i className="bi bi-facebook"></i>
-                    </a>
-                    <a href="">
+                    </Link>
+                    <Link href="" target="_blank">
                       <i className="bi bi-instagram"></i>
-                    </a>
-                    <a href="">
+                    </Link>
+                    <Link href="" target="_blank">
                       <i className="bi bi-linkedin"></i>
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className={styles.memberInfo}>
                   <h4>Anant Kumawat</h4>
-                  <span>Student</span>
+                  <span>Computer Science</span>
                   <p>
-                    Quo esse repellendus quia id. Est eum et accusantium
-                    pariatur fugit nihil minima suscipit corporis. Voluptate sed
-                    quas reiciendis animi neque sapiente.
+                    Full Stack Web Developer | Problem Solving | Data Structures
+                    and Algorithm.
                   </p>
                 </div>
               </div>
@@ -113,27 +107,23 @@ const aboutus = () => {
                     alt=""
                   />
                   <div className={styles.social}>
-                    <a href="">
+                    <Link href="" target="_blank">
                       <i className="bi bi-twitter"></i>
-                    </a>
-                    <a href="">
-                      <i className="bi bi-facebook"></i>
-                    </a>
-                    <a href="">
+                    </Link>
+                    <Link href="" target="_blank">
                       <i className="bi bi-instagram"></i>
-                    </a>
-                    <a href="">
+                    </Link>
+                    <Link href="" target="_blank">
                       <i className="bi bi-linkedin"></i>
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className={styles.memberInfo}>
                   <h4>Abhishek Patel</h4>
-                  <span>Student</span>
+                  <span>Computer Science</span>
                   <p>
-                    Vero omnis enim consequatur. Voluptas consectetur unde qui
-                    molestiae deserunt. Voluptates enim aut architecto porro
-                    aspernatur molestiae modi.
+                    MERN Stack developer | JAMstack | Full Stack Developer | App
+                    Developer
                   </p>
                 </div>
               </div>
