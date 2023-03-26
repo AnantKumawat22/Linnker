@@ -46,6 +46,11 @@ const Navbar = (props) => {
     }, 1000);
   };
 
+  useEffect(() => {
+    setDrawerOpen(false);
+  }, [router.asPath])
+  
+
   const handleMenu = () => {
     setDrawerOpen(!drawerOpen);
   };

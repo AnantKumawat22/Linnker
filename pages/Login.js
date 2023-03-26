@@ -6,6 +6,8 @@ import Input from "@/components/atoms/input.atom";
 import { useRouter } from "next/router";
 import { setCookie } from "nookies";
 import { generalContext } from "@/context/general.context";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 export async function getServerSideProps(context) {
   const { token } = context.req.cookies;
@@ -36,6 +38,8 @@ const Login = (props) => {
     email: "",
     password: "",
   });
+  // Password show state
+  const [showpassword, setShowpassword] = useState(false);
 
   // On From Submit
   const handleSubmit = async (e) => {
@@ -114,19 +118,29 @@ const Login = (props) => {
                   id="email"
                   value={cred.email}
                   name="email"
+                  autocomplete="email"
                   onChange={inpChange}
                   placeholder="Enter your Email"
                 />
 
                 {/* Password input */}
-                <Input
-                  type="password"
-                  id="password"
-                  value={cred.password}
-                  name="password"
-                  onChange={inpChange}
-                  placeholder="Enter password"
-                />
+                <div className="d-flex flex-row justify-content-center maininp mt-4 pe-2" style={{border: '1px solid #ced4da'}}>
+                  <Input
+                    type={`${showpassword ? "text" : "password" }`}
+                    id="password"
+                    value={cred.password}
+                    name="password"
+                    autocomplete="password"
+                    style={{ border:"none", boxShadow: 'none', PointerEvent: 'none'}}
+                    onChange={inpChange}
+                    placeholder="Enter password"
+                  />
+                  {showpassword ? (
+                    <FontAwesomeIcon role="button" className="mt-3 text-secondary" onClick={()=>{ setShowpassword(false) }} icon={faEye} />
+                  ) : (
+                    <FontAwesomeIcon role="button" className="mt-3 text-secondary" onClick={()=>{ setShowpassword(true) }} icon={faEyeSlash} />
+                  )}
+                </div>
 
                 <div className="d-flex flex-row-reverse justify-content-between align-items-center">
                   <Link href="/forgotpassword" className="link-danger">

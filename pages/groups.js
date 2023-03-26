@@ -4,7 +4,11 @@ import styles from "../styles/groups.module.css";
 import MyGroupCards from "@/components/MyGroupCards";
 import Button from "@/components/atoms/button.atom";
 import Image from "next/image";
-import { faArrowRight, faCaretDown, faSearch } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowRight,
+  faCaretDown,
+  faSearch,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRouter } from "next/router";
 import HorizontalScroll from "react-scroll-horizontal";
@@ -28,11 +32,31 @@ const groups = ({ groups }) => {
   // Router
   const router = useRouter();
 
+  // Recent Groups
+  let newrecentgroups = [];
+
+  // Get Current Date.
+  var currentdate = new Date().toLocaleDateString("en-US");
+  var startDate = new Date(currentdate);
+
+  // Recent item get logic.
+  groups.forEach((element) => {
+    var eleDate = new Date(element?.date).toLocaleDateString("en-US");
+    var endDate = new Date(eleDate);
+
+    // console.log((startDate - endDate));
+
+    if (((startDate - endDate) / 1000)/86400 <= 20) {
+      newrecentgroups.push(element);
+    }
+  });
+
+  console.log("recent groups", newrecentgroups);
   console.log("all groups", groups);
 
   const [searchgroup, setSearchGroup] = useState(groups);
   const [searchinput, setSearchInput] = useState("");
-  const [recentgroups, setRecentGroups] = useState(null);
+  const [recentgroups, setRecentGroups] = useState(newrecentgroups);
   const [dropdown, setDropDown] = useState(false);
   const [selectedValue, setSelectedValue] = useState("tags");
 
@@ -90,24 +114,6 @@ const groups = ({ groups }) => {
     });
   };
 
-  // useEffect(() => {
-  //   if(!router.query.length && searchinput !== ""){
-  //     console.log("ayayaya");
-  //     setSearchInput("");
-  //   }
-  //   handleSearchSubmit();
-  // }, [router.query])
-
-  // useEffect(() => {
-  //   if(searchinput) {
-  //     handleSearchSubmit();
-  //     return;
-  //   }
-  //   let newsearchquery = router.query.searchquery;
-  //   setSearchInput(newsearchquery);
-
-  //   console.log(router.query)
-  // }, [router.query, searchinput])
   return (
     <>
       <div className={styles.mainGroupPageDiv}>
@@ -175,7 +181,7 @@ const groups = ({ groups }) => {
           </div>
         </div>
 
-        <div className="container-fluid">
+        <div className="w-100 h-100">
           {searchgroup?.length === 0 && (
             <div
               className="container d-flex justify-content-center align-items-center flex-column"
@@ -189,17 +195,6 @@ const groups = ({ groups }) => {
               <p style={{ fontSize: "25px", color: "grey" }}>No Group Found</p>
             </div>
           )}
-
-
-
-
-
-
-
-
-
-
-
 
           {searchgroup?.length !== 0 && searchinput == "" && (
             <>
@@ -225,7 +220,7 @@ const groups = ({ groups }) => {
                       <div
                         className=""
                         style={{
-                          width: "300px",
+                          width: "290px",
                           height: "330px",
                           marginRight: "20px",
                         }}
@@ -248,21 +243,6 @@ const groups = ({ groups }) => {
               </div>
             </>
           )}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
           {searchgroup?.length !== 0 && (
             <>

@@ -34,6 +34,8 @@ const groupdetails = () => {
     fetchUser();
   }, [router.query]);
 
+  console.log("grouptags", grouptags)
+
   return (
     <>
       <section
@@ -46,7 +48,12 @@ const groupdetails = () => {
               <div className={`${styles.portfolioDetailsSlider} swiper`}>
                 <div className="swiper-wrapper align-items-center">
                   <div className="swiper-slide">
-                    <Image src="/img/Logo/Logo.png" alt="" width={820} height={540} />
+                    <Image
+                      src="/img/Logo/Logo.png"
+                      alt=""
+                      width={820}
+                      height={540}
+                    />
                   </div>
                 </div>
                 <div className={`${styles.swiperPagination}`}></div>
@@ -61,10 +68,10 @@ const groupdetails = () => {
                     <strong>Group Name</strong>: {groupname}
                   </li>
                   <li>
-                    <strong>Group Tags</strong>: {grouptags}
+                    <strong>Group Tags</strong>: { grouptags && grouptags.join(", ")}
                   </li>
 
-                  <li className={`${styles.grouplink}`} >
+                  <li className={`${styles.grouplink}`}>
                     <strong>Group Link</strong>:{" "}
                     <a href={grouplink} target="_blank">
                       {grouplink}
@@ -75,7 +82,8 @@ const groupdetails = () => {
                   </li>
                   <li>
                     <strong style={{ color: "grey" }}>
-                      All groups are valid whatsapp groups and verified by our team.
+                      All groups are valid whatsapp groups and verified by our
+                      team.
                     </strong>
                   </li>
                 </ul>

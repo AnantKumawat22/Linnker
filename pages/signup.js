@@ -3,7 +3,10 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import "bootstrap/dist/css/bootstrap.css";
 import Button from "@/components/atoms/button.atom";
+import Input from "@/components/atoms/input.atom";
 import { generalContext } from "@/context/general.context";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 export async function getServerSideProps(context) {
   const { token } = context.req.cookies;
@@ -35,6 +38,10 @@ const Signup = (props) => {
     password: "",
     conpassword: "",
   });
+  // Password show state
+  const [showpassword, setShowpassword] = useState(false);
+  // Confirm Password show state
+  const [showconpassword, setShowconpassword] = useState(false);
 
   // On From Submit - SignUp
   const handleSubmit = async (e) => {
@@ -115,72 +122,106 @@ const Signup = (props) => {
               <form onSubmit={handleSubmit}>
                 {/* Full Name input */}
                 <div className="form-outline mb-4">
-                  <input
+                  <Input
                     type="text"
                     id="name"
                     autoComplete="off"
                     value={cred.name}
                     name="name"
                     onChange={inpChange}
-                    className="form-control form-control-lg"
                     placeholder="Enter your name"
                   />
                 </div>
 
                 {/* Phone Number input */}
                 <div className="form-outline mb-4">
-                  <input
+                  <Input
                     type="email"
                     id="email"
                     autoComplete="off"
                     value={cred.email}
                     name="email"
                     onChange={inpChange}
-                    className="form-control form-control-lg"
                     placeholder="Enter your email"
                   />
                 </div>
 
-                {/* Password input */}
-                <div className="form-outline mb-3">
-                  <input
-                    type="password"
+                <div
+                  className="d-flex flex-row justify-content-center maininp mt-4 pe-2"
+                  style={{ border: "1px solid #ced4da" }}
+                >
+                  <Input
+                    type={`${showpassword ? "text" : "password"}`}
                     id="password"
                     value={cred.password}
                     name="password"
+                    style={{
+                      border: "none",
+                      boxShadow: "none",
+                      PointerEvent: "none",
+                    }}
                     onChange={inpChange}
-                    className="form-control form-control-lg"
                     placeholder="Enter password"
                   />
+                  {showpassword ? (
+                    <FontAwesomeIcon
+                      role="button"
+                      className="mt-3 text-secondary"
+                      onClick={() => {
+                        setShowpassword(false);
+                      }}
+                      icon={faEye}
+                    />
+                  ) : (
+                    <FontAwesomeIcon
+                      role="button"
+                      className="mt-3 text-secondary"
+                      onClick={() => {
+                        setShowpassword(true);
+                      }}
+                      icon={faEyeSlash}
+                    />
+                  )}
                 </div>
 
                 {/* Confirm Password input */}
-                <div className="form-outline mb-3">
-                  <input
-                    type="password"
+                <div
+                  className="d-flex flex-row justify-content-center maininp mt-4 pe-2"
+                  style={{ border: "1px solid #ced4da" }}
+                >
+                  <Input
+                    type={`${showconpassword ? "text" : "password"}`}
                     id="conpassword"
                     value={cred.conpassword}
                     name="conpassword"
+                    style={{
+                      border: "none",
+                      boxShadow: "none",
+                      PointerEvent: "none",
+                    }}
                     onChange={inpChange}
-                    className="form-control form-control-lg"
-                    placeholder="Confrim password"
+                    placeholder="Confirm password"
                   />
-                </div>
-
-                {/* <div className='d-flex justify-content-between align-items-center'> */}
-                {/* Checkbox */}
-                {/* <div className='form-check mb-0'>
-                    <input
-                      className='form-check-input me-2'
-                      type='checkbox'
-                      value=''
-                      id='form2Example3'
+                  {showconpassword ? (
+                    <FontAwesomeIcon
+                      role="button"
+                      className="mt-3 text-secondary"
+                      onClick={() => {
+                        setShowconpassword(false);
+                      }}
+                      icon={faEye}
                     />
-                    <label className='form-check-label' htmlFor='form2Example3'>
-                      Remember me
-                    </label>
-                  </div>
-                </div> */}
+                  ) : (
+                    <FontAwesomeIcon
+                      role="button"
+                      className="mt-3 text-secondary"
+                      onClick={() => {
+                        setShowconpassword(true);
+                      }}
+                      icon={faEyeSlash}
+                    />
+                  )}
+                </div>
 
                 <div className="text-center text-lg-start mt-4 pt-2">
                   <Button

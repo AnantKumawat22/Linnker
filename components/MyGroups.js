@@ -112,10 +112,10 @@ const MyGroups = ({ groups }) => {
     <>
       <DashboardNav />
       <div className={`${styles.mygroup} mt-5 container`}>
-        <h1>Add a WhatsApp Group Link</h1>
+        <h1>Create a WhatsApp Group</h1>
         <div className={styles.mygroupOne}>
           <div className={styles.mygroupOneInp1}>
-            <div className={styles.addGroupInpDiv}>
+            <div className={`${styles.addGroupInpDiv} mb-4`}>
               <label htmlFor=''>Group Name</label>
               <Input
                 type='text'
@@ -124,7 +124,7 @@ const MyGroups = ({ groups }) => {
                 value={input.name}
               />
             </div>
-            <div className={styles.addGroupInpDiv}>
+            <div className={`${styles.addGroupInpDiv} mb-4`}>
               <label htmlFor=''>Group Link</label>
               <Input
                 type='text'
@@ -139,14 +139,14 @@ const MyGroups = ({ groups }) => {
             <div className={`${styles.addGroupInpDiv}`}>
               <label htmlFor=''>Group Description</label>
               <textarea
-                className='form-control form-control-lg mb-4'
+                className='form-control form-control-lg mb-4 maininp'
                 name='description'
                 rows={5}
                 onChange={handleChange}
                 value={input.description}
               />
             </div>
-            <div className={styles.addGroupInpDiv}>
+            <div className={`${styles.addGroupInpDiv} mb-4`}>
               <label htmlFor=''>Add Tags</label>
               <Input
                 width='50%'
@@ -156,7 +156,7 @@ const MyGroups = ({ groups }) => {
                 maxLength="25"
                 value={tag}
               />
-              <div className={styles.maintag}>
+              <div className={`${styles.maintag} mt-2`}>
                 {input.tags.map((tag, index) => (
                   <div className={styles.tag} key={index}>
                     <h6>{tag}</h6>

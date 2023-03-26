@@ -1,6 +1,6 @@
-import { createContext, useEffect, useRef, useState } from 'react';
-import { toast, ToastContainer } from 'react-toastify';
-import LoadingBar from 'react-top-loading-bar';
+import { createContext, useEffect, useRef, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import LoadingBar from "react-top-loading-bar";
 
 export const generalContext = createContext();
 
@@ -10,50 +10,54 @@ const GeneralContextProvider = ({ children, router }) => {
   const [loaderProgress, setLoaderProgress] = useState(false);
 
   useEffect(() => {
-    router.events.on('routeChangeComplete', () => {
-      // Stop the loader
-      setLoaderProgress(false);
-      topLoaderBar.current.complete();
+    router.events.on("routeChangeComplete", () => {
+      setTimeout(() => {
+        // Stop the loader
+        setLoaderProgress(false);
+        topLoaderBar.current.complete();
+      }, 100);
     });
   }, []);
 
   const showAlert = (msg, type) => {
-    if (type == 'error') {
+    if (type == "error") {
       toast.error(`${msg}`, {
-        position: 'top-right',
+        position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: 'colored',
+        theme: "colored",
       });
     } else {
       toast.success(`${msg}`, {
-        position: 'top-right',
+        position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: 'colored',
+        theme: "colored",
       });
     }
   };
 
   return (
-    <generalContext.Provider value={{ topLoaderBar, setLoaderProgress, showAlert }}>
+    <generalContext.Provider
+      value={{ topLoaderBar, setLoaderProgress, showAlert }}
+    >
       <LoadingBar
-        color='#4154f1'
+        color="#4154f1"
         ref={topLoaderBar}
         progress={loaderProgress ? 50 : 0}
         waitingTime={10}
         onLoaderFinished={() => setLoaderProgress(false)}
       />
       <ToastContainer
-        position='top-right'
+        position="top-right"
         autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
@@ -62,7 +66,7 @@ const GeneralContextProvider = ({ children, router }) => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme='colored'
+        theme="colored"
       />
       {children}
     </generalContext.Provider>
