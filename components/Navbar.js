@@ -14,7 +14,7 @@ const Navbar = (props) => {
   const [token, setToken] = useState(null);
   const { asPath } = useRouter();
   const { showAlert } = useContext(generalContext);
-  // const cookies = parseCookies();
+  
   useEffect(() => {
     window.onscroll = function () {
       if (window.scrollY > 50) {
@@ -69,7 +69,6 @@ const Navbar = (props) => {
       >
         <div className='container-fluid container-xl d-flex align-items-center justify-content-between'>
           <Link href='/' className={`${styles.logo} d-flex align-items-center`}>
-            <img src='assets/img/logo.png' alt='' />
             <span>Linnker</span>
           </Link>
 

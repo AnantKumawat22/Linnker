@@ -4,7 +4,7 @@ import connect from '@/lib/mongodb';
 export default async function handler(req, res) {
   try {
     await connect();
-    const groups = await Group.find({});
+    const groups = await Group.find({isApproved: true});
     res.status(200).json({ groups, message: 'Fetch Successfully.' });
   } catch (err) {
     console.log(err, 'handler error');

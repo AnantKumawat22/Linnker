@@ -31,7 +31,7 @@ const MyGroupCards = ({ group, renderAction }) => {
             }}
           >
             <h5 className="card-title no-of-line-1">{group.name}</h5>
-            <p className="card-text fw-light text-wrap flex-grow-1 no-of-line-2">
+            <p className="card-text fw-light text-wrap no-of-line-2">
               {group.description}
             </p>
             <div className="d-flex align-items-center mb-2 flex-wrap">

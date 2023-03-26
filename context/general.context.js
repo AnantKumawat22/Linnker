@@ -6,7 +6,6 @@ export const generalContext = createContext();
 
 const GeneralContextProvider = ({ children, router }) => {
   // Loading bar State and ref.
-  const topLoaderBar = useRef(null);
   const [loaderProgress, setLoaderProgress] = useState(false);
 
   useEffect(() => {
@@ -14,7 +13,6 @@ const GeneralContextProvider = ({ children, router }) => {
       setTimeout(() => {
         // Stop the loader
         setLoaderProgress(false);
-        topLoaderBar.current.complete();
       }, 100);
     });
   }, []);
