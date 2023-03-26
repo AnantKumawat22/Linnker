@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 
-const Users = () => {
-  const [users, setUsers] = useState(null);
-  const [loading, setLoading] = useState(true);
+const Users = ({ users }) => {
+//   const [users, setUsers] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   useEffect(() => {
-    const init = async () => {
-      try {
-        const response = await fetch(
-          'http://localhost:3000/api/fetchAllUsers'
-        ).then(async (response) => await response.json());
-        setUsers(response.users);
-        setLoading(false);
-      } catch (err) {
-        setError(err.response?.data.msg || err?.message || 'Server Error');
-        setLoading(false);
-      }
-    };
-    init();
+    // const init = async () => {
+    //   try {
+    //     const response = await fetch(
+    //       'http://localhost:3000/api/fetchAllUsers'
+    //     ).then(async (response) => await response.json());
+    //     setUsers(response.users);
+    //     setLoading(false);
+    //   } catch (err) {
+    //     setError(err.response?.data.msg || err?.message || 'Server Error');
+    //     setLoading(false);
+    //   }
+    // };
+    // init();
   }, []);
 
   return (

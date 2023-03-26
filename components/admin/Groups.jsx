@@ -4,31 +4,31 @@ import React, { useContext, useEffect, useState } from 'react';
 import Button from '../atoms/button.atom';
 import MyGroupCards from '../MyGroupCards';
 
-const Groups = ({}) => {
-  const [groups, setGroups] = useState(null);
-  const [filterGroup, setFilterGroup] = useState(null);
+const Groups = ({ groups }) => {
+  //   const [groups, setGroups] = useState(null);
+  const [filterGroup, setFilterGroup] = useState(groups);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [groupType, setGroupType] = useState(groupTypeEnum.ALL);
 
   const { showAlert } = useContext(generalContext);
 
-  useEffect(() => {
-    const init = async () => {
-      try {
-        const response = await fetch(
-          'http://localhost:3000/api/groups/fetchAllGroups'
-        ).then(async (response) => await response.json());
-        setGroups(response.groups);
-        setFilterGroup(response.groups);
-        setLoading(false);
-      } catch (err) {
-        setError(err.response?.data.msg || err?.message || 'Server Error');
-        setLoading(false);
-      }
-    };
-    init();
-  }, []);
+  //   useEffect(() => {
+  //     const init = async () => {
+  //       try {
+  //         const response = await fetch(
+  //           'http://localhost:3000/api/groups/fetchAllGroups'
+  //         ).then(async (response) => await response.json());
+  //         setGroups(response.groups);
+  //         setFilterGroup(response.groups);
+  //         setLoading(false);
+  //       } catch (err) {
+  //         setError(err.response?.data.msg || err?.message || 'Server Error');
+  //         setLoading(false);
+  //       }
+  //     };
+  //     init();
+  //   }, []);
 
   const handleGroupType = (type) => {
     switch (type) {
@@ -55,15 +55,15 @@ const Groups = ({}) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id }),
       }).then(async (response) => await response.json());
-    //   setFilterGroup((prev) =>
-    //     prev.map((group) => {
-    //       if (group._id === id)
-    //         return {
-    //           ...group,
-    //           isApproved: !group.isApproved,
-    //         };
-    //     })
-    //   );
+      //   setFilterGroup((prev) =>
+      //     prev.map((group) => {
+      //       if (group._id === id)
+      //         return {
+      //           ...group,
+      //           isApproved: !group.isApproved,
+      //         };
+      //     })
+      //   );
       showAlert(response?.msg || 'Success', 'success');
     } catch (err) {
       showAlert(err?.response.data?.msg || 'Something went wrong', 'error');

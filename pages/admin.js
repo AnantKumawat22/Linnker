@@ -41,26 +41,9 @@ export async function getServerSideProps() {
 }
 
 const Admin = ({ users, groups, queries }) => {
-  const handleApproved = async (groupId, isApproved) => {
-    try {
-      const response = await fetch(
-        `http://localhost:3000/api/groups/toggleApprove`,
-        {
-          method: 'post',
-          body: JSON.stringify({ isApproved, groupId }),
-        }
-      ).then(async (response) => await response.json());
-    } catch (err) {
-      console.log(err, 'error');
-    }
-  };
-
   const [tab, setTab] = useState(tabsNameEnum.USERS);
-
   const handleTab = (tab) => setTab(tab);
 
-
-  const handleQueryResolve = async () => {};
   return (
     <Container>
       {/* NAVIGATION */}
@@ -94,11 +77,11 @@ const Admin = ({ users, groups, queries }) => {
       </div>
 
       {/* USERS */}
-      {tab === tabsNameEnum.USERS && <Users />}
+      {tab === tabsNameEnum.USERS && <Users users = {users} />}
       {/* GROUPS */}
-      {tab === tabsNameEnum.GROUPS && <Groups />}
+      {tab === tabsNameEnum.GROUPS && <Groups groups={groups} />}
       {/* QUERY */}
-      {tab === tabsNameEnum.QUERIES && <Queries />}
+      {tab === tabsNameEnum.QUERIES && <Queries queries={queries} />}
     </Container>
   );
 };

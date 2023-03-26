@@ -4,31 +4,31 @@ import React, { useEffect, useState, useContext } from 'react';
 import { Table } from 'react-bootstrap';
 import Button from '../atoms/button.atom';
 
-const Queries = () => {
-  const [queries, setQueries] = useState(null);
-  const [filterQueries, setFilterQueries] = useState(null);
+const Queries = ({ queries }) => {
+//   const [queries, setQueries] = useState(null);
+  const [filterQueries, setFilterQueries] = useState(queries);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [queryType, setQueryType] = useState(queryTypeEnum.ALL);
 
   const { showAlert } = useContext(generalContext);
 
-  useEffect(() => {
-    const init = async () => {
-      try {
-        const response = await fetch(
-          'http://localhost:3000/api/fetchAllQueries'
-        ).then(async (response) => await response.json());
-        setQueries(response.queries);
-        setFilterQueries(response.queries);
-        setLoading(false);
-      } catch (err) {
-        setError(err.response?.data.msg || err?.message || 'Server Error');
-        setLoading(false);
-      }
-    };
-    init();
-  }, []);
+//   useEffect(() => {
+//     const init = async () => {
+//       try {
+//         const response = await fetch(
+//           'http://localhost:3000/api/fetchAllQueries'
+//         ).then(async (response) => await response.json());
+//         setQueries(response.queries);
+//         setFilterQueries(response.queries);
+//         setLoading(false);
+//       } catch (err) {
+//         setError(err.response?.data.msg || err?.message || 'Server Error');
+//         setLoading(false);
+//       }
+//     };
+//     init();
+//   }, []);
 
   const handleQueryType = (type) => {
     switch (type) {
