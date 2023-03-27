@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
-import { Schema } from 'mongoose';
+import mongoose from "mongoose";
+import { Schema } from "mongoose";
 
 const schema = new Schema({
   email: {
@@ -24,6 +24,6 @@ const schema = new Schema({
   },
 });
 
-const Query = mongoose.models.queries || mongoose.model('queries', schema);
+const Query = mongoose.models.queries || mongoose.model("queries", schema);
 
 export default Query;

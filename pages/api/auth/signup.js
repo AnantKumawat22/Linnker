@@ -24,8 +24,6 @@ const validateBody = initMiddleware(
   ])
 );
 
-const handleEmailSubmit = async (user, res) => {};
-
 // Create a User using: POST "/api/auth/signup".
 export default async function handler(req, res) {
   const { name, email, password } = req.body;
@@ -51,7 +49,7 @@ export default async function handler(req, res) {
 
       // Check is user already exist and verified is false. Delete his/her token, that user, create again with updated values and send verify email.
       if (user && user.verified == false) {
-        await User.findByIdAndRemove({_id: user._id});
+        await User.findByIdAndRemove({ _id: user._id });
         await Token.findOneAndDelete({ user: user._id });
       }
 
@@ -90,7 +88,7 @@ export default async function handler(req, res) {
       });
     }
   } catch (error) {
-    console.log(error, "error");
+    console.log("Error", error);
     res.status(500).json({ msg: "Internal Server Error", success: false });
   }
 }

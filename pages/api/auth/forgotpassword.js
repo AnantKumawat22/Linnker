@@ -34,13 +34,11 @@ export default async function handler(req, res) {
       }
 
       // Check User Verified or not.
-      if(!user.verified){
-        return res
-          .status(400)
-          .json({
-            success: false,
-            msg: "Please Verify your email first. A verification link is already sent to your email account.",
-          });
+      if (!user.verified) {
+        return res.status(400).json({
+          success: false,
+          msg: "Please Verify your email first. A verification link is already sent to your email account.",
+        });
       }
 
       // Generating Token

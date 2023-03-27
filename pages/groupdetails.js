@@ -34,8 +34,6 @@ const groupdetails = () => {
     fetchUser();
   }, [router.query]);
 
-  console.log("grouptags", grouptags)
-
   return (
     <>
       <section
@@ -68,7 +66,8 @@ const groupdetails = () => {
                     <strong>Group Name</strong>: {groupname}
                   </li>
                   <li>
-                    <strong>Group Tags</strong>: { grouptags && grouptags.join(", ")}
+                    <strong>Group Tags</strong>:{" "}
+                    {grouptags && grouptags.join(", ")}
                   </li>
 
                   <li className={`${styles.grouplink}`}>

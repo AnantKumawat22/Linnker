@@ -1,13 +1,14 @@
-import { queryTypeEnum } from '@/constant';
-import { generalContext } from '@/context/general.context';
-import React, { useState, useContext } from 'react';
-import { Table } from 'react-bootstrap';
-import Button from '../atoms/button.atom';
+import { queryTypeEnum } from "@/constant";
+import { generalContext } from "@/context/general.context";
+import React, { useState, useContext } from "react";
+import { Table } from "react-bootstrap";
+import Button from "../atoms/button.atom";
 
 const Queries = ({ queries }) => {
   const [filterQueries, setFilterQueries] = useState(queries);
   const [queryType, setQueryType] = useState(queryTypeEnum.ALL);
 
+  // Context
   const { showAlert } = useContext(generalContext);
 
   const handleQueryType = (type) => {
@@ -31,61 +32,64 @@ const Queries = ({ queries }) => {
 
   const handleQueryResolve = async (id) => {
     try {
-      console.log(id, 'is`');
-      const response = await fetch('http://localhost:3000/api/resolveQuery', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      // API CALL
+      const response = await fetch("http://localhost:3000/api/resolveQuery", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id }),
       }).then(async (response) => await response.json());
-      
+
       if (response.success) {
-        showAlert(response?.msg, 'success');
+        // Alert
+        showAlert(response?.msg, "success");
       } else {
-        showAlert(response?.msg, 'error');
+        // Alert
+        showAlert(response?.msg, "error");
       }
     } catch (err) {
-      showAlert(err?.response.data?.msg || 'Something went wrong', 'error');
+      // Alert
+      showAlert(err?.response.data?.msg || "Something went wrong", "error");
     }
   };
   return (
     <div>
-      <div className='container mt-2 mb-5 mt-5' style={{ minHeight: '450px' }}>
-        <div className='mt-4 mx-auto' style={{ width: 'fit-content' }}>
-          <ul className='nav nav-tabs'>
+      <div className="container mt-2 mb-5 mt-5" style={{ minHeight: "450px" }}>
+        <div className="mt-4 mx-auto" style={{ width: "fit-content" }}>
+          <ul className="nav nav-tabs">
             <li
               className={`nav-item ${
-                queryType === queryTypeEnum.ALL && 'active'
+                queryType === queryTypeEnum.ALL && "active"
               } `}
               onClick={() => handleQueryType(queryTypeEnum.ALL)}
             >
-              <a className='nav-link' aria-current='page' href='#'>
+              <a className="nav-link" aria-current="page" href="#">
                 All
               </a>
             </li>
             <li
               className={`nav-item ${
-                queryType === queryTypeEnum.APPROVED && 'active'
+                queryType === queryTypeEnum.APPROVED && "active"
               } `}
               onClick={() => handleQueryType(queryTypeEnum.COMPLETED)}
             >
-              <a className='nav-link' aria-current='page' href='#'>
+              <a className="nav-link" aria-current="page" href="#">
                 Completed
               </a>
             </li>
             <li
               className={`nav-item ${
-                queryType === queryTypeEnum.NOT_APPROVED && 'active'
+                queryType === queryTypeEnum.NOT_APPROVED && "active"
               } `}
               onClick={() => handleQueryType(queryTypeEnum.PENDING)}
             >
-              <a className='nav-link' aria-current='page' href='#'>
+              <a className="nav-link" aria-current="page" href="#">
                 Pending
               </a>
             </li>
           </ul>
         </div>
         {/*  */}
-        <h2 className='fs-2 mb-4'>Queries</h2>
+        <h2 className="fs-2 mb-4">Queries</h2>
         <Table striped bordered hover responsive>
           <thead>
             <tr>
@@ -100,7 +104,7 @@ const Queries = ({ queries }) => {
           <tbody>
             {filterQueries?.map((query, idx) => (
               <tr>
-                <td style={{ background: query.isResolved ? 'green' : 'red' }}>
+                <td style={{ background: query.isResolved ? "green" : "red" }}>
                   {idx + 1}
                 </td>
                 <td>{query.email}</td>
@@ -111,9 +115,9 @@ const Queries = ({ queries }) => {
                   <Button
                     onClick={() => handleQueryResolve(query._id)}
                     className={`btn btn-lg text-white ${
-                      query.isResolved ? 'btn-danger' : 'btn-success'
+                      query.isResolved ? "btn-danger" : "btn-success"
                     }`}
-                    value={query.isResolved ? 'Pending' : 'Completed'}
+                    value={query.isResolved ? "Pending" : "Completed"}
                   />
                 </td>
               </tr>

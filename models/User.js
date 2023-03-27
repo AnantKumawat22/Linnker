@@ -1,6 +1,6 @@
-import { roles } from '@/constant';
-import mongoose from 'mongoose';
-import { Schema } from 'mongoose';
+import { roles } from "@/constant";
+import mongoose from "mongoose";
+import { Schema } from "mongoose";
 
 const UserSchema = new Schema({
   name: {
@@ -31,6 +31,6 @@ const UserSchema = new Schema({
   },
 });
 
-const User = mongoose.models.users || mongoose.model('users', UserSchema);
+const User = mongoose.models.users || mongoose.model("users", UserSchema);
 
 export default User;

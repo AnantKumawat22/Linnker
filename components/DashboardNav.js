@@ -6,11 +6,15 @@ import { useRouter } from "next/router";
 import styles from "../styles/dashboardnav.module.css";
 
 const DashboardNav = () => {
+  // UseRef of profile and mygroup section.
   const profilehighlight = useRef(null);
   const mygroupshighlight = useRef(null);
 
+  // Router
   const router = useRouter();
+  
   useEffect(() => {
+    // Highlight the section on which we are - profile or mygroup.
     if (router.query.section == "profile") {
       profilehighlight.current.style.borderBottom = `4px solid ${COLORS.primary.main}`;
       mygroupshighlight.current.style.borderBottom = `none`;

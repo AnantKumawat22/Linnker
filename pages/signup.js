@@ -1,12 +1,12 @@
-import React, { useContext, useState } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import 'bootstrap/dist/css/bootstrap.css';
-import Button from '@/components/atoms/button.atom';
-import Input from '@/components/atoms/input.atom';
-import { generalContext } from '@/context/general.context';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import React, { useContext, useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import "bootstrap/dist/css/bootstrap.css";
+import Button from "@/components/atoms/button.atom";
+import Input from "@/components/atoms/input.atom";
+import { generalContext } from "@/context/general.context";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 export async function getServerSideProps(context) {
   const { token } = context.req.cookies;
@@ -15,7 +15,7 @@ export async function getServerSideProps(context) {
   if (token) {
     return {
       redirect: {
-        destination: '/',
+        destination: "/",
         permanent: false,
       },
     };
@@ -26,16 +26,16 @@ export async function getServerSideProps(context) {
 }
 
 const Signup = (props) => {
-  const { showAlert, setLoaderProgress } = useContext(generalContext);
+  const { showAlert, topLoaderBar } = useContext(generalContext);
   // Router
   const router = useRouter();
 
   // Handle State of input fields.
   const [cred, setCred] = useState({
-    name: '',
-    email: '',
-    password: '',
-    conpassword: '',
+    name: "",
+    email: "",
+    password: "",
+    conpassword: "",
   });
   // Password show state
   const [showpassword, setShowpassword] = useState(false);
@@ -47,47 +47,46 @@ const Signup = (props) => {
     e.preventDefault();
 
     // Start the loader
-    setLoaderProgress(true);
+    topLoaderBar.current.continuousStart();
 
     const { name, email, password, conpassword } = cred;
 
     // Check password and confirm password are same or not.
     if (password !== conpassword) {
-      showAlert("Password and Confirm Password didn't matched.", 'error');
+      showAlert("Password and Confirm Password didn't matched.", "error");
 
       // Stop the loader
-      setLoaderProgress(false);
+      topLoaderBar && topLoaderBar.current.complete();
       return;
     }
 
     // API CALL
-    const response = await fetch('/api/auth/signup', {
-      method: 'POST',
+    const response = await fetch("/api/auth/signup", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ name, email, password }),
     });
 
     const data = await response.json();
-    console.log(data);
 
     // Check if everything Okay.
     if (data.success) {
       // Alert
-      showAlert(data.msg, 'success');
+      showAlert(data.msg, "success");
 
       // Stop the loader
-      setLoaderProgress(false);
+      topLoaderBar && topLoaderBar.current.complete();
 
       // Redirect at Login Page
-      router.push('/login');
+      router.push("/login");
     } else {
       // Stop the loader
-      setLoaderProgress(false);
+      topLoaderBar && topLoaderBar.current.complete();
 
       // Alert
-      showAlert(data.msg, 'error');
+      showAlert(data.msg, "error");
     }
   };
 
@@ -98,70 +97,70 @@ const Signup = (props) => {
 
   return (
     <>
-      <section style={{ paddingTop: '40px', marginBottom: '40px' }}>
-        <div className='container-fluid h-custom pb-5'>
-          <div className='row d-flex justify-content-center align-items-center h-100'>
-            <div className='col-md-9 col-lg-6 col-xl-5'>
+      <section style={{ paddingTop: "40px", marginBottom: "40px" }}>
+        <div className="container-fluid h-custom pb-5">
+          <div className="row d-flex justify-content-center align-items-center h-100">
+            <div className="col-md-9 col-lg-6 col-xl-5">
               <img
-                src='https://bootstrapious.com/i/snippets/sn-registeration/illustration.svg'
-                className='img-fluid'
-                alt='Sample image'
+                src="https://bootstrapious.com/i/snippets/sn-registeration/illustration.svg"
+                className="img-fluid"
+                alt="Sample image"
               />
             </div>
-            <div className='col-md-8 col-lg-6 col-xl-4 offset-xl-1 pt-5'>
-              <h2 className='mb-4 text-center'>
+            <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1 pt-5">
+              <h2 className="mb-4 text-center">
                 <u> SignUp </u>
               </h2>
 
               {/* Form */}
               <form onSubmit={handleSubmit}>
                 {/* Full Name input */}
-                <div className='form-outline mb-4'>
+                <div className="form-outline mb-4">
                   <Input
-                    type='text'
-                    id='name'
-                    autoComplete='off'
+                    type="text"
+                    id="name"
+                    autoComplete="off"
                     value={cred.name}
-                    name='name'
+                    name="name"
                     onChange={inpChange}
-                    placeholder='Enter your name'
+                    placeholder="Enter your name"
                   />
                 </div>
 
                 {/* Phone Number input */}
-                <div className='form-outline mb-4'>
+                <div className="form-outline mb-4">
                   <Input
-                    type='email'
-                    id='email'
-                    autoComplete='off'
+                    type="email"
+                    id="email"
+                    autoComplete="off"
                     value={cred.email}
-                    name='email'
+                    name="email"
                     onChange={inpChange}
-                    placeholder='Enter your email'
+                    placeholder="Enter your email"
                   />
                 </div>
 
                 <div
-                  className='d-flex flex-row justify-content-center maininp mt-4 pe-2'
-                  style={{ border: '1px solid #ced4da' }}
+                  className="d-flex flex-row justify-content-center maininp mt-4 pe-2"
+                  style={{ border: "1px solid #ced4da" }}
                 >
                   <Input
-                    type={`${showpassword ? 'text' : 'password'}`}
-                    id='password'
+                    type={`${showpassword ? "text" : "password"}`}
+                    id="password"
                     value={cred.password}
-                    name='password'
+                    name="password"
                     style={{
-                      border: 'none',
-                      boxShadow: 'none',
-                      PointerEvent: 'none',
+                      border: "none",
+                      boxShadow: "none",
+                      PointerEvent: "none",
                     }}
                     onChange={inpChange}
-                    placeholder='Enter password'
+                    placeholder="Enter password"
                   />
                   {showpassword ? (
                     <FontAwesomeIcon
-                      role='button'
-                      className='mt-3 text-secondary'
+                      role="button"
+                      className="mt-3 text-secondary"
                       onClick={() => {
                         setShowpassword(false);
                       }}
@@ -169,8 +168,8 @@ const Signup = (props) => {
                     />
                   ) : (
                     <FontAwesomeIcon
-                      role='button'
-                      className='mt-3 text-secondary'
+                      role="button"
+                      className="mt-3 text-secondary"
                       onClick={() => {
                         setShowpassword(true);
                       }}
@@ -181,26 +180,26 @@ const Signup = (props) => {
 
                 {/* Confirm Password input */}
                 <div
-                  className='d-flex flex-row justify-content-center maininp mt-4 pe-2'
-                  style={{ border: '1px solid #ced4da' }}
+                  className="d-flex flex-row justify-content-center maininp mt-4 pe-2"
+                  style={{ border: "1px solid #ced4da" }}
                 >
                   <Input
-                    type={`${showconpassword ? 'text' : 'password'}`}
-                    id='conpassword'
+                    type={`${showconpassword ? "text" : "password"}`}
+                    id="conpassword"
                     value={cred.conpassword}
-                    name='conpassword'
+                    name="conpassword"
                     style={{
-                      border: 'none',
-                      boxShadow: 'none',
-                      PointerEvent: 'none',
+                      border: "none",
+                      boxShadow: "none",
+                      PointerEvent: "none",
                     }}
                     onChange={inpChange}
-                    placeholder='Confirm password'
+                    placeholder="Confirm password"
                   />
                   {showconpassword ? (
                     <FontAwesomeIcon
-                      role='button'
-                      className='mt-3 text-secondary'
+                      role="button"
+                      className="mt-3 text-secondary"
                       onClick={() => {
                         setShowconpassword(false);
                       }}
@@ -208,8 +207,8 @@ const Signup = (props) => {
                     />
                   ) : (
                     <FontAwesomeIcon
-                      role='button'
-                      className='mt-3 text-secondary'
+                      role="button"
+                      className="mt-3 text-secondary"
                       onClick={() => {
                         setShowconpassword(true);
                       }}
@@ -218,16 +217,16 @@ const Signup = (props) => {
                   )}
                 </div>
 
-                <div className='text-center text-lg-start mt-4 pt-2'>
+                <div className="text-center text-lg-start mt-4 pt-2">
                   <Button
-                    type='submit'
-                    value='Signup'
-                    className='btn btn-primary btn-lg'
-                    style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem' }}
+                    type="submit"
+                    value="Signup"
+                    className="btn btn-primary btn-lg"
+                    style={{ paddingLeft: "2.5rem", paddingRight: "2.5rem" }}
                   ></Button>
-                  <p className='small mt-2 pt-1 mb-0'>
-                    Already have an account?{' '}
-                    <Link href='/login' className='link-danger'>
+                  <p className="small mt-2 pt-1 mb-0">
+                    Already have an account?{" "}
+                    <Link href="/login" className="link-danger">
                       Login
                     </Link>
                   </p>

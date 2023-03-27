@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { useRouter } from 'next/router';
-import Profile from '@/components/Profile';
-import MyGroups from '@/components/MyGroups';
+import React, { useEffect, useState, useContext } from "react";
+import { useRouter } from "next/router";
+import Profile from "@/components/Profile";
+import MyGroups from "@/components/MyGroups";
 
 export async function getServerSideProps(context) {
   const { token } = context.req.cookies;
@@ -9,27 +9,26 @@ export async function getServerSideProps(context) {
   if (!token) {
     return {
       redirect: {
-        destination: '/',
+        destination: "/",
         permanent: false,
       },
     };
   }
   try {
     const jsonResponse = await fetch(
-      'http://localhost:3000/api/groups/fetchMyGroups',
+      "http://localhost:3000/api/groups/fetchMyGroups",
       {
         headers: {
           authentication: token,
         },
       }
     );
-    const { groups } = await jsonResponse.json();
-    console.log(groups);
+    const data = await jsonResponse.json();
+
     return {
-      props: { groups },
+      props: { groups: data.groups },
     };
   } catch (error) {
-    console.log(error, 'error');
     return {
       props: { groups: [] },
     };
@@ -48,10 +47,10 @@ const section = ({ groups }) => {
     router.push(`/dashboard/profile`);
   }
 
-  return typeof sectionstate !== 'undefined' ? (
-    sectionstate == 'profile' ? (
+  return typeof sectionstate !== "undefined" ? (
+    sectionstate == "profile" ? (
       <Profile />
-    ) : sectionstate == 'mygroups' ? (
+    ) : sectionstate == "mygroups" ? (
       <MyGroups groups={groups} />
     ) : (
       navigateprofile()

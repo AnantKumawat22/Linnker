@@ -7,6 +7,7 @@ const MyGroupCards = ({ group, renderAction }) => {
   // Router
   const router = useRouter();
 
+  // Sending card details when user click on card to see its details.
   const handleCardClick = (group) => {
     router.push({
       pathname: "/groupdetails",
@@ -25,7 +26,8 @@ const MyGroupCards = ({ group, renderAction }) => {
         className={`card shadow-sm rounded-3 h-100 ${styles["group-card-root"]}`}
       >
         <div className="card-body d-flex flex-column">
-          <div className="card-body d-flex flex-column p-0"
+          <div
+            className="card-body d-flex flex-column p-0"
             onClick={() => {
               handleCardClick(group);
             }}
@@ -37,8 +39,7 @@ const MyGroupCards = ({ group, renderAction }) => {
             <div className="d-flex align-items-center mb-2 flex-wrap">
               {group.tags.map((tag, idx) => (
                 <div className={`me-1 mb-1 px-3 rounded-5 ${styles.tagDiv}`}>
-                  <span className="font-weight-bolder"
-                   > {tag}</span>
+                  <span className="font-weight-bolder"> {tag}</span>
                 </div>
               ))}
             </div>

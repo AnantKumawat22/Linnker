@@ -1,22 +1,20 @@
-import Groups from '@/components/admin/Groups';
-import Queries from '@/components/admin/Queries';
-import Users from '@/components/admin/Users';
-import Button from '@/components/atoms/button.atom';
-import MyGroupCards from '@/components/MyGroupCards';
-import { tabsNameEnum } from '@/constant';
-import React, { useState } from 'react';
-import { Container, Table } from 'react-bootstrap';
+import Groups from "@/components/admin/Groups";
+import Queries from "@/components/admin/Queries";
+import Users from "@/components/admin/Users";
+import { tabsNameEnum } from "@/constant";
+import React, { useState } from "react";
+import { Container, Table } from "react-bootstrap";
 
 export async function getServerSideProps() {
   try {
     const groupsResponse = await fetch(
-      'http://localhost:3000/api/groups/fetchAllGroups'
+      "http://localhost:3000/api/groups/fetchAllGroups"
     ).then(async (response) => await response.json());
     const usersResponse = await fetch(
-      'http://localhost:3000/api/fetchAllUsers'
+      "http://localhost:3000/api/fetchAllUsers"
     ).then(async (response) => await response.json());
     const queriesResponse = await fetch(
-      'http://localhost:3000/api/fetchAllQueries'
+      "http://localhost:3000/api/fetchAllQueries"
     ).then(async (response) => await response.json());
 
     const responses = await Promise.all([
@@ -24,8 +22,6 @@ export async function getServerSideProps() {
       groupsResponse,
       queriesResponse,
     ]);
-
-    console.log(responses, 'responses');
 
     return {
       props: {
@@ -35,7 +31,6 @@ export async function getServerSideProps() {
       },
     };
   } catch (err) {
-    console.log(err, 'err');
     return { props: { groups: [] } };
   }
 }
@@ -48,28 +43,28 @@ const Admin = ({ users, groups, queries }) => {
     <Container>
       {/* NAVIGATION */}
       <div>
-        <ul className='nav nav-tabs'>
+        <ul className="nav nav-tabs">
           <li
-            className={`nav-item ${tab === tabsNameEnum.USERS && 'active'} `}
+            className={`nav-item ${tab === tabsNameEnum.USERS && "active"} `}
             onClick={() => handleTab(tabsNameEnum.USERS)}
           >
-            <a className='nav-link' aria-current='page' href='#'>
+            <a className="nav-link" aria-current="page" href="#">
               Users
             </a>
           </li>
           <li
-            className={`nav-item ${tab === tabsNameEnum.GROUPS && 'active'} `}
+            className={`nav-item ${tab === tabsNameEnum.GROUPS && "active"} `}
             onClick={() => handleTab(tabsNameEnum.GROUPS)}
           >
-            <a className='nav-link' aria-current='page' href='#'>
+            <a className="nav-link" aria-current="page" href="#">
               Groups
             </a>
           </li>
           <li
-            className={`nav-item ${tab === tabsNameEnum.QUERIES && 'active'} `}
+            className={`nav-item ${tab === tabsNameEnum.QUERIES && "active"} `}
             onClick={() => handleTab(tabsNameEnum.QUERIES)}
           >
-            <a className='nav-link' aria-current='page' href='#'>
+            <a className="nav-link" aria-current="page" href="#">
               Queries
             </a>
           </li>
@@ -77,7 +72,7 @@ const Admin = ({ users, groups, queries }) => {
       </div>
 
       {/* USERS */}
-      {tab === tabsNameEnum.USERS && <Users users = {users} />}
+      {tab === tabsNameEnum.USERS && <Users users={users} />}
       {/* GROUPS */}
       {tab === tabsNameEnum.GROUPS && <Groups groups={groups} />}
       {/* QUERY */}

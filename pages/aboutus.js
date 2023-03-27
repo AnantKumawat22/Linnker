@@ -19,11 +19,14 @@ const aboutus = () => {
               <div className={styles.content}>
                 <h3>Who We Are</h3>
                 <h2>
-                  We are problem solvers. Who Loves to create something unique from our ideas.
+                  We are problem solvers. Who Loves to create something unique
+                  from our ideas.
                 </h2>
                 <p>
-                  Anant Kumawat and Abhishek Patel. We are from Computer Science, who believe and love to create problem solving ideas.
-                  Linnker is also a creative idea from our mind. We like to help people by our skills and knowledge :-)
+                  Anant Kumawat and Abhishek Patel. We are from Computer
+                  Science, who believe and love to create problem solving ideas.
+                  Linnker is also a creative idea from our mind. We like to help
+                  people by our skills and knowledge :-)
                 </p>
               </div>
             </div>
@@ -36,6 +39,7 @@ const aboutus = () => {
               <Image
                 width={820}
                 height={540}
+                priority
                 src="/img/Logo/logo.png"
                 className="img-fluid"
                 alt=""
@@ -65,12 +69,16 @@ const aboutus = () => {
                   <Image
                     width={200}
                     height={200}
+                    style={{ width: "auto", height: "auto" }}
                     src="/img/team/team-1.jpg"
                     className="img-fluid"
                     alt=""
                   />
                   <div className={styles.social}>
-                    <Link href="https://twitter.com/AnantKumawat02" target="_blank">
+                    <Link
+                      href="https://twitter.com/AnantKumawat02"
+                      target="_blank"
+                    >
                       <i className="bi bi-twitter"></i>
                     </Link>
                     <Link href="" target="_blank">
@@ -102,6 +110,7 @@ const aboutus = () => {
                   <Image
                     width={200}
                     height={200}
+                    style={{ width: "auto", height: "auto" }}
                     src="/img/team/team-2.jpg"
                     className="img-fluid"
                     alt=""

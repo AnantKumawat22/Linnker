@@ -30,12 +30,10 @@ export default async function handler(req, res) {
       // Check this token exist or not.
       let token = await Token.findOne({ token: authtoken });
       if (!token) {
-        return res
-          .status(400)
-          .json({
-            msg: "Invalid link. Try to reset password again.",
-            success: false,
-          });
+        return res.status(400).json({
+          msg: "Invalid link. Try to reset password again.",
+          success: false,
+        });
       }
 
       // Convert the password in hash.
@@ -49,12 +47,10 @@ export default async function handler(req, res) {
         { $set: { password: secpass } }
       );
       if (!user) {
-        return res
-          .status(400)
-          .json({
-            msg: "Invalid link. Try to reset password again.",
-            success: false,
-          });
+        return res.status(400).json({
+          msg: "Invalid link. Try to reset password again.",
+          success: false,
+        });
       }
 
       await Token.findOneAndDelete({ _id: token._id });
@@ -64,7 +60,7 @@ export default async function handler(req, res) {
         .json({ msg: "Password Changed Successfully", success: true });
     }
   } catch (error) {
-    console.log(error);
+    console.log("Error", error);
     res.status(500).json({ msg: "Internal Server Error", success: false });
   }
 }

@@ -18,10 +18,12 @@ const Profile = () => {
     second: "",
   });
   const [user, setUser] = useState(null);
+
   useEffect(() => {
     const fetchUser = async () => {
       const cookies = parseCookies();
       try {
+        // API CALL
         const jsonResponse = await fetch("http://localhost:3000/api/user", {
           headers: {
             authentication: cookies.token,
@@ -40,8 +42,8 @@ const Profile = () => {
           minute: utcTimestamp.getMinutes(),
           second: utcTimestamp.getSeconds(),
         });
-      } catch (err) {
-        console.log(err, "err");
+      } catch (error) {
+        console.log("Error", error);
       }
     };
     fetchUser();
@@ -94,7 +96,11 @@ const Profile = () => {
               className={`${styles.stats} d-flex justify-content-center align-items-center mt-5 px-2`}
             >
               <h6 className="mb-0 font-weight-bold">Account Created on: </h6>
-              <span> { dateandtime && `${dateandtime?.date}/${dateandtime?.month}/${dateandtime?.year} - ${dateandtime?.hour}:${dateandtime?.minute}:${dateandtime?.second}`}</span>
+              <span>
+                {" "}
+                {dateandtime &&
+                  `${dateandtime?.date}/${dateandtime?.month}/${dateandtime?.year} - ${dateandtime?.hour}:${dateandtime?.minute}:${dateandtime?.second}`}
+              </span>
             </div>
           </div>
         </div>

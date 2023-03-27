@@ -97,11 +97,7 @@ const contactus = () => {
             </div>
 
             <div className="col-lg-6">
-              <form
-                action="forms/contact.php"
-                method="post"
-                className={styles.EmailForm}
-              >
+              <div className={styles.EmailForm}>
                 <Formik
                   initialValues={{
                     name: "",
@@ -246,6 +242,7 @@ const contactus = () => {
                         <div className={styles.loading}>Loading</div>
                         {/* Alert Msg:- Your message has been sent. Thank you! */}
                         <button
+                          type="submit"
                           disabled={isSubmitting}
                           className="btn btn-primary"
                           onClick={handleSubmit}
@@ -256,7 +253,7 @@ const contactus = () => {
                     </div>
                   )}
                 </Formik>
-              </form>
+              </div>
             </div>
           </div>
         </div>

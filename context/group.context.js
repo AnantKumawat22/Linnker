@@ -1,16 +1,13 @@
-import { useState } from 'react';
-import { createContext } from 'react';
+import { useState } from "react";
+import { createContext } from "react";
 
 export const groupContext = createContext();
 
 const GroupContextProvider = ({ children }) => {
   const [myGroups, setMyGroups] = useState(null);
-  const [allGroups, setAllGroups] = useState(null);
 
   return (
-    <groupContext.Provider
-      value={{ myGroups, setMyGroups, allGroups, setAllGroups }}
-    >
+    <groupContext.Provider value={{ myGroups, setMyGroups }}>
       {children}
     </groupContext.Provider>
   );

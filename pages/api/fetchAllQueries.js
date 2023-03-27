@@ -1,17 +1,19 @@
-import { roles } from '@/constant';
-import connect from '@/lib/mongodb';
-import isAuth from '@/middleware/isAuth';
-import Query from '@/models/Query';
+import connect from "@/lib/mongodb";
+import Query from "@/models/Query";
+import { roles } from "@/constant";
+import isAuth from "@/middleware/isAuth";
 
 async function handler(req, res) {
   try {
     await connect();
     const queries = await Query.find({});
-    res.status(200).json({ queries, message: 'Fetch Successfully.' });
-  } catch (err) {
-    console.log(err, 'handler error');
-    res.status(400).json({ message: 'Fetch Error.' });
+    res
+      .status(200)
+      .json({ queries, msg: "Fetch Successfully.", success: true });
+  } catch (error) {
+    console.log("Error", error);
+    res.status(400).json({ msg: "Fetch Error.", success: false });
   }
 }
 
-export default handler;
+export default isAuth([roles.ADMIN], handler);

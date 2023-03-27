@@ -23,7 +23,6 @@ export async function getServerSideProps() {
       props: { groups: response?.groups || [] },
     };
   } catch (err) {
-    console.log(err, "err");
     return { props: { groups: [] } };
   }
 }
@@ -44,15 +43,10 @@ const groups = ({ groups }) => {
     var eleDate = new Date(element?.date).toLocaleDateString("en-US");
     var endDate = new Date(eleDate);
 
-    // console.log((startDate - endDate));
-
-    if (((startDate - endDate) / 1000)/86400 <= 20) {
+    if ((startDate - endDate) / 1000 / 86400 <= 20) {
       newrecentgroups.push(element);
     }
   });
-
-  console.log("recent groups", newrecentgroups);
-  console.log("all groups", groups);
 
   const [searchgroup, setSearchGroup] = useState(groups);
   const [searchinput, setSearchInput] = useState("");
@@ -70,7 +64,6 @@ const groups = ({ groups }) => {
 
   const handleSearchSubmit = (e) => {
     if (e) e.preventDefault();
-    console.log("searhc", searchinput, selectedValue);
 
     let filterData = "";
 
@@ -196,7 +189,7 @@ const groups = ({ groups }) => {
             </div>
           )}
 
-          {searchgroup?.length !== 0 && searchinput == "" && (
+          {searchgroup?.length !== 0 && searchinput == "" && recentgroups.length >= 6 && (
             <>
               <div
                 className="container mt-5 mb-2"
