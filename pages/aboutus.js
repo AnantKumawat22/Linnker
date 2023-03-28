@@ -81,10 +81,10 @@ const aboutus = () => {
                     >
                       <i className="bi bi-twitter"></i>
                     </Link>
-                    <Link href="" target="_blank">
+                    <Link href="https://www.instagram.com/anantkumawat22/" target="_blank">
                       <i className="bi bi-instagram"></i>
                     </Link>
-                    <Link href="" target="_blank">
+                    <Link href="https://www.linkedin.com/in/anant-kumawat/" target="_blank">
                       <i className="bi bi-linkedin"></i>
                     </Link>
                   </div>
@@ -93,8 +93,7 @@ const aboutus = () => {
                   <h4>Anant Kumawat</h4>
                   <span>Computer Science</span>
                   <p>
-                    Full Stack Web Developer | Problem Solving | Data Structures
-                    and Algorithm.
+                    Full Stack Web Developer | AWS | MERN Stack | Problem Solving | DSA.
                   </p>
                 </div>
               </div>

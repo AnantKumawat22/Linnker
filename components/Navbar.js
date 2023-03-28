@@ -7,7 +7,7 @@ import { destroyCookie } from "nookies";
 import { parseCookies } from "nookies";
 import { generalContext } from "@/context/general.context";
 
-const Navbar = () => {
+const Navbar = (props) => {
   // Router
   const router = useRouter();
   const { asPath } = useRouter();
@@ -23,8 +23,10 @@ const Navbar = () => {
     window.onscroll = function () {
       if (window.scrollY > 50) {
         setScrolled(true);
+        props.setBottomToTop(true);
       } else {
         setScrolled(false);
+        props.setBottomToTop(false);
       }
     };
   }, []);

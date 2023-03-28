@@ -13,7 +13,7 @@ export default async function handler(req, res) {
     const { error } = schema.validate(req.body);
     if (error)
       res.status(400).json({
-        msg: "Something is missing from your side. please check again.",
+        msg: "Something is missing from your side. please try again after some time.",
         success: false,
       });
     await connect();
@@ -21,7 +21,7 @@ export default async function handler(req, res) {
     res
       .status(200)
       .json({
-        msg: "Successfully added your query. We Will reply soon",
+        msg: "Your query has been added successfully. We will reply soon.",
         success: true,
       });
   } catch (error) {

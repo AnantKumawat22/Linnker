@@ -1,4 +1,4 @@
-.mainGroupPageDiv{
+.mainGroupPageDiv {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -6,7 +6,7 @@
     align-items: center;
 }
 
-.searchBarDiv{
+.searchBarDiv {
     width: 80%;
     border: 1px solid rgb(195, 195, 195);
     border-radius: 10px;
@@ -19,11 +19,12 @@
     align-items: center;
 }
 
-.searchBarDiv:focus-within, .dropDownDiv select:focus-within{
+.searchBarDiv:focus-within,
+.dropDownDiv select:focus-within {
     border: 4px solid rgba(110, 110, 230, 0.334);
 }
 
-.searchInp{
+.searchInp {
     width: 90%;
     outline: none;
     padding: 0px 20px;
@@ -31,13 +32,13 @@
     border: none;
 }
 
-.dropDownDiv{
+.dropDownDiv {
     width: 200px;
     border-radius: 10px;
     border: 1px solid rgb(195, 195, 195);
 }
 
-.dropDownOptions{
+.dropDownOptions {
     position: absolute;
     width: 198px;
     top: 183px;
@@ -47,47 +48,38 @@
     border: 1px solid rgb(195, 195, 195);
 }
 
-.dropDownOptions p:hover{
+.dropDownOptions p:hover {
     background-color: rgb(249, 249, 249);
 }
 
-.dropDownOptions :last-child:hover{
+.dropDownOptions :last-child:hover {
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
 }
 
-.allgroupcard {
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-@media(max-width: 800px){
-    .allgroupcard{
-        justify-content: center;
-    }
-    .searchAndDropDownDiv{
+@media(max-width: 800px) {
+    .searchAndDropDownDiv {
         margin-bottom: 20px;
         flex-direction: column;
     }
-    .searchBarDiv{
+
+    .searchBarDiv {
         width: 100%;
         margin: 0px 0px 20px 0px;
     }
 }
 
-@media(max-width: 1199px){
-    .dropDownMain{
+@media(max-width: 1199px) {
+    .dropDownMain {
         width: 80%;
         border-radius: 10px;
     }
-    
-    .searchBarDiv{
+
+    .searchBarDiv {
         margin-right: 0px;
     }
 
-    .dropDownOptions{
+    .dropDownOptions {
         top: 242px;
     }
 }

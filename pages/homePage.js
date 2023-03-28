@@ -58,8 +58,8 @@ const homePage = () => {
         <section id="values" className="values mt-5">
           <div className="container" data-aos="fade-up">
             <header className="section-header">
-              <h2>Our Values</h2>
-              <p>Odit est perspiciatis laborum et dicta</p>
+              <h2>Working</h2>
+              <p>How Linnker Works ?</p>
             </header>
 
             <div className="row">
@@ -72,10 +72,10 @@ const homePage = () => {
                     width={440}
                     height={360}
                   />
-                  <h3>Ad cupiditate sed est odio</h3>
+                  <h3>Create Your Account</h3>
                   <p>
-                    Eum ad dolor et. Autem aut fugiat debitis voluptatem
-                    consequuntur sit. Et veritatis id.
+                    Create your account on Linnker and add your WhatsApp groups.
+                    So that people can join your groups.
                   </p>
                 </div>
               </div>
@@ -93,10 +93,10 @@ const homePage = () => {
                     className="img-fluid"
                     alt=""
                   />
-                  <h3>Voluptatem voluptatum alias</h3>
+                  <h3>Find A WhatsApp Group</h3>
                   <p>
-                    Repudiandae amet nihil natus in distinctio suscipit id.
-                    Doloremque ducimus ea sit non.
+                    Click on "Join Groups". Search and find your best-suited
+                    groups to join.
                   </p>
                 </div>
               </div>
@@ -114,10 +114,10 @@ const homePage = () => {
                     className="img-fluid"
                     alt=""
                   />
-                  <h3>Fugit cupiditate alias nobis.</h3>
+                  <h3>Valid WhatApp Groups</h3>
                   <p>
-                    Quam rem vitae est autem molestias explicabo debitis sint.
-                    Vero aliquid quidem commodi.
+                    All groups are valid WhatsApp groups and have been verified
+                    by our team.
                   </p>
                 </div>
               </div>
@@ -139,7 +139,9 @@ const homePage = () => {
                       data-purecounter-end="232"
                       data-purecounter-duration="1"
                       className="purecounter"
-                    ></span>
+                    >
+                      200
+                    </span>
                     <p>Happy Clients</p>
                   </div>
                 </div>
@@ -157,7 +159,9 @@ const homePage = () => {
                       data-purecounter-end="521"
                       data-purecounter-duration="1"
                       className="purecounter"
-                    ></span>
+                    >
+                      200
+                    </span>
                     <p>Projects</p>
                   </div>
                 </div>
@@ -172,7 +176,9 @@ const homePage = () => {
                       data-purecounter-end="1463"
                       data-purecounter-duration="1"
                       className="purecounter"
-                    ></span>
+                    >
+                      200
+                    </span>
                     <p>Hours Of Support</p>
                   </div>
                 </div>
@@ -187,7 +193,9 @@ const homePage = () => {
                       data-purecounter-end="15"
                       data-purecounter-duration="1"
                       className="purecounter"
-                    ></span>
+                    >
+                      2
+                    </span>
                     <p>Hard Workers</p>
                   </div>
                 </div>
@@ -202,7 +210,7 @@ const homePage = () => {
           <div className="container" data-aos="fade-up">
             <header className="section-header">
               <h2>Features</h2>
-              <p>Laboriosam et omnis fuga quis dolor direda fara</p>
+              <p>How to create Your WhatsApp Groups ?</p>
             </header>
 
             <div className="row">
@@ -225,7 +233,7 @@ const homePage = () => {
                   >
                     <div className="feature-box d-flex align-items-center">
                       <i className="bi bi-check"></i>
-                      <h3>Eos aspernatur rem</h3>
+                      <h3>Create Your Account</h3>
                     </div>
                   </div>
 
@@ -236,7 +244,7 @@ const homePage = () => {
                   >
                     <div className="feature-box d-flex align-items-center">
                       <i className="bi bi-check"></i>
-                      <h3>Facilis neque ipsa</h3>
+                      <h3>Enter Group Name</h3>
                     </div>
                   </div>
 
@@ -290,7 +298,7 @@ const homePage = () => {
 
             {/* <!-- Feature Icons --> */}
             <div className="row feature-icons" data-aos="fade-up">
-              <h3>Ratione mollitia eos ab laudantium rerum beatae quo</h3>
+              <h3>How To Create Your WhatsApp Groups ?</h3>
 
               <div className="row">
                 <div
@@ -313,10 +321,9 @@ const homePage = () => {
                     <div className="col-md-6 icon-box" data-aos="fade-up">
                       <i className="ri-line-chart-line"></i>
                       <div>
-                        <h4>Corporis voluptates sit</h4>
+                        <h4>Create Your Account</h4>
                         <p>
-                          Consequuntur sunt aut quasi enim aliquam quae harum
-                          pariatur laboris nisi ut aliquip
+                          Create your account on Linnker by signup and verify your email. 
                         </p>
                       </div>
                     </div>
@@ -328,10 +335,9 @@ const homePage = () => {
                     >
                       <i className="ri-stack-line"></i>
                       <div>
-                        <h4>Ullamco laboris nisi</h4>
+                        <h4>Create WhatsApp Groups</h4>
                         <p>
-                          Excepteur sint occaecat cupidatat non proident, sunt
-                          in culpa qui officia deserunt
+                          You can create and Delete your WhatsApp groups from Dashboard -&gt; MyGroups.
                         </p>
                       </div>
                     </div>
@@ -343,10 +349,9 @@ const homePage = () => {
                     >
                       <i className="ri-brush-4-line"></i>
                       <div>
-                        <h4>Labore consequatur</h4>
+                        <h4>Group Description</h4>
                         <p>
-                          Aut suscipit aut cum nemo deleniti aut omnis.
-                          Doloribus ut maiores omnis facere
+                          Give a better group description to increase the chances of joining groups by users.
                         </p>
                       </div>
                     </div>
@@ -358,10 +363,9 @@ const homePage = () => {
                     >
                       <i className="ri-magic-line"></i>
                       <div>
-                        <h4>Beatae veritatis</h4>
+                        <h4>Group Name And Tags</h4>
                         <p>
-                          Expedita veritatis consequuntur nihil tempore
-                          laudantium vitae denat pacta
+                          Give the best and related group name and tags. So that users can find your groups by searching.
                         </p>
                       </div>
                     </div>
@@ -373,10 +377,9 @@ const homePage = () => {
                     >
                       <i className="ri-command-line"></i>
                       <div>
-                        <h4>Molestiae dolor</h4>
+                        <h4>Valid WhatsApp Group Link</h4>
                         <p>
-                          Et fuga et deserunt et enim. Dolorem architecto
-                          ratione tensa raptor marte
+                          We will approve only those groups which is valid WhatsApp group. So give a valid lin
                         </p>
                       </div>
                     </div>
@@ -388,7 +391,7 @@ const homePage = () => {
                     >
                       <i className="ri-radar-line"></i>
                       <div>
-                        <h4>Explicabo consectetur</h4>
+                        <h4>Report Us</h4>
                         <p>
                           Est autem dicta beatae suscipit. Sint veritatis et sit
                           quasi ab aut inventore
@@ -426,9 +429,9 @@ const homePage = () => {
                     accusantium minus dolores iure perferendis tempore et
                     consequatur.
                   </p>
-                  <a href="#" className="read-more">
+                  <Link href="#" className="read-more">
                     <span>Read More</span> <i className="bi bi-arrow-right"></i>
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -444,9 +447,9 @@ const homePage = () => {
                     Ut autem aut autem non a. Sint sint sit facilis nam iusto
                     sint. Libero corrupti neque eum hic non ut nesciunt dolorem.
                   </p>
-                  <a href="#" className="read-more">
+                  <Link href="#" className="read-more">
                     <span>Read More</span> <i className="bi bi-arrow-right"></i>
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -463,9 +466,9 @@ const homePage = () => {
                     Minus ea aut. Vel qui id voluptas adipisci eos earum
                     corrupti.
                   </p>
-                  <a href="#" className="read-more">
+                  <Link href="#" className="read-more">
                     <span>Read More</span> <i className="bi bi-arrow-right"></i>
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -481,9 +484,9 @@ const homePage = () => {
                     Non et temporibus minus omnis sed dolor esse consequatur.
                     Cupiditate sed error ea fuga sit provident adipisci neque.
                   </p>
-                  <a href="#" className="read-more">
+                  <Link href="#" className="read-more">
                     <span>Read More</span> <i className="bi bi-arrow-right"></i>
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -500,9 +503,9 @@ const homePage = () => {
                     aut ipsam corporis aut. Sed animi at autem alias eius
                     labore.
                   </p>
-                  <a href="#" className="read-more">
+                  <Link href="#" className="read-more">
                     <span>Read More</span> <i className="bi bi-arrow-right"></i>
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -518,9 +521,9 @@ const homePage = () => {
                     Hic molestias ea quibusdam eos. Fugiat enim doloremque aut
                     neque non et debitis iure. Corrupti recusandae ducimus enim.
                   </p>
-                  <a href="#" className="read-more">
+                  <Link href="#" className="read-more">
                     <span>Read More</span> <i className="bi bi-arrow-right"></i>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

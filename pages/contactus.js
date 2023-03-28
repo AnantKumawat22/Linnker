@@ -44,11 +44,7 @@ const contactus = () => {
                       icon={faLocationDot}
                     />
                     <h3>Address</h3>
-                    <p>
-                      A108 Adam Street,
-                      <br />
-                      New York, NY 535022
-                    </p>
+                    <p>Linnker, India</p>
                   </div>
                 </div>
                 <div className="col-md-6">
@@ -58,11 +54,7 @@ const contactus = () => {
                       icon={faPhone}
                     />
                     <h3>Call Us</h3>
-                    <p>
-                      +1 5589 55488 55
-                      <br />
-                      +1 6678 254445 41
-                    </p>
+                    <p>It will Update soon.</p>
                   </div>
                 </div>
                 <div className="col-md-6">
@@ -72,11 +64,7 @@ const contactus = () => {
                       icon={faEnvelope}
                     />
                     <h3>Email Us</h3>
-                    <p>
-                      info@example.com
-                      <br />
-                      contact@example.com
-                    </p>
+                    <p>linnker23@gmail.com</p>
                   </div>
                 </div>
                 <div className="col-md-6">
@@ -86,11 +74,7 @@ const contactus = () => {
                       icon={faClock}
                     />
                     <h3>Open Hours</h3>
-                    <p>
-                      Monday - Friday
-                      <br />
-                      9:00AM - 05:00PM
-                    </p>
+                    <p>It will Update soon.</p>
                   </div>
                 </div>
               </div>

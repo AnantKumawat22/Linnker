@@ -4,6 +4,7 @@ import Users from "@/components/admin/Users";
 import { tabsNameEnum } from "@/constant";
 import React, { useState } from "react";
 import { Container, Table } from "react-bootstrap";
+import Link from "next/link";
 
 export async function getServerSideProps() {
   try {
@@ -48,25 +49,25 @@ const Admin = ({ users, groups, queries }) => {
             className={`nav-item ${tab === tabsNameEnum.USERS && "active"} `}
             onClick={() => handleTab(tabsNameEnum.USERS)}
           >
-            <a className="nav-link" aria-current="page" href="#">
+            <Link className="nav-link" aria-current="page" href="#">
               Users
-            </a>
+            </Link>
           </li>
           <li
             className={`nav-item ${tab === tabsNameEnum.GROUPS && "active"} `}
             onClick={() => handleTab(tabsNameEnum.GROUPS)}
           >
-            <a className="nav-link" aria-current="page" href="#">
+            <Link className="nav-link" aria-current="page" href="#">
               Groups
-            </a>
+            </Link>
           </li>
           <li
             className={`nav-item ${tab === tabsNameEnum.QUERIES && "active"} `}
             onClick={() => handleTab(tabsNameEnum.QUERIES)}
           >
-            <a className="nav-link" aria-current="page" href="#">
+            <Link className="nav-link" aria-current="page" href="#">
               Queries
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

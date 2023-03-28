@@ -148,6 +148,7 @@ const groups = ({ groups }) => {
               className={`${dropdown ? "d-block" : "d-none"} ${
                 styles.dropDownOptions
               } shadow-sm bg-white`}
+              onMouseLeave={() => { setDropDown(false) }}
             >
               <p
                 role="button"

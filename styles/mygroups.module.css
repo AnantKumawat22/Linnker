@@ -35,13 +35,6 @@
     width: 45%;
 }
 
-.allgroupcard {
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
 .maintag {
     padding: 5px;
     display: flex;
@@ -82,8 +75,5 @@
 
     .tag {
         min-width: fit-content;
-    }
-    .allgroupcard{
-        justify-content: center;
     }
 }

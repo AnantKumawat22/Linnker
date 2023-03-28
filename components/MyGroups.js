@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 import { generalContext } from "@/context/general.context";
 import { groupContext } from "@/context/group.context";
+import Image from "next/image";
 
 const MyGroups = ({ groups }) => {
   // Context
@@ -68,6 +69,7 @@ const MyGroups = ({ groups }) => {
       }
       setMyGroups((prev) => prev.filter((item) => item._id !== id));
     } catch (error) {
+      console.log("Error", error);
       // Alert
       showAlert(error?.response?.data?.msg || "Something went wrong", "error");
     }
@@ -208,6 +210,20 @@ const MyGroups = ({ groups }) => {
 
       <div className="container mt-2 mb-5 mt-5" style={{ minHeight: "450px" }}>
         <h2 className="fs-2 mb-4">Your WhatsApp Groups</h2>
+
+        {myGroups?.length === 0 && (
+          <div
+            className="container d-flex justify-content-center align-items-center flex-column"
+            style={{ minHeight: "500px" }}
+          >
+            <Image
+              src="/img/No_Group_Found.gif"
+              width={300}
+              height={300}
+            ></Image>
+            <p style={{ fontSize: "25px", color: "grey" }}>No Groups Yet</p>
+          </div>
+        )}
         <div className="row gy-5">
           {myGroups?.map((group) => (
             <div className="col-12 col-md-6 col-lg-4 col-xxl-3">
