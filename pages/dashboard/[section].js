@@ -16,7 +16,7 @@ export async function getServerSideProps(context) {
   }
   try {
     const jsonResponse = await fetch(
-      'http://localhost:3000/api/groups/fetchMyGroups',
+      `${process.env.BASE_URL}/groups/fetchMyGroups`,
       {
         headers: {
           authentication: token,

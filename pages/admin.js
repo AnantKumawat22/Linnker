@@ -18,7 +18,7 @@ export async function getServerSideProps(context) {
   }
   try {
     const groupsResponse = await fetch(
-      'http://localhost:3000/api/admin/fetchAllGroups',
+      `${process.env.BASE_URL}/admin/fetchAllGroups`,
       {
         headers: {
           authentication: token,
@@ -26,7 +26,7 @@ export async function getServerSideProps(context) {
       }
     ).then(async (response) => await response.json());
     const usersResponse = await fetch(
-      'http://localhost:3000/api/admin/fetchAllUsers',
+      `${process.env.BASE_URL}/admin/fetchAllUsers`,
       {
         headers: {
           authentication: token,
@@ -34,7 +34,7 @@ export async function getServerSideProps(context) {
       }
     ).then(async (response) => await response.json());
     const queriesResponse = await fetch(
-      'http://localhost:3000/api/admin/fetchAllQueries',
+      `${process.env.BASE_URL}/admin/fetchAllQueries`,
       {
         headers: {
           authentication: token,

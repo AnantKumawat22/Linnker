@@ -17,11 +17,11 @@ const groupdetails = () => {
     const fetchUser = async () => {
       try {
         const response = await fetch(
-          "http://localhost:3000/api/groups/groupcreatedby",
+          `${process.env.BASE_URL}/groups/groupcreatedby`,
           {
-            method: "GET",
+            method: 'GET',
             headers: {
-              "Content-Type": "application/json",
+              'Content-Type': 'application/json',
               tokenid: groupId,
             },
           }

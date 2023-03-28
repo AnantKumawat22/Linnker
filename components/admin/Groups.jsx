@@ -37,7 +37,7 @@ const Groups = ({ groups }) => {
   const handleGroupResolve = async (id) => {
     try {
       // API CALL
-      const response = await fetch('http://localhost:3000/api/approveGroup', {
+      const response = await fetch(`${BASE_URL}/approveGroup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
