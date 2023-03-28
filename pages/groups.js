@@ -11,7 +11,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/router';
-import HorizontalScroll from 'react-scroll-horizontal';
+// import HorizontalScroll from 'react-scroll-horizontal';
 
 export async function getServerSideProps() {
   try {
@@ -192,7 +192,7 @@ const groups = ({ groups }) => {
             </div>
           )}
 
-          {searchgroup?.length !== 0 &&
+          {/* {searchgroup?.length !== 0 &&
             searchinput == '' &&
             recentgroups.length >= 6 && (
               <>
@@ -206,10 +206,10 @@ const groups = ({ groups }) => {
                       style={{ fontSize: '20px' }}
                       icon={faArrowRight}
                     />
-                  </div>
+                  </div> */}
 
                   {/* Recent Added Group */}
-                  <div
+                  {/* <div
                     className='d-flex overflow-hidden border-1'
                     style={{ width: '100%', height: '400px' }}
                   >
@@ -240,7 +240,7 @@ const groups = ({ groups }) => {
                   </div>
                 </div>
               </>
-            )}
+            )} */}
 
           {searchgroup?.length !== 0 && (
             <>
