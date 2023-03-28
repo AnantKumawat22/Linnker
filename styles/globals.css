@@ -76,7 +76,7 @@ html::-webkit-scrollbar-thumb {
 .sectionlink {
   padding: 0px 20px;
   font-size: 15px;
-  text-decoration: none;
+  text-decoration: none !important;
   color: #777;
   text-transform: uppercase;
   font-family: Montserrat, helvetica, arial, sans-serif;
@@ -95,12 +95,12 @@ body {
 
 a {
   color: #4154f1;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 a:hover {
   color: #717ff5;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 h1,
