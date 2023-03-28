@@ -64,7 +64,7 @@ const Login = (props) => {
     if (data.success) {
       // Store Token in LocalStorage.
       setCookie(null, "token", data.authtoken);
-
+      setCookie(null, 'role', data.role);
       // Alert
       showAlert(data.msg, "success");
 

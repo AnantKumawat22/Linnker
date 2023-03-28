@@ -1,13 +1,22 @@
 import Groups from '@/components/admin/Groups';
 import Queries from '@/components/admin/Queries';
 import Users from '@/components/admin/Users';
-import { tabsNameEnum } from '@/constant';
+import { roles, tabsNameEnum } from '@/constant';
 import React, { useState } from 'react';
 import { Container, Table } from 'react-bootstrap';
 import Link from "next/link";
 
 export async function getServerSideProps(context) {
-  const { token } = context.req.cookies;
+  const { token, role } = context.req.cookies;
+ if(role !== roles.ADMIN){
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  
+ }
   try {
     const groupsResponse = await fetch(
       'http://localhost:3000/api/groups/fetchAllGroups',
