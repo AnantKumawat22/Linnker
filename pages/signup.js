@@ -80,7 +80,7 @@ const Signup = (props) => {
       topLoaderBar && topLoaderBar.current.complete();
 
       // Redirect at Login Page
-      router.push("/login");
+      router.push("/signin");
     } else {
       // Stop the loader
       topLoaderBar && topLoaderBar.current.complete();
@@ -226,7 +226,7 @@ const Signup = (props) => {
                   ></Button>
                   <p className="small mt-2 pt-1 mb-0">
                     Already have an account?{" "}
-                    <Link href="/login" className="link-danger">
+                    <Link href="/signin" className="link-danger">
                       Login
                     </Link>
                   </p>

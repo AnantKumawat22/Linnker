@@ -98,7 +98,7 @@ const forgotpassword = () => {
       topLoaderBar && topLoaderBar.current.complete();
 
       // Redirect at Login Page
-      router.push("/login");
+      router.push("/signin");
     } else {
       showAlert(data.msg, "error");
     }

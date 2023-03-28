@@ -139,9 +139,9 @@ const Navbar = (props) => {
                   <li>
                     <Link
                       className={`nav-link scrollto ${
-                        asPath === "/login" ? "active" : ""
+                        asPath === "/signin" ? "active" : ""
                       }`}
-                      href="/login"
+                      href="/signin"
                     >
                       Login
                     </Link>
@@ -255,9 +255,9 @@ const MobileDrawer = ({ token, drawerOpen, handleLogout, setDrawerOpen }) => {
           <li>
             <Link
               className={`nav-link scrollto ${
-                asPath === "/login" ? "active" : ""
+                asPath === "/signin" ? "active" : ""
               }`}
-              href="/login"
+              href="/signin"
             >
               Login
             </Link>
