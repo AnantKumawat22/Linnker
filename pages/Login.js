@@ -26,7 +26,6 @@ export async function getServerSideProps(context) {
   };
 }
 
-
 const Login = (props) => {
   // Context
   const { showAlert, topLoaderBar } = useContext(generalContext);
