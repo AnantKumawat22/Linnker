@@ -1,6 +1,7 @@
 import isAuth from "@/middleware/isAuth";
 import Group from "@/models/Group";
 import connect from "@/lib/mongodb";
+import { roles } from "@/constant";
 
 // Delete an existing Group using: DELETE "/api/groups/deletemygroup/:id".
 async function handler(req, res) {
@@ -35,4 +36,4 @@ async function handler(req, res) {
   }
 }
 
-export default isAuth([roles.USER], handler);
+export default isAuth([roles.USER, roles.ADMIN], handler);

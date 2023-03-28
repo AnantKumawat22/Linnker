@@ -1,7 +1,9 @@
-import connect from "@/lib/mongodb";
-import Group from "@/models/Group";
+import { roles } from '@/constant';
+import connect from '@/lib/mongodb';
+import isAuth from '@/middleware/isAuth';
+import Group from '@/models/Group';
 
-export default async function handler(req, res) {
+async function handler(req, res) {
   try {
     // Connect Database.
     await connect();
@@ -11,11 +13,13 @@ export default async function handler(req, res) {
     await Group.updateOne({ _id: groupId }, { isApproved });
 
     res.status(200).json({
-      msg: "Fetched Successfully.",
+      msg: 'Fetched Successfully.',
       success: true,
     });
   } catch (error) {
-    console.log("handler error", error);
-    res.status(400).json({ msg: "User Name Fetch Error", success: false });
+    console.log('handler error', error);
+    res.status(400).json({ msg: 'User Name Fetch Error', success: false });
   }
 }
+
+export default isAuth([roles.ADMIN], handler);

@@ -15,4 +15,4 @@ async function handler(req, res) {
   }
 }
 
-export default isAuth([roles.USER], handler);
+export default isAuth([roles.USER, roles.ADMIN], handler);

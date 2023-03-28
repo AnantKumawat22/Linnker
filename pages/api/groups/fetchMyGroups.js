@@ -23,5 +23,5 @@ export const config = {
   },
 };
 
-export default isAuth([roles.USER], handler);
+export default isAuth([roles.USER, roles.ADMIN], handler);
 // Apply the middleware to the API route
