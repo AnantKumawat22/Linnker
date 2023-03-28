@@ -185,10 +185,10 @@ const groups = ({ groups }) => {
             >
               <Image
                 src='/img/No_Group_Found.gif'
-                width={300}
-                height={300}
+                width={280}
+                height={280}
               ></Image>
-              <p style={{ fontSize: '25px', color: 'grey' }}>No Group Found</p>
+              <p style={{ fontSize: '20px', color: 'grey' }}>No Group Found</p>
             </div>
           )}
 

@@ -206,7 +206,7 @@ const homePage = () => {
         {/* <!-- End Counts Section --> */}
 
         {/* <!-- ======= Features Section ======= --> */}
-        <section id="features" className="features mb-3">
+        <section id="features" className="features mb-5">
           <div className="container" data-aos="fade-up">
             <header className="section-header">
               <h2>Features</h2>
@@ -302,7 +302,7 @@ const homePage = () => {
 
               <div className="row">
                 <div
-                  className="col-xl-4 text-center"
+                  className="col-xl-3 text-center"
                   data-aos="fade-right"
                   data-aos-delay="100"
                 >
@@ -316,7 +316,7 @@ const homePage = () => {
                   />
                 </div>
 
-                <div className="col-xl-8 d-flex content">
+                <div className="col-xl-8 offset-md-1  d-flex content">
                   <div className="row align-self-center mt-3 gy-4">
                     <div className="col-md-6 icon-box" data-aos="fade-up">
                       <i className="ri-line-chart-line"></i>
