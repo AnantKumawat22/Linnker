@@ -1,26 +1,32 @@
-import React, { useContext, useEffect, useState } from 'react';
-import Link from 'next/link';
-import 'bootstrap/dist/css/bootstrap.css';
-import { useRouter } from 'next/router';
-import styles from '../styles/navbar.module.css';
-import { destroyCookie } from 'nookies';
-import { parseCookies } from 'nookies';
-import { generalContext } from '@/context/general.context';
+import React, { useContext, useEffect, useState } from "react";
+import Link from "next/link";
+import "bootstrap/dist/css/bootstrap.css";
+import { useRouter } from "next/router";
+import styles from "../styles/navbar.module.css";
+import { destroyCookie } from "nookies";
+import { parseCookies } from "nookies";
+import { generalContext } from "@/context/general.context";
 
 const Navbar = (props) => {
+  // Router
   const router = useRouter();
-  const [scrolled, setScrolled] = useState(false);
-  const [drawerOpen, setDrawerOpen] = useState(true);
-  const [token, setToken] = useState(null);
   const { asPath } = useRouter();
+
+  const [scrolled, setScrolled] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [token, setToken] = useState(null);
+
+  // Context
   const { showAlert } = useContext(generalContext);
-  // const cookies = parseCookies();
+
   useEffect(() => {
     window.onscroll = function () {
       if (window.scrollY > 50) {
         setScrolled(true);
+        props.setBottomToTop(true);
       } else {
         setScrolled(false);
+        props.setBottomToTop(false);
       }
     };
   }, []);
@@ -34,17 +40,21 @@ const Navbar = (props) => {
   // Handling LogOut
   const handleLogout = () => {
     // Remove token from localstorage - Nookies.
-    destroyCookie(null, 'token');
+    destroyCookie(null, "token");
     setToken(null);
 
     // Alert
-    showAlert('Log Out Successfully.', 'success');
+    showAlert("Log Out Successfully.", "success");
 
     setTimeout(() => {
       // Redirect at Home Page
-      router.push('/');
+      router.push("/");
     }, 1000);
   };
+
+  useEffect(() => {
+    setDrawerOpen(false);
+  }, [router.asPath]);
 
   const handleMenu = () => {
     setDrawerOpen(!drawerOpen);
@@ -56,26 +66,31 @@ const Navbar = (props) => {
         onResize={(e) => {}}
         style={
           scrolled
-            ? { backgroundColor: 'white', boxShadow: '0 0 2px 0px lightgray' }
+            ? { backgroundColor: "white", boxShadow: "0 0 2px 0px lightgray" }
             : {}
         }
-        id='header'
+        id="header"
         className={`${styles.header}`}
       >
-        <div className='container-fluid container-xl d-flex align-items-center justify-content-between'>
-          <Link href='/' className={`${styles.logo} d-flex align-items-center`}>
-            <img src='assets/img/logo.png' alt='' />
+        <div className="container-fluid container-xl d-flex align-items-center justify-content-between">
+          <Link href="/" className={`${styles.logo} d-flex align-items-center`}>
             <span>Linnker</span>
           </Link>
 
-          <nav id='navbar' className={`${styles['navbar']}`}>
-            <ul style={drawerOpen ? {} : { transform: 'translateX(-120%)' }}>
+          <nav id="navbar" className={`${styles["navbar"]}`}>
+            <MobileDrawer
+              setDrawerOpen={setDrawerOpen}
+              token={token}
+              drawerOpen={drawerOpen}
+              handleLogout={handleLogout}
+            />
+            <ul className="d-none d-lg-flex">
               <li>
                 <Link
                   className={`nav-link scrollto ${
-                    asPath === '/' ? 'active' : ''
+                    asPath === "/" ? "active" : ""
                   }`}
-                  href='/'
+                  href="/"
                 >
                   Home
                 </Link>
@@ -85,9 +100,9 @@ const Navbar = (props) => {
                 <>
                   <li>
                     <Link
-                      href='/dashboard/profile'
+                      href="/dashboard/profile"
                       className={`nav-link scrollto ${
-                        asPath === '/dashboard/profile' ? 'active' : ''
+                        asPath === "/dashboard/profile" ? "active" : ""
                       }`}
                     >
                       Dashboard
@@ -100,9 +115,9 @@ const Navbar = (props) => {
 
               <li>
                 <Link
-                  href='/aboutus'
+                  href="/aboutus"
                   className={`nav-link scrollto ${
-                    asPath === '/aboutus' ? 'active' : ''
+                    asPath === "/aboutus" ? "active" : ""
                   }`}
                 >
                   About
@@ -111,9 +126,9 @@ const Navbar = (props) => {
               <li>
                 <Link
                   className={`nav-link scrollto ${
-                    asPath === '/contactus' ? 'active' : ''
+                    asPath === "/contactus" ? "active" : ""
                   }`}
-                  href='/contactus'
+                  href="/contactus"
                 >
                   Contact
                 </Link>
@@ -124,9 +139,9 @@ const Navbar = (props) => {
                   <li>
                     <Link
                       className={`nav-link scrollto ${
-                        asPath === '/login' ? 'active' : ''
+                        asPath === "/login" ? "active" : ""
                       }`}
-                      href='/login'
+                      href="/login"
                     >
                       Login
                     </Link>
@@ -134,9 +149,9 @@ const Navbar = (props) => {
                   <li>
                     <Link
                       className={`nav-link scrollto ${
-                        asPath === '/signup' ? 'active' : ''
+                        asPath === "/signup" ? "active" : ""
                       }`}
-                      href='/signup'
+                      href="/signup"
                     >
                       Signup
                     </Link>
@@ -147,7 +162,7 @@ const Navbar = (props) => {
                   <li>
                     <Link
                       className={`nav-link scrollto}`}
-                      href='#'
+                      href="#"
                       onClick={handleLogout}
                     >
                       Logout
@@ -155,9 +170,16 @@ const Navbar = (props) => {
                   </li>
                 </>
               )}
+              <li>
+                <Link className={``} href="/groups">
+                  <div className="btn-get-started">
+                    <span>Join Groups</span>
+                  </div>
+                </Link>
+              </li>
             </ul>
             <i
-              className={`bi bi-list ${styles['mobile-nav-toggle']}`}
+              className={`bi bi-list ${styles["mobile-nav-toggle"]}`}
               onClick={handleMenu}
             ></i>
           </nav>
@@ -171,63 +193,106 @@ const Navbar = (props) => {
 
 export default Navbar;
 
-// <header className='header shadow-sm mb-3 bg-white rounded fixed-top'>
-//   <Link className='logo' href='/'>
-//     Linnker
-//   </Link>
-//   <input className='menu-btn' type='checkbox' id='menu-btn' />
-//   <label className='menu-icon' htmlFor='menu-btn'>
-//     <span className='navicon'></span>
-//   </label>
-//   <ul className='menu'>
-//     <li>
-//       <Link href='/' className='link link-theme link-arrow'>
-//         HOME
-//       </Link>
-//     </li>
-//     {/* {localStorage.getItem("token") ? ( */}
-//     <li>
-// <Link href='/dashboard/profile' className='link link-theme link-arrow'>
-//   DashBoard
-// </Link>
-//     </li>
-//     {/* ) : ( */}
-//     {/* <></> */}
-//     {/* )} */}
-//     <li>
-//       <Link href='/aboutus' className='link link-theme link-arrow'>
-//         ABOUT US
-//       </Link>
-//     </li>
-//     <li>
-//       <Link href='/contactus' className='link link-theme link-arrow'>
-//         CONTACT
-//       </Link>
-//     </li>
+const MobileDrawer = ({ token, drawerOpen, handleLogout, setDrawerOpen }) => {
+  const { asPath } = useRouter();
+  return (
+    <ul
+      style={drawerOpen ? {} : { transform: "translateX(-120%)" }}
+      className="d-lg-none"
+      onMouseLeave={() => {
+        setDrawerOpen(false);
+      }}
+    >
+      <li>
+        <Link
+          className={`nav-link scrollto ${asPath === "/" ? "active" : ""}`}
+          href="/"
+        >
+          Home
+        </Link>
+      </li>
 
-//     {/* Show LogIn, Signup, LogOut on the basis of logged-In(having token) or not. */}
-//     {/* {localStorage.getItem("token") ? (
-//           <li>
-//             <Link
-//               onClick={handleLogOut}
-//               className="link link-theme link-arrow"
-//             >
-//               LogOut
-//             </Link>
-//           </li>
-//         ) : ( */}
-//     <>
-//       <li>
-//         <Link href='/login' className='link link-theme link-arrow'>
-//           LogIn
-//         </Link>
-//       </li>
-//       <li>
-//         <Link href='/signup' className='link link-theme link-arrow'>
-//           Sign Up
-//         </Link>
-//       </li>
-//     </>
-//     {/* )} */}
-//   </ul>
-// </header>;
+      {token ? (
+        <>
+          <li>
+            <Link
+              href="/dashboard/profile"
+              className={`nav-link scrollto ${
+                asPath === "/dashboard/profile" ? "active" : ""
+              }`}
+            >
+              Dashboard
+            </Link>
+          </li>
+        </>
+      ) : (
+        <></>
+      )}
+
+      <li>
+        <Link
+          href="/aboutus"
+          className={`nav-link scrollto ${
+            asPath === "/aboutus" ? "active" : ""
+          }`}
+        >
+          About
+        </Link>
+      </li>
+      <li>
+        <Link
+          className={`nav-link scrollto ${
+            asPath === "/contactus" ? "active" : ""
+          }`}
+          href="/contactus"
+        >
+          Contact
+        </Link>
+      </li>
+
+      {!token ? (
+        <>
+          <li>
+            <Link
+              className={`nav-link scrollto ${
+                asPath === "/login" ? "active" : ""
+              }`}
+              href="/login"
+            >
+              Login
+            </Link>
+          </li>
+          <li>
+            <Link
+              className={`nav-link scrollto ${
+                asPath === "/signup" ? "active" : ""
+              }`}
+              href="/signup"
+            >
+              Signup
+            </Link>
+          </li>
+        </>
+      ) : (
+        <>
+          <li>
+            <Link
+              className={`nav-link scrollto}`}
+              href="#"
+              onClick={handleLogout}
+            >
+              Logout
+            </Link>
+          </li>
+        </>
+      )}
+      <li>
+        <Link className={``} href="/groups">
+          <div className="btn-get-started">
+            <span>Join Groups</span>
+          </div>
+        </Link>
+      </li>
+    </ul>
+  );
+};

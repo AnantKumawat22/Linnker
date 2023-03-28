@@ -23,13 +23,11 @@ export async function getServerSideProps(context) {
         },
       }
     );
-    const { groups } = await jsonResponse.json();
-    console.log(groups);
+    const data = await jsonResponse.json();
     return {
-      props: { groups },
+      props: { groups: data.groups || [] },
     };
   } catch (error) {
-    console.log(error, 'error');
     return {
       props: { groups: [] },
     };

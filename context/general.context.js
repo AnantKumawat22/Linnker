@@ -1,59 +1,75 @@
-import { createContext, useEffect, useRef, useState } from 'react';
-import { toast, ToastContainer } from 'react-toastify';
-import LoadingBar from 'react-top-loading-bar';
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { createContext, useEffect, useRef } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import LoadingBar from "react-top-loading-bar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const generalContext = createContext();
 
 const GeneralContextProvider = ({ children, router }) => {
-  // Loading bar State and ref.
+  // Loading bar ref.
   const topLoaderBar = useRef(null);
-  const [loaderProgress, setLoaderProgress] = useState(false);
 
   useEffect(() => {
-    router.events.on('routeChangeComplete', () => {
-      // Stop the loader
-      setLoaderProgress(false);
-      topLoaderBar.current.complete();
+    router.events.on("routeChangeComplete", () => {
+      //   // Stop the loader
+      topLoaderBar && topLoaderBar.current.complete();
     });
   }, []);
 
+  const handleClose = (e) => {
+    e.preventDefault();
+    toast.dismiss();
+  };
+
+  // Alert
   const showAlert = (msg, type) => {
-    if (type == 'error') {
+    if (type == "error") {
       toast.error(`${msg}`, {
-        position: 'top-right',
+        position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
-        closeOnClick: true,
+        closeButton: (
+          <FontAwesomeIcon
+            style={{ margin: "auto" }}
+            icon={faXmark}
+            onClick={handleClose}
+          >
+            Close
+          </FontAwesomeIcon>
+        ),
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: 'colored',
+        theme: "colored",
       });
     } else {
       toast.success(`${msg}`, {
-        position: 'top-right',
+        position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
-        closeOnClick: true,
+        closeButton: (
+          <FontAwesomeIcon
+            style={{ margin: "auto" }}
+            icon={faXmark}
+            onClick={handleClose}
+          >
+            Close
+          </FontAwesomeIcon>
+        ),
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: 'colored',
+        theme: "colored",
       });
     }
   };
 
   return (
-    <generalContext.Provider value={{ topLoaderBar, setLoaderProgress, showAlert }}>
-      <LoadingBar
-        color='#4154f1'
-        ref={topLoaderBar}
-        progress={loaderProgress ? 50 : 0}
-        waitingTime={10}
-        onLoaderFinished={() => setLoaderProgress(false)}
-      />
+    <generalContext.Provider value={{ topLoaderBar, showAlert }}>
+      <LoadingBar color="#4154f1" waitingTime={10} ref={topLoaderBar} />
       <ToastContainer
-        position='top-right'
+        position="top-right"
         autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
@@ -62,7 +78,7 @@ const GeneralContextProvider = ({ children, router }) => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme='colored'
+        theme="colored"
       />
       {children}
     </generalContext.Provider>

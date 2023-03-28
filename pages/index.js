@@ -11,9 +11,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      
-      <Script src="https://kit.fontawesome.com/4c63e30e23.js" crossorigin="anonymous"></Script>
-      <Script src="assets/js/main.js"></Script>
+
+      <Script
+        src="https://kit.fontawesome.com/4c63e30e23.js"
+        crossorigin="anonymous"
+      ></Script>
       <HomePage />
     </>
   );

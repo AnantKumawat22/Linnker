@@ -1,27 +1,26 @@
-import isAuth from '@/middleware/isAuth';
-import Group from '@/models/Group';
-import connect from '@/lib/mongodb';
+import isAuth from "@/middleware/isAuth";
+import Group from "@/models/Group";
+import connect from "@/lib/mongodb";
+import { roles } from "@/constant";
 
-export default async function handler(req, res) {
-  console.log('handler start');
-  isAuth(req, res);
+async function handler(req, res) {
   connect();
   const user = req.user;
   try {
     const groups = await Group.find({ user: user.id });
-    res.status(200).json({ groups, message: 'Fetch Successfully.' });
-  } catch (err) {
-    console.log(err, 'handler error');
-    res.status(400).json({ message: 'Fetch Error.' });
+    res.status(200).json({ groups, msg: "Fetch Successfully.", success: true });
+  } catch (error) {
+    res.status(400).json({ msg: "Fetch Error.", success: false });
   }
 }
 
 export const config = {
   api: {
     bodyParser: {
-      sizeLimit: '1mb',
+      sizeLimit: "1mb",
     },
   },
 };
 
+export default isAuth([roles.USER, roles.ADMIN], handler);
 // Apply the middleware to the API route

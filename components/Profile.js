@@ -1,25 +1,48 @@
-import React, { useEffect, useState } from 'react';
-import DashboardNav from './DashboardNav';
-import COLORS from '@/theme/colors';
-import Image from 'next/image';
-import styles from '../styles/Profile.module.css';
-import { parseCookies } from 'nookies';
+import React, { useEffect, useState } from "react";
+import DashboardNav from "./DashboardNav";
+import { useRouter } from "next/router";
+import Image from "next/image";
+import styles from "../styles/Profile.module.css";
+import { parseCookies } from "nookies";
 
 const Profile = () => {
+  // Router
+  const router = useRouter();
+
+  const [dateandtime, setDateAndTime] = useState({
+    date: "",
+    month: "",
+    year: "",
+    hour: "",
+    minute: "",
+    second: "",
+  });
   const [user, setUser] = useState(null);
+
   useEffect(() => {
     const fetchUser = async () => {
       const cookies = parseCookies();
       try {
-        const jsonResponse = await fetch('http://localhost:3000/api/user', {
+        // API CALL
+        const jsonResponse = await fetch("http://localhost:3000/api/user", {
           headers: {
             authentication: cookies.token,
           },
         });
         const response = await jsonResponse.json();
         setUser(response.user);
-      } catch (err) {
-        console.log(err, 'err');
+        const utcTimestamp = new Date(response.user?.date);
+
+        // Setting Date and Time.
+        setDateAndTime({
+          date: utcTimestamp.getDate(),
+          month: utcTimestamp.getMonth() + 1,
+          year: utcTimestamp.getFullYear(),
+          hour: utcTimestamp.getHours(),
+          minute: utcTimestamp.getMinutes(),
+          second: utcTimestamp.getSeconds(),
+        });
+      } catch (error) {
       }
     };
     fetchUser();
@@ -34,10 +57,10 @@ const Profile = () => {
         <div className={`${styles.card}`}>
           <div className={`${styles.upper}`}>
             <Image
-              alt=''
+              alt=""
               priority
-              src='/Profilebg.jpg'
-              className='img-fluid'
+              src="/img/logo/profilebg.png"
+              className="img-fluid"
               width={300}
               height={70}
             />
@@ -46,38 +69,37 @@ const Profile = () => {
           <div className={`${styles.user} text-center`}>
             <div className={`${styles.profile}`}>
               <Image
-                alt=''
-                src='/Profile.jpg'
-                className='rounded-circle'
+                alt=""
+                src="/Profile.png"
+                className="rounded-circle"
                 width={360}
                 height={360}
               />
             </div>
           </div>
 
-          <div className='mt-5 text-center'>
-            <h4 className='mb-0'>{user?.name}</h4>
-            <span className='text-muted d-block mb-2'>{user?.email}</span>
+          <div className="mt-5 pt-3 text-center">
+            <h4 className="mb-0 h5">{user?.name}</h4>
+            <span className="text-muted d-block mb-2">{user?.email}</span>
 
-            <button className={`btn btn-primary btn-sm ${styles.follow}`}>
-              Follow
+            <button
+              onClick={() => {
+                router.push("/dashboard/mygroups");
+              }}
+              className={`btn btn-primary btn-sm ${styles.follow}`}
+            >
+              My groups
             </button>
 
-            <div className='d-flex justify-content-between align-items-center mt-4 px-4'>
-              <div className={`${styles.stats}`}>
-                <h6 className='mb-0'>Followers</h6>
-                <span>8,797</span>
-              </div>
-
-              <div className='stats'>
-                <h6 className='mb-0'>Projects</h6>
-                <span>142</span>
-              </div>
-
-              <div className='stats'>
-                <h6 className='mb-0'>Ranks</h6>
-                <span>129</span>
-              </div>
+            <div
+              className={`${styles.stats} d-flex justify-content-center align-items-center mt-5 px-2`}
+            >
+              <h6 className="mb-0 font-weight-bold">Account Created on: </h6>
+              <span>
+                {" "}
+                {dateandtime &&
+                  `${dateandtime?.date}/${dateandtime?.month}/${dateandtime?.year} - ${dateandtime?.hour}:${dateandtime?.minute}:${dateandtime?.second}`}
+              </span>
             </div>
           </div>
         </div>

@@ -1,25 +1,25 @@
-import connect from '../../../lib/mongodb';
-import initMiddleware from '../../../lib/init-middleware';
-import validateMiddleware from '../../../lib/validate-middleware';
-import { check } from 'express-validator';
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
-import User from '../../../models/User.js';
-import Token from '@/models/Token';
-import emailVerify from '../../../lib/emailverify';
-require('dotenv').config();
+import connect from "../../../lib/mongodb";
+import initMiddleware from "../../../lib/init-middleware";
+import validateMiddleware from "../../../lib/validate-middleware";
+import { check } from "express-validator";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import User from "../../../models/User.js";
+import Token from "@/models/Token";
+import emailSend from "../../../lib/emailsend";
+require("dotenv").config();
 
 // Validate input fields.
 const validateBody = initMiddleware(
   validateMiddleware([
     check(
-      'name',
-      'Name must have atleast 3 characters and atmost 40 characters.'
+      "name",
+      "Name must have atleast 3 characters and atmost 40 characters."
     ).isLength({ min: 3, max: 40 }),
-    check('email', 'Enter a valid email.').isEmail(),
+    check("email", "Enter a valid email.").isEmail(),
     check(
-      'password',
-      'Password must have atleast 6 characters and atmost 40 characters.'
+      "password",
+      "Password must have atleast 6 characters and atmost 40 characters."
     ).isLength({ min: 6, max: 40 }),
   ])
 );
@@ -32,17 +32,25 @@ export default async function handler(req, res) {
     // Connect to Database.
     connect();
 
-    if (req.method == 'POST') {
+    if (req.method == "POST") {
       // Validating input fields.
       await validateBody(req, res);
 
       // Check whether the user with this email exists already or not.
       let user = await User.findOne({ email });
-      if (user) {
+
+      // Check is user already exist and verified is true. No need to send verify email.
+      if (user && user.verified == true) {
         return res.status(400).json({
-          msg: 'Sorry a user with this email already exists.',
+          msg: "Sorry a user with this email already exists.",
           success: false,
         });
+      }
+
+      // Check is user already exist and verified is false. Delete his/her token, that user, create again with updated values and send verify email.
+      if (user && user.verified == false) {
+        await User.findByIdAndRemove({ _id: user._id });
+        await Token.findOneAndDelete({ user: user._id });
       }
 
       // Create a new user and storing password in hash.
@@ -72,15 +80,14 @@ export default async function handler(req, res) {
       // Sending verification link to user's email.
       const message = `${process.env.BASE_URL}/verifyemail/verify/${user._id}/${authtoken}`;
 
-      await emailVerify(user.email, 'Linnker email Verification link', message);
+      await emailSend(user.email, "Linnker email Verification link", message);
 
-      res.status(200).json({
-        msg: 'Email sent to your account. Please verify and Login.',
+      return res.status(200).json({
+        msg: "Email sent to your account. Please verify and Login.",
         success: true,
       });
     }
   } catch (error) {
-    console.log(error, 'error');
-    res.status(500).json({ msg: 'Internal Server Error', success: false });
+    res.status(500).json({ msg: "Internal Server Error", success: false });
   }
 }

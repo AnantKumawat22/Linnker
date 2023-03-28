@@ -1,14 +1,10 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap"); */
-
-
-/* body {
-    background-color: #545454;
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
-} */
+/*--------------------------------------------------------------
+  # Profile
+  --------------------------------------------------------------*/
 
 .container {
     height: 70vh;
+    background: url(/img/hero-bg.svg) top center no-repeat;
 }
 
 .card {
@@ -64,12 +60,12 @@
 }
 
 .stats span {
-
-    font-size: 29px;
+    margin-left: 4px;
+    font-size: 14px;
 }
 
-@media(max-width: 450px){
-    .card{
+@media(max-width: 450px) {
+    .card {
         width: 340px;
     }
 }

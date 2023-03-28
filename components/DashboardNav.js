@@ -3,14 +3,17 @@ import React, { useRef, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import COLORS from "@/theme/colors";
 import { useRouter } from "next/router";
-import styles from "../styles/dashboardnav.module.css";
 
 const DashboardNav = () => {
+  // UseRef of profile and mygroup section.
   const profilehighlight = useRef(null);
   const mygroupshighlight = useRef(null);
 
+  // Router
   const router = useRouter();
+
   useEffect(() => {
+    // Highlight the section on which we are - profile or mygroup.
     if (router.query.section == "profile") {
       profilehighlight.current.style.borderBottom = `4px solid ${COLORS.primary.main}`;
       mygroupshighlight.current.style.borderBottom = `none`;
@@ -26,7 +29,7 @@ const DashboardNav = () => {
         <div className="d-flex w-50 justify-content-center align-items-center">
           <Link
             href="/dashboard/profile"
-            className={styles.sectionlink}
+            className={`sectionlink`}
             ref={profilehighlight}
           >
             Profile
@@ -35,7 +38,7 @@ const DashboardNav = () => {
         <div className="d-flex w-50 justify-content-center align-items-center">
           <Link
             href="/dashboard/mygroups"
-            className={styles.sectionlink}
+            className='sectionlink'
             ref={mygroupshighlight}
           >
             My Groups
