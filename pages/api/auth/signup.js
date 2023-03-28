@@ -78,7 +78,7 @@ export default async function handler(req, res) {
       });
 
       // Sending verification link to user's email.
-      const message = `/api/verifyemail/verify/${user._id}/${authtoken}`;
+      const message = `https://linnker.vercel.app/api/verifyemail/verify/${user._id}/${authtoken}`;
 
       await emailSend(user.email, "Linnker email Verification link", message);
 

@@ -55,7 +55,7 @@ export default async function handler(req, res) {
       });
 
       // Sending Forgot Password Mail link to user's email.
-      const message = `http://localhost:3000/forgotpassword?token=${authtoken}`;
+      const message = `https://linnker.vercel.app/forgotpassword?token=${authtoken}`;
 
       await emailSend(user.email, "Linnker - Reset Password link", message);
 
