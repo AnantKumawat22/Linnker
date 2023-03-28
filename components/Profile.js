@@ -59,7 +59,7 @@ const Profile = () => {
             <Image
               alt=""
               priority
-              src="/img/logo/profilebg.png"
+              src="/img/Logo/profilebg.png"
               className="img-fluid"
               width={300}
               height={70}
