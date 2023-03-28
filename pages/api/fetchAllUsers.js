@@ -9,7 +9,6 @@ async function handler(req, res) {
     const users = await User.find({});
     res.status(200).json({ users, msg: "Fetch Successfully.", success: true });
   } catch (error) {
-    console.log("Error", error);
     res.status(400).json({ msg: "Fetch Error.", success: false });
   }
 }

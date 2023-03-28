@@ -16,7 +16,6 @@ export default async function handler(req, res) {
 
     res.send("Email verified successfully.");
   } catch (error) {
-    console.log("Error", error);
     res.send("An Error Occured");
   }
 }

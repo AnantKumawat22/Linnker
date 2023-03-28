@@ -6,7 +6,6 @@ import isAuth from '@/middleware/isAuth';
 
 async function handler(req, res) {
   const { id } = req.body;
-  console.log(id, 'id');
   try {
     const schema = Joi.object().keys({
       id: Joi.string().required(),
@@ -33,7 +32,6 @@ async function handler(req, res) {
     );
     res.status(200).json({ msg: 'Change the query status.', success: true });
   } catch (error) {
-    console.log('Error', error);
     res.status(400).json({
       msg: 'Internal Server Error',
       success: false,

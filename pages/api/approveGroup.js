@@ -32,7 +32,6 @@ async function handler(req, res) {
     );
     res.status(200).json({ msg: 'Change the group status.', success: true });
   } catch (error) {
-    console.log('Error', error);
     res.status(400).json({ msg: 'Internal Server Error', success: false });
   }
 }

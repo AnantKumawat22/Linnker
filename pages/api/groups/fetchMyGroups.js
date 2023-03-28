@@ -10,7 +10,6 @@ async function handler(req, res) {
     const groups = await Group.find({ user: user.id });
     res.status(200).json({ groups, msg: "Fetch Successfully.", success: true });
   } catch (error) {
-    console.log("handler error", error);
     res.status(400).json({ msg: "Fetch Error.", success: false });
   }
 }

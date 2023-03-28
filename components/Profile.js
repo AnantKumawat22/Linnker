@@ -43,7 +43,6 @@ const Profile = () => {
           second: utcTimestamp.getSeconds(),
         });
       } catch (error) {
-        console.log("Error", error);
       }
     };
     fetchUser();

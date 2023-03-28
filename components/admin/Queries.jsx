@@ -4,6 +4,7 @@ import { parseCookies } from 'nookies';
 import React, { useState, useContext } from 'react';
 import { Table } from 'react-bootstrap';
 import Button from '../atoms/button.atom';
+import Link from "next/link";
 
 const Queries = ({ queries }) => {
   const [filterQueries, setFilterQueries] = useState(queries);
@@ -68,9 +69,9 @@ const Queries = ({ queries }) => {
               } `}
               onClick={() => handleQueryType(queryTypeEnum.ALL)}
             >
-              <a className='nav-link' aria-current='page' href='#'>
+              <Link className="nav-link" aria-current="page" href="#">
                 All
-              </a>
+              </Link>
             </li>
             <li
               className={`nav-item ${
@@ -78,9 +79,9 @@ const Queries = ({ queries }) => {
               } `}
               onClick={() => handleQueryType(queryTypeEnum.COMPLETED)}
             >
-              <a className='nav-link' aria-current='page' href='#'>
+              <Link className="nav-link" aria-current="page" href="#">
                 Completed
-              </a>
+              </Link>
             </li>
             <li
               className={`nav-item ${
@@ -88,9 +89,9 @@ const Queries = ({ queries }) => {
               } `}
               onClick={() => handleQueryType(queryTypeEnum.PENDING)}
             >
-              <a className='nav-link' aria-current='page' href='#'>
+              <Link className="nav-link" aria-current="page" href="#">
                 Pending
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

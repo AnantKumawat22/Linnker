@@ -17,7 +17,6 @@ async function handler(req, res) {
       success: true,
     });
   } catch (error) {
-    console.log('handler error', error);
     res.status(400).json({ msg: 'User Name Fetch Error', success: false });
   }
 }

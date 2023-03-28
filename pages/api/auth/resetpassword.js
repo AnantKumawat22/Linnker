@@ -60,7 +60,6 @@ export default async function handler(req, res) {
         .json({ msg: "Password Changed Successfully", success: true });
     }
   } catch (error) {
-    console.log("Error", error);
     res.status(500).json({ msg: "Internal Server Error", success: false });
   }
 }

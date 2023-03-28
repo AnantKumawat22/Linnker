@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { useRouter } from "next/router";
 import styles from "../styles/groupdetails.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 const groupdetails = () => {
   // Router
@@ -28,7 +29,6 @@ const groupdetails = () => {
         const data = await response.json();
         setUser(data.user);
       } catch (error) {
-        console.log("Error: ", error);
       }
     };
     fetchUser();
@@ -72,17 +72,17 @@ const groupdetails = () => {
 
                   <li className={`${styles.grouplink}`}>
                     <strong>Group Link</strong>:{" "}
-                    <a href={grouplink} target="_blank">
+                    <Link href={`${grouplink}`} target="_blank">
                       {grouplink}
-                    </a>
+                    </Link>
                   </li>
                   <li style={{ marginTop: "30px" }}>
                     <strong>Group Created by</strong>: {user}
                   </li>
                   <li>
                     <strong style={{ color: "grey" }}>
-                      All groups are valid whatsapp groups and verified by our
-                      team.
+                      All groups are valid WhatsApp groups and have been
+                      verified by our team.
                     </strong>
                   </li>
                 </ul>

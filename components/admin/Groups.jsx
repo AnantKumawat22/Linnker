@@ -4,6 +4,7 @@ import { parseCookies } from 'nookies';
 import React, { useContext, useState } from 'react';
 import Button from '../atoms/button.atom';
 import MyGroupCards from '../MyGroupCards';
+import Link from "next/link";
 
 const Groups = ({ groups }) => {
   const [filterGroup, setFilterGroup] = useState(groups);
@@ -68,9 +69,9 @@ const Groups = ({ groups }) => {
             } `}
             onClick={() => handleGroupType(groupTypeEnum.ALL)}
           >
-            <a className='nav-link' aria-current='page' href='#'>
+            <Link className="nav-link" aria-current="page" href="#">
               All
-            </a>
+            </Link>
           </li>
           <li
             className={`nav-item ${
@@ -78,9 +79,9 @@ const Groups = ({ groups }) => {
             } `}
             onClick={() => handleGroupType(groupTypeEnum.APPROVED)}
           >
-            <a className='nav-link' aria-current='page' href='#'>
+            <Link className="nav-link" aria-current="page" href="#">
               Approved
-            </a>
+            </Link>
           </li>
           <li
             className={`nav-item ${
@@ -88,9 +89,9 @@ const Groups = ({ groups }) => {
             } `}
             onClick={() => handleGroupType(groupTypeEnum.NOT_APPROVED)}
           >
-            <a className='nav-link' aria-current='page' href='#'>
+            <Link className="nav-link" aria-current="page" href="#">
               Not Approved
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

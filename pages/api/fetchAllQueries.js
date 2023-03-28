@@ -11,7 +11,6 @@ async function handler(req, res) {
       .status(200)
       .json({ queries, msg: "Fetch Successfully.", success: true });
   } catch (error) {
-    console.log("Error", error);
     res.status(400).json({ msg: "Fetch Error.", success: false });
   }
 }

@@ -1,3 +1,7 @@
+/*--------------------------------------------------------------
+  # Contact
+  --------------------------------------------------------------*/
+
 .contactusicon {
     font-size: 38px;
     color: #4154f1;
@@ -12,12 +16,6 @@
     color: #444444;
     background: #fafbff;
     padding: 30px;
-}
-
-.contact .infoBox i {
-    font-size: 38px;
-    line-height: 0;
-    color: #4154f1;
 }
 
 .contact .infoBox h3 {
