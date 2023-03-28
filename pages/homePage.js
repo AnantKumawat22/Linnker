@@ -206,7 +206,7 @@ const homePage = () => {
         {/* <!-- End Counts Section --> */}
 
         {/* <!-- ======= Features Section ======= --> */}
-        <section id="features" className="features">
+        <section id="features" className="features mb-3">
           <div className="container" data-aos="fade-up">
             <header className="section-header">
               <h2>Features</h2>
@@ -407,7 +407,7 @@ const homePage = () => {
         {/* <!-- End Features Section --> */}
 
         {/* <!-- ======= Services Section ======= --> */}
-        <section id="services" className="services my-5 py-5">
+        {/* <section id="services" className="services my-5 py-5">
           <div className="container" data-aos="fade-up">
             <header className="section-header">
               <h2>Services</h2>
@@ -527,7 +527,7 @@ const homePage = () => {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
         {/* <!-- End Services Section --> */}
       </main>
       {/* <!-- End #main --> */}
