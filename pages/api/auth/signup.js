@@ -78,7 +78,7 @@ export default async function handler(req, res) {
       });
 
       // Sending verification link to user's email.
-      const message = `${process.env.BASE_URL}/verifyemail/verify/${user._id}/${authtoken}`;
+      const message = `/api/verifyemail/verify/${user._id}/${authtoken}`;
 
       await emailSend(user.email, "Linnker email Verification link", message);
 

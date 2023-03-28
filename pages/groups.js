@@ -16,7 +16,7 @@ import { useRouter } from 'next/router';
 export async function getServerSideProps() {
   try {
     const jsonResponse = await fetch(
-      `${process.env.BASE_URL}/groups/fetchAllGroups`
+      `/api/groups/fetchAllGroups`
     );
     const response = await jsonResponse.json();
     return {

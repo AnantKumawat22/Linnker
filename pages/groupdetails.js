@@ -17,7 +17,7 @@ const groupdetails = () => {
     const fetchUser = async () => {
       try {
         const response = await fetch(
-          `${process.env.BASE_URL}/groups/groupcreatedby`,
+          `/api/groups/groupcreatedby`,
           {
             method: 'GET',
             headers: {

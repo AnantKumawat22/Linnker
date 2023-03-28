@@ -37,7 +37,7 @@ const Queries = ({ queries }) => {
 
     try {
       // API CALL
-      const response = await fetch(`${process.env.BASE_URL}/resolveQuery`, {
+      const response = await fetch(`/api/resolveQuery`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
