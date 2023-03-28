@@ -70,7 +70,7 @@ const Profile = () => {
             <div className={`${styles.profile}`}>
               <Image
                 alt=""
-                src="/Profile.png"
+                src="/profile.png"
                 className="rounded-circle"
                 width={360}
                 height={360}
