@@ -12,7 +12,7 @@ const validateBody = initMiddleware(
   validateMiddleware([check("email", "Enter a valid email.").isEmail()])
 );
 
-// Forgot password: POST "/api/auth/forgotpassword".
+// Forgot password: POST "/auth/forgotpassword".
 export default async function handler(req, res) {
   const { email } = req.body;
 

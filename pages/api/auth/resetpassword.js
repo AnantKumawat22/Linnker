@@ -16,7 +16,7 @@ const validateBody = initMiddleware(
   ])
 );
 
-// Reset password: POST "/api/auth/resetpassword".
+// Reset password: POST "/auth/resetpassword".
 export default async function handler(req, res) {
   const { password, authtoken } = req.body;
 

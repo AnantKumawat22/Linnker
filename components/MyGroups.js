@@ -51,7 +51,7 @@ const MyGroups = ({ groups }) => {
     const cookies = parseCookies();
     try {
       // API CALL
-      const response = await fetch(`/api/groups/deletemygroup/${id}`, {
+      const response = await fetch(`/groups/deletemygroup/${id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -92,7 +92,7 @@ const MyGroups = ({ groups }) => {
     topLoaderBar.current.continuousStart();
 
     // API CALL
-    const response = await fetch('/api/groups/creategroup', {
+    const response = await fetch('/groups/creategroup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

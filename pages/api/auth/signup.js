@@ -24,7 +24,7 @@ const validateBody = initMiddleware(
   ])
 );
 
-// Create a User using: POST "/api/auth/signup".
+// Create a User using: POST "/auth/signup".
 export default async function handler(req, res) {
   const { name, email, password } = req.body;
 

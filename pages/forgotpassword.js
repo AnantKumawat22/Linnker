@@ -39,7 +39,7 @@ const forgotpassword = () => {
     topLoaderBar.current.continuousStart();
 
     // API CALL
-    const response = await fetch("/api/auth/forgotpassword", {
+    const response = await fetch("/auth/forgotpassword", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -80,7 +80,7 @@ const forgotpassword = () => {
     }
 
     // API CALL
-    const response = await fetch("/api/auth/resetpassword", {
+    const response = await fetch("/auth/resetpassword", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

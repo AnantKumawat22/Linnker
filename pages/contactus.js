@@ -94,7 +94,7 @@ const contactus = () => {
                     const { setSubmitting, resetForm } = actions;
                     setSubmitting(true);
                     try {
-                      const response = await fetch("/api/query", {
+                      const response = await fetch("/query", {
                         method: "post",
                         body: JSON.stringify(values),
                         headers: {

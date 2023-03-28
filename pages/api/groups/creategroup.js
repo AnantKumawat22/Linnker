@@ -21,7 +21,7 @@ const validateBody = initMiddleware(
   ])
 );
 
-// Create a Group using: POST "/api/groups/creategroup".
+// Create a Group using: POST "/groups/creategroup".
 async function handler(req, res) {
   const { name, description, link, tags } = req.body;
 

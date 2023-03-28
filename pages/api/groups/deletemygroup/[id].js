@@ -3,7 +3,7 @@ import Group from "@/models/Group";
 import connect from "@/lib/mongodb";
 import { roles } from "@/constant";
 
-// Delete an existing Group using: DELETE "/api/groups/deletemygroup/:id".
+// Delete an existing Group using: DELETE "/groups/deletemygroup/:id".
 async function handler(req, res) {
   const { id } = req.query;
 
