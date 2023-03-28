@@ -5,6 +5,8 @@ import Button from "@/components/atoms/button.atom";
 import Image from "next/image";
 import { generalContext } from "@/context/general.context";
 import { useRouter } from "next/router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const forgotpassword = () => {
   // Context.
@@ -12,6 +14,11 @@ const forgotpassword = () => {
 
   // Router
   const router = useRouter();
+
+  // Password show state
+  const [showpassword, setShowpassword] = useState(false);
+  // Confirm Password show state
+  const [showconpassword, setShowconpassword] = useState(false);
 
   // Input fields.
   const [email, setEmail] = useState("");
@@ -122,10 +129,10 @@ const forgotpassword = () => {
         {token ? (
           <>
             <Image
-              alt="Forgot Password"
-              src="/img/forgot_password.png"
-              width={250}
-              height={250}
+              alt="Reset Password"
+              src="/img/reset_password.gif"
+              width={300}
+              height={300}
             />
             <div className="w-100 mt-5 d-flex align-items-center flex-column">
               <h2 className="mb-4 text-center">
@@ -136,22 +143,82 @@ const forgotpassword = () => {
                 onSubmit={handleSubmitReset}
                 className="d-flex flex-column align-items-center col-md-8 col-sm-11 col-11 col-lg-5"
               >
-                <Input
-                  type="password"
-                  id="password"
-                  value={passwordCred.password}
-                  name="password"
-                  onChange={handlePasswordCredChange}
-                  placeholder="Enter New Password"
-                />
-                <Input
-                  type="password"
-                  id="conpassword"
-                  value={passwordCred.conpassword}
-                  name="conpassword"
-                  onChange={handlePasswordCredChange}
-                  placeholder="Confirm New Password"
-                />
+                <div
+                  className="w-100 d-flex flex-row justify-content-center maininp mt-4 pe-2"
+                  style={{ border: "1px solid #ced4da" }}
+                >
+                  <Input
+                    type={`${showpassword ? "text" : "password"}`}
+                    id="password"
+                    value={passwordCred.password}
+                    name="password"
+                    style={{
+                      border: "none",
+                      boxShadow: "none",
+                      PointerEvent: "none",
+                    }}
+                    onChange={handlePasswordCredChange}
+                    placeholder="Enter New Password"
+                  />
+                  {showpassword ? (
+                    <FontAwesomeIcon
+                      role="button"
+                      className="mt-3 text-secondary"
+                      onClick={() => {
+                        setShowpassword(false);
+                      }}
+                      icon={faEye}
+                    />
+                  ) : (
+                    <FontAwesomeIcon
+                      role="button"
+                      className="mt-3 text-secondary"
+                      onClick={() => {
+                        setShowpassword(true);
+                      }}
+                      icon={faEyeSlash}
+                    />
+                  )}
+                </div>
+
+                {/* Confirm Password input */}
+                <div
+                  className="w-100 d-flex flex-row justify-content-center maininp mt-4 pe-2"
+                  style={{ border: "1px solid #ced4da" }}
+                >
+                  <Input
+                    type={`${showconpassword ? "text" : "password"}`}
+                    id="conpassword"
+                    value={passwordCred.conpassword}
+                    name="conpassword"
+                    style={{
+                      border: "none",
+                      boxShadow: "none",
+                      PointerEvent: "none",
+                    }}
+                    onChange={handlePasswordCredChange}
+                    placeholder="Confirm New Password"
+                  />
+                  {showconpassword ? (
+                    <FontAwesomeIcon
+                      role="button"
+                      className="mt-3 text-secondary"
+                      onClick={() => {
+                        setShowconpassword(false);
+                      }}
+                      icon={faEye}
+                    />
+                  ) : (
+                    <FontAwesomeIcon
+                      role="button"
+                      className="mt-3 text-secondary"
+                      onClick={() => {
+                        setShowconpassword(true);
+                      }}
+                      icon={faEyeSlash}
+                    />
+                  )}
+                </div>
 
                 <div className="text-center text-lg-start mt-2 pt-1">
                   <Button

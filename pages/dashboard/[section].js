@@ -25,7 +25,7 @@ export async function getServerSideProps(context) {
     );
     const data = await jsonResponse.json();
     return {
-      props: { groups: data.groups },
+      props: { groups: data.groups || [] },
     };
   } catch (error) {
     return {

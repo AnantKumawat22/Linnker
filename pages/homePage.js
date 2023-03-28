@@ -210,7 +210,7 @@ const homePage = () => {
           <div className="container" data-aos="fade-up">
             <header className="section-header">
               <h2>Features</h2>
-              <p>How to create Your WhatsApp Groups ?</p>
+              <p>How To Find Best WhatsApp Groups For You ?</p>
             </header>
 
             <div className="row">
@@ -233,7 +233,7 @@ const homePage = () => {
                   >
                     <div className="feature-box d-flex align-items-center">
                       <i className="bi bi-check"></i>
-                      <h3>Create Your Account</h3>
+                      <h3>Click on "Join Groups"</h3>
                     </div>
                   </div>
 
@@ -244,7 +244,7 @@ const homePage = () => {
                   >
                     <div className="feature-box d-flex align-items-center">
                       <i className="bi bi-check"></i>
-                      <h3>Enter Group Name</h3>
+                      <h3>Search by Group Name</h3>
                     </div>
                   </div>
 
@@ -255,7 +255,7 @@ const homePage = () => {
                   >
                     <div className="feature-box d-flex align-items-center">
                       <i className="bi bi-check"></i>
-                      <h3>Volup amet voluptas</h3>
+                      <h3>Search by Tags</h3>
                     </div>
                   </div>
 
@@ -266,7 +266,7 @@ const homePage = () => {
                   >
                     <div className="feature-box d-flex align-items-center">
                       <i className="bi bi-check"></i>
-                      <h3>Rerum omnis sint</h3>
+                      <h3>Click on group for details</h3>
                     </div>
                   </div>
 
@@ -277,7 +277,7 @@ const homePage = () => {
                   >
                     <div className="feature-box d-flex align-items-center">
                       <i className="bi bi-check"></i>
-                      <h3>Alias possimus</h3>
+                      <h3>Find your Best Group</h3>
                     </div>
                   </div>
 
@@ -288,7 +288,7 @@ const homePage = () => {
                   >
                     <div className="feature-box d-flex align-items-center">
                       <i className="bi bi-check"></i>
-                      <h3>Repellendus mollitia</h3>
+                      <h3>Hurray! join the group</h3>
                     </div>
                   </div>
                 </div>
@@ -337,7 +337,7 @@ const homePage = () => {
                       <div>
                         <h4>Create WhatsApp Groups</h4>
                         <p>
-                          You can create and Delete your WhatsApp groups from Dashboard -&gt; MyGroups.
+                          You can create and Delete your WhatsApp groups. Your group will be visible to everyone after getting approved by our team.
                         </p>
                       </div>
                     </div>
@@ -379,7 +379,7 @@ const homePage = () => {
                       <div>
                         <h4>Valid WhatsApp Group Link</h4>
                         <p>
-                          We will approve only those groups which is valid WhatsApp group. So give a valid lin
+                          We will approve only those groups which is valid WhatsApp group. So give a valid group link.
                         </p>
                       </div>
                     </div>
@@ -393,8 +393,7 @@ const homePage = () => {
                       <div>
                         <h4>Report Us</h4>
                         <p>
-                          Est autem dicta beatae suscipit. Sint veritatis et sit
-                          quasi ab aut inventore
+                          If you find anything wrong with your group done by others, you can contact us by mail.
                         </p>
                       </div>
                     </div>
