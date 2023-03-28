@@ -4,22 +4,21 @@ import Users from '@/components/admin/Users';
 import { roles, tabsNameEnum } from '@/constant';
 import React, { useState } from 'react';
 import { Container, Table } from 'react-bootstrap';
-import Link from "next/link";
+import Link from 'next/link';
 
 export async function getServerSideProps(context) {
   const { token, role } = context.req.cookies;
- if(role !== roles.ADMIN){
+  if (role !== roles.ADMIN) {
     return {
       redirect: {
         destination: '/',
         permanent: false,
       },
     };
-  
- }
+  }
   try {
     const groupsResponse = await fetch(
-      'http://localhost:3000/api/groups/fetchAllGroups',
+      'http://localhost:3000/api/admin/fetchAllGroups',
       {
         headers: {
           authentication: token,
@@ -27,7 +26,7 @@ export async function getServerSideProps(context) {
       }
     ).then(async (response) => await response.json());
     const usersResponse = await fetch(
-      'http://localhost:3000/api/fetchAllUsers',
+      'http://localhost:3000/api/admin/fetchAllUsers',
       {
         headers: {
           authentication: token,
@@ -35,7 +34,7 @@ export async function getServerSideProps(context) {
       }
     ).then(async (response) => await response.json());
     const queriesResponse = await fetch(
-      'http://localhost:3000/api/fetchAllQueries',
+      'http://localhost:3000/api/admin/fetchAllQueries',
       {
         headers: {
           authentication: token,
@@ -48,6 +47,7 @@ export async function getServerSideProps(context) {
       groupsResponse,
       queriesResponse,
     ]);
+
     return {
       props: {
         users: responses[0]?.users || [],
@@ -73,7 +73,7 @@ const Admin = ({ users, groups, queries }) => {
             className={`nav-item ${tab === tabsNameEnum.USERS && 'active'} `}
             onClick={() => handleTab(tabsNameEnum.USERS)}
           >
-            <Link className="nav-link" aria-current="page" href="#">
+            <Link className='nav-link' aria-current='page' href='#'>
               Users
             </Link>
           </li>
@@ -81,7 +81,7 @@ const Admin = ({ users, groups, queries }) => {
             className={`nav-item ${tab === tabsNameEnum.GROUPS && 'active'} `}
             onClick={() => handleTab(tabsNameEnum.GROUPS)}
           >
-            <Link className="nav-link" aria-current="page" href="#">
+            <Link className='nav-link' aria-current='page' href='#'>
               Groups
             </Link>
           </li>
@@ -89,7 +89,7 @@ const Admin = ({ users, groups, queries }) => {
             className={`nav-item ${tab === tabsNameEnum.QUERIES && 'active'} `}
             onClick={() => handleTab(tabsNameEnum.QUERIES)}
           >
-            <Link className="nav-link" aria-current="page" href="#">
+            <Link className='nav-link' aria-current='page' href='#'>
               Queries
             </Link>
           </li>
