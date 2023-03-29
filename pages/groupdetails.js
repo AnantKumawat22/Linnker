@@ -47,7 +47,7 @@ const groupdetails = () => {
                 <div className="swiper-wrapper align-items-center">
                   <div className="swiper-slide">
                     <Image
-                      src="/img/Logo/Logo.png"
+                      src="/img/Logo/logo.png"
                       alt="Logo"
                       width={820}
                       height={540}
