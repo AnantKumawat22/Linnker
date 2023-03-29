@@ -55,7 +55,7 @@ const homePage = () => {
 
       <main id="main">
         {/* <!-- ======= Values Section ======= --> */}
-        <section id="values" className="values mt-5">
+        <section id="values" className="values">
           <div className="container" data-aos="fade-up">
             <header className="section-header">
               <h2>Working</h2>
@@ -127,7 +127,7 @@ const homePage = () => {
         {/* <!-- End Values Section --> */}
 
         {/* <!-- ======= Counts Section ======= --> */}
-        <section id="counts" className="counts">
+        {/* <section id="counts" className="counts">
           <div className="container" data-aos="fade-up">
             <div className="row gy-4">
               <div className="col-lg-3 col-md-6">
@@ -202,7 +202,7 @@ const homePage = () => {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
         {/* <!-- End Counts Section --> */}
 
         {/* <!-- ======= Features Section ======= --> */}
