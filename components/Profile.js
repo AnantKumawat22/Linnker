@@ -25,7 +25,7 @@ const Profile = () => {
       const cookies = parseCookies();
       try {
         // API CALL
-        const jsonResponse = await fetch(`/api/user`, {
+        const jsonResponse = await fetch(`${process.env.BASE_URL}/api/user`, {
           headers: {
             authentication: cookies.token,
           },
