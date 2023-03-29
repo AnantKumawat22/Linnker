@@ -115,13 +115,13 @@ const aboutus = () => {
                     alt="Abhishek Patel"
                   />
                   <div className={styles.social}>
-                    <Link href="" target="_blank">
+                    <Link href="https://twitter.com/ABHISHE65635171" target="_blank">
                       <i className="bi bi-twitter"></i>
                     </Link>
-                    <Link href="" target="_blank">
+                    <Link href="https://www.instagram.com/abhishekpatel7339/" target="_blank">
                       <i className="bi bi-instagram"></i>
                     </Link>
-                    <Link href="" target="_blank">
+                    <Link href="https://www.linkedin.com/in/abhishekpatel87/" target="_blank">
                       <i className="bi bi-linkedin"></i>
                     </Link>
                   </div>

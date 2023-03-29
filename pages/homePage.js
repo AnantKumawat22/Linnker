@@ -117,7 +117,7 @@ const homePage = () => {
                   <h3>Valid WhatApp Groups</h3>
                   <p>
                     All groups are valid WhatsApp groups and have been verified
-                    by our team.
+                    by our team. If you find any spam groups, you can contact us and report them.
                   </p>
                 </div>
               </div>
