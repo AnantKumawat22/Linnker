@@ -316,7 +316,7 @@ const homePage = () => {
                   />
                 </div>
 
-                <div className="col-xl-8 offset-md-1  d-flex content">
+                <div className="col-xl-8 offset-xl-1  d-flex content">
                   <div className="row align-self-center mt-3 gy-4">
                     <div className="col-md-6 icon-box" data-aos="fade-up">
                       <i className="ri-line-chart-line"></i>
