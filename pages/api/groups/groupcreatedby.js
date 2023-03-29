@@ -1,10 +1,8 @@
 import connect from '@/lib/mongodb';
 import Group from '@/models/Group';
 import User from '@/models/User';
-import isAuth from '@/middleware/isAuth';
-import { roles } from '@/constant';
 
-async function handler(req, res) {
+export default async function handler(req, res) {
   try {
     // Connect Database.
     await connect();
@@ -24,5 +22,3 @@ async function handler(req, res) {
     res.status(400).json({ msg: 'User Name Fetch Error', success: false });
   }
 }
-
-export default isAuth([roles.USER, roles.ADMIN], handler);
