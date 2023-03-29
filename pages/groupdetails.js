@@ -67,7 +67,7 @@ const groupdetails = () => {
                   </li>
                   <li>
                     <strong>Group Tags</strong>:{" "}
-                    {grouptags && grouptags.join(", ")}
+                    {Array.isArray(grouptags) ? grouptags.join(", ") : "" }
                   </li>
 
                   <li className={`${styles.grouplink}`}>
