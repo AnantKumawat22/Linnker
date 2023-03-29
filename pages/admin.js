@@ -55,8 +55,8 @@ export async function getServerSideProps(context) {
         queries: responses[2]?.queries || [],
       },
     };
-  } catch (err) {
-    console.log('error', err);
+  } catch (error) {
+    console.log('Error', error);
     return { props: { groups: [] } };
   }
 }
@@ -65,8 +65,6 @@ export async function getServerSideProps(context) {
 const Admin = ({ users, groups, queries }) => {
   const [tab, setTab] = useState(tabsNameEnum.USERS);
   const handleTab = (tab) => setTab(tab);
-
-  console.log(users, groups, queries);
 
   return (
     <Container>
