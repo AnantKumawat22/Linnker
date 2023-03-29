@@ -1,6 +1,7 @@
 import connect from '@/lib/mongodb';
 import Group from '@/models/Group';
 import User from '@/models/User';
+import isAuth from '@/middleware/isAuth';
 
 async function handler(req, res) {
   try {
