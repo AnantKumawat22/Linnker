@@ -57,7 +57,7 @@ const Profile = () => {
         <div className={`${styles.card}`}>
           <div className={`${styles.upper}`}>
             <Image
-              alt=""
+              alt="ProfileBg"
               priority
               src="/img/Logo/profilebg.png"
               className="img-fluid"
@@ -69,7 +69,7 @@ const Profile = () => {
           <div className={`${styles.user} text-center`}>
             <div className={`${styles.profile}`}>
               <Image
-                alt=""
+                alt="Profile"
                 src="/profile.png"
                 className="rounded-circle"
                 width={360}

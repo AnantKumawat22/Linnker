@@ -42,7 +42,7 @@ const aboutus = () => {
                 priority
                 src="/img/Logo/logo.png"
                 className="img-fluid"
-                alt=""
+                alt="Logo"
               />
             </div>
           </div>
@@ -72,7 +72,7 @@ const aboutus = () => {
                     style={{ width: "auto", height: "auto" }}
                     src="/img/team/team-1.jpg"
                     className="img-fluid"
-                    alt=""
+                    alt="Anant Kumawat"
                   />
                   <div className={styles.social}>
                     <Link
@@ -112,7 +112,7 @@ const aboutus = () => {
                     style={{ width: "auto", height: "auto" }}
                     src="/img/team/team-2.jpg"
                     className="img-fluid"
-                    alt=""
+                    alt="Abhishek Patel"
                   />
                   <div className={styles.social}>
                     <Link href="" target="_blank">

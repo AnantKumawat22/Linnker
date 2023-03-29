@@ -1,6 +1,5 @@
 import User from '@/models/User';
 import jwt from 'jsonwebtoken';
-import { userAgentFromString } from 'next/server';
 require('dotenv').config();
 
 const isAuth =

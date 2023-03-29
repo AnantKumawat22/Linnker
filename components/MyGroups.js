@@ -216,8 +216,10 @@ const MyGroups = ({ groups }) => {
             style={{ minHeight: '500px' }}
           >
             <Image
+            alt="No Group Yet"
               src='/img/No_Group_Found.gif'
               width={280}
+              priority
               height={280}
             ></Image>
             <p style={{ fontSize: '20px', color: 'grey' }}>No Groups Yet</p>

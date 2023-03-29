@@ -48,7 +48,7 @@ const groupdetails = () => {
                   <div className="swiper-slide">
                     <Image
                       src="/img/Logo/Logo.png"
-                      alt=""
+                      alt="Logo"
                       width={820}
                       height={540}
                     />

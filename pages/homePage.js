@@ -68,7 +68,7 @@ const homePage = () => {
                   <Image
                     src="/img/homepage/values-1.png"
                     className="img-fluid"
-                    alt=""
+                    alt="values-1"
                     width={440}
                     height={360}
                   />
@@ -91,7 +91,7 @@ const homePage = () => {
                     width={440}
                     height={360}
                     className="img-fluid"
-                    alt=""
+                    alt="values-2"
                   />
                   <h3>Find A WhatsApp Group</h3>
                   <p>
@@ -112,7 +112,7 @@ const homePage = () => {
                     width={440}
                     height={360}
                     className="img-fluid"
-                    alt=""
+                    alt="values-3"
                   />
                   <h3>Valid WhatApp Groups</h3>
                   <p>
@@ -220,7 +220,7 @@ const homePage = () => {
                   width={1040}
                   height={660}
                   className="img-fluid"
-                  alt=""
+                  alt="features"
                 />
               </div>
 
@@ -312,7 +312,7 @@ const homePage = () => {
                     src="/img/homepage/features-3.png"
                     className="img-fluid p-4"
                     priority
-                    alt=""
+                    alt="features-3"
                   />
                 </div>
 
