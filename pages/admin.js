@@ -60,6 +60,7 @@ export async function getServerSideProps(context) {
   }
 }
 
+
 const Admin = ({ users, groups, queries }) => {
   const [tab, setTab] = useState(tabsNameEnum.USERS);
   const handleTab = (tab) => setTab(tab);
