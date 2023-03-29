@@ -12,7 +12,6 @@ import {
 import * as Yup from "yup";
 import { Formik } from "formik";
 import { generalContext } from "@/context/general.context";
-import fetch from 'node-fetch';
 
 const ContactSchema = Yup.object().shape({
   name: Yup.string()

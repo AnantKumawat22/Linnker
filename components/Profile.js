@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import styles from "../styles/Profile.module.css";
 import { parseCookies } from "nookies";
-import fetch from 'node-fetch';
 
 const Profile = () => {
   // Router

@@ -11,7 +11,6 @@ import { faClose } from '@fortawesome/free-solid-svg-icons';
 import { generalContext } from '@/context/general.context';
 import { groupContext } from '@/context/group.context';
 import Image from 'next/image';
-import fetch from 'node-fetch';
 
 const MyGroups = ({ groups }) => {
   // Context

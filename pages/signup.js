@@ -7,7 +7,6 @@ import Input from "@/components/atoms/input.atom";
 import { generalContext } from "@/context/general.context";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import fetch from 'node-fetch';
 
 export async function getServerSideProps(context) {
   const { token } = context.req.cookies;

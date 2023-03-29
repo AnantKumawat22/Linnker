@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 import styles from "../styles/groupdetails.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import fetch from 'node-fetch';
 
 const groupdetails = () => {
   // Router

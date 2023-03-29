@@ -2,7 +2,6 @@ import React, { useEffect, useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 import Profile from '@/components/Profile';
 import MyGroups from '@/components/MyGroups';
-import fetch from 'node-fetch';
 
 export async function getServerSideProps(context) {
   const { token } = context.req.cookies;
