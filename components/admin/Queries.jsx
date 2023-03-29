@@ -5,6 +5,7 @@ import React, { useState, useContext } from 'react';
 import { Table } from 'react-bootstrap';
 import Button from '../atoms/button.atom';
 import Link from "next/link";
+import fetch from 'node-fetch';
 
 const Queries = ({ queries }) => {
   const [filterQueries, setFilterQueries] = useState(queries);

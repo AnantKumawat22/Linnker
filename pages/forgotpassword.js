@@ -7,6 +7,7 @@ import { generalContext } from "@/context/general.context";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import fetch from 'node-fetch';
 
 const forgotpassword = () => {
   // Context.

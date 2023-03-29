@@ -5,6 +5,7 @@ import React, { useContext, useState } from 'react';
 import Button from '../atoms/button.atom';
 import MyGroupCards from '../MyGroupCards';
 import Link from "next/link";
+import fetch from 'node-fetch';
 
 const Groups = ({ groups }) => {
   const [filterGroup, setFilterGroup] = useState(groups);
