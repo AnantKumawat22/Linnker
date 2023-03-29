@@ -230,7 +230,7 @@ const groups = ({ groups }) => {
 
                   {/* Recent Added Group */}
                   <div
-                    className={`${styles.wrapper} d-flex pt-3 pb-1 px-2`}
+                    className={`${styles.wrapper} d-flex py-3 px-2`}
                     ref={containerRef}
                   >
                     {searchgroup?.map((group, idx) => (
