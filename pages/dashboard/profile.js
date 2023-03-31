@@ -1,11 +1,39 @@
 import React, { useEffect, useState } from "react";
-import DashboardNav from "./DashboardNav";
+import DashboardNav from "@/components/DashboardNav";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import styles from "../styles/Profile.module.css";
-import { parseCookies } from "nookies";
+import styles from "../../styles/profile.module.css";
 
-const Profile = () => {
+export async function getServerSideProps(context) {
+  const { token } = context.req.cookies;
+  // Redirect to login page if user is not authenticated
+  if (!token) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+  try {
+    // API CALL
+    const jsonResponse = await fetch(`${process.env.BASE_URL}/api/user`, {
+      headers: {
+        authentication: token,
+      },
+    });
+    const response = await jsonResponse.json();
+    return {
+      props: { userdata: response.user || [] },
+    };
+  } catch (error) {
+    return {
+      props: { groups: [] },
+    };
+  }
+}
+
+const Profile = ({ userdata }) => {
   // Router
   const router = useRouter();
 
@@ -17,35 +45,20 @@ const Profile = () => {
     minute: "",
     second: "",
   });
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(userdata);
 
   useEffect(() => {
-    const fetchUser = async () => {
-      const cookies = parseCookies();
-      try {
-        // API CALL
-        const jsonResponse = await fetch(`/api/user`, {
-          headers: {
-            authentication: cookies.token,
-          },
-        });
-        const response = await jsonResponse.json();
-        setUser(response.user);
-        const utcTimestamp = new Date(response.user?.date);
+    const utcTimestamp = new Date(userdata?.date);
 
-        // Setting Date and Time.
-        setDateAndTime({
-          date: utcTimestamp.getDate(),
-          month: utcTimestamp.getMonth() + 1,
-          year: utcTimestamp.getFullYear(),
-          hour: utcTimestamp.getHours(),
-          minute: utcTimestamp.getMinutes(),
-          second: utcTimestamp.getSeconds(),
-        });
-      } catch (error) {
-      }
-    };
-    fetchUser();
+    // Setting Date and Time.
+    setDateAndTime({
+      date: utcTimestamp.getDate(),
+      month: utcTimestamp.getMonth() + 1,
+      year: utcTimestamp.getFullYear(),
+      hour: utcTimestamp.getHours(),
+      minute: utcTimestamp.getMinutes(),
+      second: utcTimestamp.getSeconds(),
+    });
   }, []);
 
   return (

@@ -14,10 +14,10 @@ const DashboardNav = () => {
 
   useEffect(() => {
     // Highlight the section on which we are - profile or mygroup.
-    if (router.query.section == "profile") {
+    if (router.asPath == "/dashboard/profile") {
       profilehighlight.current.style.borderBottom = `4px solid ${COLORS.primary.main}`;
       mygroupshighlight.current.style.borderBottom = `none`;
-    } else if (router.query.section == "mygroups") {
+    } else if (router.asPath == "/dashboard/mygroups") {
       mygroupshighlight.current.style.borderBottom = `4px solid ${COLORS.primary.main}`;
       profilehighlight.current.style.borderBottom = `none`;
     }
@@ -38,7 +38,7 @@ const DashboardNav = () => {
         <div className="d-flex w-50 justify-content-center align-items-center">
           <Link
             href="/dashboard/mygroups"
-            className='sectionlink'
+            className="sectionlink"
             ref={mygroupshighlight}
           >
             My Groups

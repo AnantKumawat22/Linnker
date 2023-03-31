@@ -71,7 +71,7 @@ const groups = ({ groups }) => {
       let checktag;
       let mapData = groups.map((group) => {
         checktag = group.tags.filter((eachtag) =>
-          eachtag.toLowerCase().includes(searchinput?.toLowerCase())
+          eachtag.toLowerCase().includes(searchinput?.toLowerCase()?.trim())
         );
 
         return checktag.length > 0 ? group : false;
@@ -80,7 +80,7 @@ const groups = ({ groups }) => {
     } else if (selectedValue === "groupname") {
       filterData = groups.filter(
         (group) =>
-          group.name.toLowerCase().includes(searchinput?.toLowerCase()) && group
+          group.name.toLowerCase().includes(searchinput?.toLowerCase()?.trim()) && group
       );
     }
     setSearchGroup(filterData);
