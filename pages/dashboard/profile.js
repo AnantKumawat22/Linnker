@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import DashboardNav from "@/components/DashboardNav";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import styles from '../../styles/profile.module.css';
+import styles from '../../styles/Profile.module.css';
 
 export async function getServerSideProps(context) {
   const { token } = context.req.cookies;
