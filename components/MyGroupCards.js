@@ -32,14 +32,14 @@ const MyGroupCards = ({ group, renderAction }) => {
               handleCardClick(group);
             }}
           >
-            <h5 className="card-title no-of-line-1">{group.name}</h5>
-            <p className="card-text fw-light text-wrap no-of-line-2">
+            <h5 className={`${styles.groupName} card-title no-of-line-1`}>{group.name}</h5>
+            <p className={`${styles.groupDesc} card-text fw-light text-wrap no-of-line-2`}>
               {group.description}
             </p>
             <div className="d-flex align-items-center mb-2 flex-wrap">
               {group.tags.map((tag, idx) => (
                 <div className={`me-1 mb-1 px-3 rounded-5 ${styles.tagDiv}`}>
-                  <span className="font-weight-bolder"> {tag}</span>
+                  <span className={`${styles.groupTag} font-weight-bolder`}> {tag}</span>
                 </div>
               ))}
             </div>

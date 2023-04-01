@@ -256,13 +256,13 @@ const groups = ({ groups }) => {
             <>
               {/* All Whatsapp Group */}
               <div
-                className="container mt-5 mb-5"
+                className="container mt-5 pb-5"
                 style={{ minHeight: "450px" }}
               >
                 <h2 className="fs-2 mb-4" onClick={handleQuerySearch}>
                   All WhatsApp Groups
                 </h2>
-                <div className="row gy-5">
+                <div className="row gy-5 mb-5">
                   {searchgroup?.map((group, idx) => (
                     <div
                       key={group._id}
@@ -273,7 +273,7 @@ const groups = ({ groups }) => {
                         renderAction={() => (
                           <Button
                             onClick={() => handleJoinGroupBtn(group.link)}
-                            className={`btn btn-primary btn-lg`}
+                            className={`btn btn-primary btn-lg ${styles.groupJoinBtn}`}
                             value="Join Group"
                           ></Button>
                         )}

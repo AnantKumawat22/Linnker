@@ -15,3 +15,15 @@
     background-color: rgb(233, 233, 233);
     border: 1px solid rgb(231, 231, 231);
 }
+
+@media (max-width: 780px) {
+    .groupName {
+        font-size: 18px;
+    }
+    .groupDesc{
+        font-size: 16px;
+    }
+    .groupTag{
+        font-size: 14px;
+    }
+}

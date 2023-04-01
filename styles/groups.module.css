@@ -99,3 +99,9 @@
         top: 242px;
     }
 }
+
+@media (max-width: 780px) {
+    .groupJoinBtn{
+        font-size: 17px !important;
+    }
+}

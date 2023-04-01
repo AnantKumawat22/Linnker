@@ -11,6 +11,7 @@ import { faClose } from "@fortawesome/free-solid-svg-icons";
 import { generalContext } from "@/context/general.context";
 import { groupContext } from "@/context/group.context";
 import Image from "next/image";
+// import InfiniteScroll from "react-infinite-scroll-component";
 
 export async function getServerSideProps(context) {
   const { token } = context.req.cookies;
@@ -153,6 +154,50 @@ const MyGroups = ({ groups }) => {
     // Stop the loader
     topLoaderBar && topLoaderBar.current.complete();
   };
+
+  // Infinite scroll
+
+  // const [cardscroll, setCardScroll] = useState();
+
+  // const fetchMoreData = () => {
+  //   setTimeout(() => {
+  //     setCardScroll({
+  //       items: items.concat(Array.from({ length: 20 }))
+  //     });
+  //   }, 1500);
+  // }
+
+  // const cards = [];
+  // for (let i = 0; i < 50; i++) {
+  //   cards.push(
+  //     <div className="col-12 col-md-6 col-lg-4 col-xxl-3 border-2">
+  //       <div
+  //         className={`${styles.approvedChip} shadow-sm`}
+  //         style={{ color: "green" }}
+  //       >
+  //         {"Group Approved"}
+  //       </div>
+  //     </div>
+  //   );
+  // }
+
+  // const [page, setPage] = useState(1);
+
+  // const infiniteScroll = async () => {
+  //   try {
+  //     if (
+  //       window.innerHeight + document.documentElement.scrollHeight + 1 >=
+  //       document.documentElement.scrollTop
+  //     ) {
+
+  //     }
+  //   } catch (error) {}
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener("scroll", infiniteScroll);
+  // }, []);
+
   return (
     <>
       <DashboardNav />
@@ -256,27 +301,53 @@ const MyGroups = ({ groups }) => {
             <p style={{ fontSize: "20px", color: "grey" }}>No Groups Yet</p>
           </div>
         )}
-        <div className="row gy-5">
-          {myGroups?.map((group) => (
-            <div className="col-12 col-md-6 col-lg-4 col-xxl-3" key={group._id}>
+        <div className="row gy-5 pb-5">
+          {/* {cards} */}
+
+
+
+
+
+
+          {/* <InfiniteScroll
+            dataLength={myGroups?.length}
+            next={fetchMoreData}
+            hasMore={true}
+            loader={<h4>Loading...</h4>}
+          > */}
+            {myGroups?.map((group) => (
               <div
-                className={`${styles.approvedChip} shadow-sm`}
-                style={{ color: group.isApproved ? "green" : "#ef4141" }}
+                className="col-12 col-md-6 col-lg-4 col-xxl-3"
+                key={group._id}
               >
-                {group.isApproved ? "Group Approved" : "Group Not Approved"}
+                <div
+                  className={`${styles.approvedChip} shadow-sm`}
+                  style={{ color: group.isApproved ? "green" : "#ef4141" }}
+                >
+                  {group.isApproved ? "Group Approved" : "Group Not Approved"}
+                </div>
+                <MyGroupCards
+                  group={group}
+                  renderAction={() => (
+                    <Button
+                      onClick={() => handleDelete(group._id)}
+                      className={`btn btn-danger btn-lg text-white`}
+                      value="Delete"
+                    />
+                  )}
+                />
               </div>
-              <MyGroupCards
-                group={group}
-                renderAction={() => (
-                  <Button
-                    onClick={() => handleDelete(group._id)}
-                    className={`btn btn-danger btn-lg text-white`}
-                    value="Delete"
-                  />
-                )}
-              />
-            </div>
-          ))}
+            ))}
+          {/* </InfiniteScroll> */}
+
+
+
+
+
+
+
+
+
         </div>
       </div>
     </>
