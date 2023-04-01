@@ -7,6 +7,10 @@
 .env.local
 package-lock.json
 
+
+.env
+.env.prod
+
 # testing
 /coverage
 
