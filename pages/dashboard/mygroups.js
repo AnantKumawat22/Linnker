@@ -331,7 +331,7 @@ const MyGroups = ({ groups }) => {
                   renderAction={() => (
                     <Button
                       onClick={() => handleDelete(group._id)}
-                      className={`btn btn-danger btn-lg text-white`}
+                      className={`btn btn-danger btn-lg text-white ${styles.groupJoinBtn}`}
                       value="Delete"
                     />
                   )}

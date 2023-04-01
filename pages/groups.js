@@ -240,7 +240,7 @@ const groups = ({ groups }) => {
                           renderAction={() => (
                             <Button
                               onClick={() => handleJoinGroupBtn(group.link)}
-                              className={`btn btn-primary btn-lg`}
+                              className={`btn btn-primary btn-lg ${styles.groupJoinBtn}`}
                               value="Join Group"
                             ></Button>
                           )}
