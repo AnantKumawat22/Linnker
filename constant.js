@@ -20,3 +20,8 @@ export const queryTypeEnum = {
   COMPLETED: 'COMPLETED',
   PENDING: 'PENDING',
 };
+
+export const GroupTypes = {
+  WhatsApp: 'WhatsApp',
+  Discord: 'Discord',
+};

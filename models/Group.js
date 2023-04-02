@@ -1,11 +1,12 @@
-import mongoose from "mongoose";
-import { Schema } from "mongoose";
+import { GroupTypes } from '@/constant';
+import mongoose from 'mongoose';
+import { Schema } from 'mongoose';
 
 const GroupSchema = new Schema(
   {
     user: {
       type: Schema.Types.ObjectId,
-      ref: "users",
+      ref: 'users',
       required: true,
     },
     name: {
@@ -34,10 +35,14 @@ const GroupSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    type: {
+      type: String,
+      default: GroupTypes.WhatsApp,
+    },
   },
   { timestamps: true }
 );
 
-const Group = mongoose.models.groups || mongoose.model("groups", GroupSchema);
+const Group = mongoose.models.groups || mongoose.model('groups', GroupSchema);
 
 export default Group;
