@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Linker</title>
+        <title>Linnker</title>
         <meta name="description" content="We make it easy to find best groups for you to join." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
